@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */; };
+		4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5C1FF31FA00067100F /* ViewController.swift */; };
+		4CD4FD601FF31FA00067100F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5E1FF31FA00067100F /* Main.storyboard */; };
+		4CD4FD621FF31FA00067100F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4FD611FF31FA00067100F /* Assets.xcassets */; };
+		4CD4FD651FF31FA00067100F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4FD631FF31FA00067100F /* LaunchScreen.storyboard */; };
+		4CD4FD701FF31FA00067100F /* A_Day_at_MontmartreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD6F1FF31FA00067100F /* A_Day_at_MontmartreTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4CD4FD6C1FF31FA00067100F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CD4FD4F1FF31FA00067100F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CD4FD561FF31FA00067100F;
+			remoteInfo = "A Day at Montmartre";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4CD4FD571FF31FA00067100F /* A Day at Montmartre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Day at Montmartre.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4CD4FD5C1FF31FA00067100F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CD4FD5F1FF31FA00067100F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4CD4FD611FF31FA00067100F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4CD4FD641FF31FA00067100F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4CD4FD661FF31FA00067100F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CD4FD6B1FF31FA00067100F /* A Day at MontmartreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A Day at MontmartreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CD4FD6F1FF31FA00067100F /* A_Day_at_MontmartreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Day_at_MontmartreTests.swift; sourceTree = "<group>"; };
+		4CD4FD711FF31FA00067100F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CD4FD541FF31FA00067100F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CD4FD681FF31FA00067100F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CD4FD4E1FF31FA00067100F = {
+			isa = PBXGroup;
+			children = (
+				4CD4FD591FF31FA00067100F /* A Day at Montmartre */,
+				4CD4FD6E1FF31FA00067100F /* A Day at MontmartreTests */,
+				4CD4FD581FF31FA00067100F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CD4FD581FF31FA00067100F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4FD571FF31FA00067100F /* A Day at Montmartre.app */,
+				4CD4FD6B1FF31FA00067100F /* A Day at MontmartreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CD4FD591FF31FA00067100F /* A Day at Montmartre */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */,
+				4CD4FD5C1FF31FA00067100F /* ViewController.swift */,
+				4CD4FD5E1FF31FA00067100F /* Main.storyboard */,
+				4CD4FD611FF31FA00067100F /* Assets.xcassets */,
+				4CD4FD631FF31FA00067100F /* LaunchScreen.storyboard */,
+				4CD4FD661FF31FA00067100F /* Info.plist */,
+			);
+			path = "A Day at Montmartre";
+			sourceTree = "<group>";
+		};
+		4CD4FD6E1FF31FA00067100F /* A Day at MontmartreTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4FD6F1FF31FA00067100F /* A_Day_at_MontmartreTests.swift */,
+				4CD4FD711FF31FA00067100F /* Info.plist */,
+			);
+			path = "A Day at MontmartreTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CD4FD561FF31FA00067100F /* A Day at Montmartre */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CD4FD741FF31FA00067100F /* Build configuration list for PBXNativeTarget "A Day at Montmartre" */;
+			buildPhases = (
+				4CD4FD531FF31FA00067100F /* Sources */,
+				4CD4FD541FF31FA00067100F /* Frameworks */,
+				4CD4FD551FF31FA00067100F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "A Day at Montmartre";
+			productName = "A Day at Montmartre";
+			productReference = 4CD4FD571FF31FA00067100F /* A Day at Montmartre.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4CD4FD6A1FF31FA00067100F /* A Day at MontmartreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CD4FD771FF31FA00067100F /* Build configuration list for PBXNativeTarget "A Day at MontmartreTests" */;
+			buildPhases = (
+				4CD4FD671FF31FA00067100F /* Sources */,
+				4CD4FD681FF31FA00067100F /* Frameworks */,
+				4CD4FD691FF31FA00067100F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CD4FD6D1FF31FA00067100F /* PBXTargetDependency */,
+			);
+			name = "A Day at MontmartreTests";
+			productName = "A Day at MontmartreTests";
+			productReference = 4CD4FD6B1FF31FA00067100F /* A Day at MontmartreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CD4FD4F1FF31FA00067100F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Michael Kühweg";
+				TargetAttributes = {
+					4CD4FD561FF31FA00067100F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					4CD4FD6A1FF31FA00067100F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4CD4FD561FF31FA00067100F;
+					};
+				};
+			};
+			buildConfigurationList = 4CD4FD521FF31FA00067100F /* Build configuration list for PBXProject "A Day at Montmartre" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4CD4FD4E1FF31FA00067100F;
+			productRefGroup = 4CD4FD581FF31FA00067100F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CD4FD561FF31FA00067100F /* A Day at Montmartre */,
+				4CD4FD6A1FF31FA00067100F /* A Day at MontmartreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CD4FD551FF31FA00067100F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD4FD651FF31FA00067100F /* LaunchScreen.storyboard in Resources */,
+				4CD4FD621FF31FA00067100F /* Assets.xcassets in Resources */,
+				4CD4FD601FF31FA00067100F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CD4FD691FF31FA00067100F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CD4FD531FF31FA00067100F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */,
+				4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CD4FD671FF31FA00067100F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD4FD701FF31FA00067100F /* A_Day_at_MontmartreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4CD4FD6D1FF31FA00067100F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CD4FD561FF31FA00067100F /* A Day at Montmartre */;
+			targetProxy = 4CD4FD6C1FF31FA00067100F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4CD4FD5E1FF31FA00067100F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CD4FD5F1FF31FA00067100F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4CD4FD631FF31FA00067100F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CD4FD641FF31FA00067100F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CD4FD721FF31FA00067100F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4CD4FD731FF31FA00067100F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CD4FD751FF31FA00067100F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MV5V4GFCQ7;
+				INFOPLIST_FILE = "A Day at Montmartre/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-Montmartre";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4CD4FD761FF31FA00067100F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MV5V4GFCQ7;
+				INFOPLIST_FILE = "A Day at Montmartre/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-Montmartre";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4CD4FD781FF31FA00067100F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MV5V4GFCQ7;
+				INFOPLIST_FILE = "A Day at MontmartreTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-MontmartreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Day at Montmartre.app/A Day at Montmartre";
+			};
+			name = Debug;
+		};
+		4CD4FD791FF31FA00067100F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MV5V4GFCQ7;
+				INFOPLIST_FILE = "A Day at MontmartreTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-MontmartreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Day at Montmartre.app/A Day at Montmartre";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CD4FD521FF31FA00067100F /* Build configuration list for PBXProject "A Day at Montmartre" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CD4FD721FF31FA00067100F /* Debug */,
+				4CD4FD731FF31FA00067100F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CD4FD741FF31FA00067100F /* Build configuration list for PBXNativeTarget "A Day at Montmartre" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CD4FD751FF31FA00067100F /* Debug */,
+				4CD4FD761FF31FA00067100F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CD4FD771FF31FA00067100F /* Build configuration list for PBXNativeTarget "A Day at MontmartreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CD4FD781FF31FA00067100F /* Debug */,
+				4CD4FD791FF31FA00067100F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CD4FD4F1FF31FA00067100F /* Project object */;
+}
