@@ -7,12 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C12C08E201D3C10007F5EAF /* HillClimbApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */; };
+		4C12C097201D4A05007F5EAF /* BasicGeneticApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */; };
+		4C34B110202B29CA00C7997C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C34B10F202B29CA00C7997C /* Settings.bundle */; };
+		4C78F91F2020FB5D00016B0B /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */; };
+		4C7A7FB91FF5716000F1852D /* MyWorldOfColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A7FB81FF5716000F1852D /* MyWorldOfColours.swift */; };
+		4C7E71B1200BACF5001820BC /* IcoMoon-Free.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E71B0200BACF4001820BC /* IcoMoon-Free.ttf */; };
+		4C7F7BE0200033F800DAE60C /* BitmapMagic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F7BDF200033F800DAE60C /* BitmapMagic.swift */; };
+		4C8438291FFBCDA000090BC4 /* Approximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8438281FFBCDA000090BC4 /* Approximator.swift */; };
+		4C8A1D47201CA39F00BE1AFF /* ShapeMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8A1D46201CA39F00BE1AFF /* ShapeMaskTests.swift */; };
+		4C925EB82017B5F20005D6BE /* TestImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C925EB72017B5F20005D6BE /* TestImageProvider.swift */; };
+		4C942C8B200B57E100F96821 /* ApproximationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C942C8A200B57E100F96821 /* ApproximationContext.swift */; };
+		4C97D3CC2011164C002772CA /* MontmartreColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C97D3CB2011164C002772CA /* MontmartreColour.swift */; };
+		4C9B20612014BB2F006858A4 /* ApproximationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B20602014BB2F006858A4 /* ApproximationTests.swift */; };
+		4CAB6674200AD7C100F71E7C /* ShapeMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB6673200AD7C100F71E7C /* ShapeMask.swift */; };
+		4CB21E9B202B56BE009B1326 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */; };
+		4CBBA82D1FF596D600BC6268 /* GeometricShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */; };
+		4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82E1FF5982100BC6268 /* Ellipse.swift */; };
+		4CD0CDE2201D00A7002DED6E /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0CDE1201D00A7002DED6E /* Rectangle.swift */; };
 		4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */; };
 		4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5C1FF31FA00067100F /* ViewController.swift */; };
 		4CD4FD601FF31FA00067100F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5E1FF31FA00067100F /* Main.storyboard */; };
 		4CD4FD621FF31FA00067100F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4FD611FF31FA00067100F /* Assets.xcassets */; };
 		4CD4FD651FF31FA00067100F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4FD631FF31FA00067100F /* LaunchScreen.storyboard */; };
 		4CD4FD701FF31FA00067100F /* A_Day_at_MontmartreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD6F1FF31FA00067100F /* A_Day_at_MontmartreTests.swift */; };
+		4CD78684200BD7D000F03D7F /* BitmapMagicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD78683200BD7D000F03D7F /* BitmapMagicTests.swift */; };
+		4CD78686200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD78685200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift */; };
+		4CF81C961FF59F80008B10D8 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +47,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HillClimbApproximator.swift; sourceTree = "<group>"; };
+		4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGeneticApproximator.swift; sourceTree = "<group>"; };
+		4C34B10F202B29CA00C7997C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
+		4C7A7FB81FF5716000F1852D /* MyWorldOfColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorldOfColours.swift; sourceTree = "<group>"; };
+		4C7E71B0200BACF4001820BC /* IcoMoon-Free.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IcoMoon-Free.ttf"; sourceTree = "<group>"; };
+		4C7F7BDF200033F800DAE60C /* BitmapMagic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMagic.swift; sourceTree = "<group>"; };
+		4C8438281FFBCDA000090BC4 /* Approximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Approximator.swift; sourceTree = "<group>"; };
+		4C8A1D46201CA39F00BE1AFF /* ShapeMaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeMaskTests.swift; sourceTree = "<group>"; };
+		4C925EB72017B5F20005D6BE /* TestImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageProvider.swift; sourceTree = "<group>"; };
+		4C942C8A200B57E100F96821 /* ApproximationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproximationContext.swift; sourceTree = "<group>"; };
+		4C97D3CB2011164C002772CA /* MontmartreColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontmartreColour.swift; sourceTree = "<group>"; };
+		4C9B20602014BB2F006858A4 /* ApproximationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproximationTests.swift; sourceTree = "<group>"; };
+		4CAB6673200AD7C100F71E7C /* ShapeMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeMask.swift; sourceTree = "<group>"; };
+		4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometricShape.swift; sourceTree = "<group>"; };
+		4CBBA82E1FF5982100BC6268 /* Ellipse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
+		4CD0CDE1201D00A7002DED6E /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		4CD4FD571FF31FA00067100F /* A Day at Montmartre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Day at Montmartre.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CD4FD5C1FF31FA00067100F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +75,9 @@
 		4CD4FD6B1FF31FA00067100F /* A Day at MontmartreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A Day at MontmartreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD4FD6F1FF31FA00067100F /* A_Day_at_MontmartreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Day_at_MontmartreTests.swift; sourceTree = "<group>"; };
 		4CD4FD711FF31FA00067100F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CD78683200BD7D000F03D7F /* BitmapMagicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMagicTests.swift; sourceTree = "<group>"; };
+		4CD78685200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyWorldOfColours+UIKitExtensions.swift"; sourceTree = "<group>"; };
+		4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +98,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C12C090201D454C007F5EAF /* Approximation */ = {
+			isa = PBXGroup;
+			children = (
+				4C8438281FFBCDA000090BC4 /* Approximator.swift */,
+				4C942C8A200B57E100F96821 /* ApproximationContext.swift */,
+				4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */,
+				4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */,
+			);
+			path = Approximation;
+			sourceTree = "<group>";
+		};
+		4C12C091201D4597007F5EAF /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */,
+				4CBBA82E1FF5982100BC6268 /* Ellipse.swift */,
+				4CD0CDE1201D00A7002DED6E /* Rectangle.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		4C12C092201D45BA007F5EAF /* Imaging */ = {
+			isa = PBXGroup;
+			children = (
+				4C7F7BDF200033F800DAE60C /* BitmapMagic.swift */,
+				4CAB6673200AD7C100F71E7C /* ShapeMask.swift */,
+			);
+			path = Imaging;
+			sourceTree = "<group>";
+		};
+		4C12C093201D45DF007F5EAF /* ColourComputation */ = {
+			isa = PBXGroup;
+			children = (
+				4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */,
+				4C7A7FB81FF5716000F1852D /* MyWorldOfColours.swift */,
+				4CD78685200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift */,
+				4C97D3CB2011164C002772CA /* MontmartreColour.swift */,
+			);
+			path = ColourComputation;
+			sourceTree = "<group>";
+		};
 		4CD4FD4E1FF31FA00067100F = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +160,18 @@
 		4CD4FD591FF31FA00067100F /* A Day at Montmartre */ = {
 			isa = PBXGroup;
 			children = (
+				4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */,
+				4C7E71B0200BACF4001820BC /* IcoMoon-Free.ttf */,
 				4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */,
 				4CD4FD5C1FF31FA00067100F /* ViewController.swift */,
 				4CD4FD5E1FF31FA00067100F /* Main.storyboard */,
 				4CD4FD611FF31FA00067100F /* Assets.xcassets */,
 				4CD4FD631FF31FA00067100F /* LaunchScreen.storyboard */,
 				4CD4FD661FF31FA00067100F /* Info.plist */,
+				4C12C093201D45DF007F5EAF /* ColourComputation */,
+				4C12C091201D4597007F5EAF /* Shapes */,
+				4C12C092201D45BA007F5EAF /* Imaging */,
+				4C12C090201D454C007F5EAF /* Approximation */,
 			);
 			path = "A Day at Montmartre";
 			sourceTree = "<group>";
@@ -92,6 +181,12 @@
 			children = (
 				4CD4FD6F1FF31FA00067100F /* A_Day_at_MontmartreTests.swift */,
 				4CD4FD711FF31FA00067100F /* Info.plist */,
+				4CD78683200BD7D000F03D7F /* BitmapMagicTests.swift */,
+				4C9B20602014BB2F006858A4 /* ApproximationTests.swift */,
+				4C925EB72017B5F20005D6BE /* TestImageProvider.swift */,
+				4C8A1D46201CA39F00BE1AFF /* ShapeMaskTests.swift */,
+				4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */,
+				4C34B10F202B29CA00C7997C /* Settings.bundle */,
 			);
 			path = "A Day at MontmartreTests";
 			sourceTree = "<group>";
@@ -181,7 +276,9 @@
 			files = (
 				4CD4FD651FF31FA00067100F /* LaunchScreen.storyboard in Resources */,
 				4CD4FD621FF31FA00067100F /* Assets.xcassets in Resources */,
+				4C34B110202B29CA00C7997C /* Settings.bundle in Resources */,
 				4CD4FD601FF31FA00067100F /* Main.storyboard in Resources */,
+				4C7E71B1200BACF5001820BC /* IcoMoon-Free.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +296,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C12C097201D4A05007F5EAF /* BasicGeneticApproximator.swift in Sources */,
+				4C97D3CC2011164C002772CA /* MontmartreColour.swift in Sources */,
+				4C7A7FB91FF5716000F1852D /* MyWorldOfColours.swift in Sources */,
+				4CF81C961FF59F80008B10D8 /* Double+Extensions.swift in Sources */,
+				4C12C08E201D3C10007F5EAF /* HillClimbApproximator.swift in Sources */,
 				4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */,
+				4CAB6674200AD7C100F71E7C /* ShapeMask.swift in Sources */,
+				4CD78686200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift in Sources */,
+				4C8438291FFBCDA000090BC4 /* Approximator.swift in Sources */,
+				4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */,
 				4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */,
+				4CBBA82D1FF596D600BC6268 /* GeometricShape.swift in Sources */,
+				4C7F7BE0200033F800DAE60C /* BitmapMagic.swift in Sources */,
+				4CB21E9B202B56BE009B1326 /* SettingsBundleHelper.swift in Sources */,
+				4C942C8B200B57E100F96821 /* ApproximationContext.swift in Sources */,
+				4CD0CDE2201D00A7002DED6E /* Rectangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C925EB82017B5F20005D6BE /* TestImageProvider.swift in Sources */,
+				4CD78684200BD7D000F03D7F /* BitmapMagicTests.swift in Sources */,
+				4C78F91F2020FB5D00016B0B /* PerformanceTests.swift in Sources */,
 				4CD4FD701FF31FA00067100F /* A_Day_at_MontmartreTests.swift in Sources */,
+				4C8A1D47201CA39F00BE1AFF /* ShapeMaskTests.swift in Sources */,
+				4C9B20612014BB2F006858A4 /* ApproximationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +449,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

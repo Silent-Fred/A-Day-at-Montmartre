@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Values</key>
+			<array>
+				<string>Ellipses</string>
+				<string>Rectangles</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>Ellipses</string>
+				<string>Rectangles</string>
+			</array>
+			<key>Title</key>
+			<string>Shape Style</string>
+			<key>Key</key>
+			<string>ShapeStyle</string>
+			<key>DefaultValue</key>
+			<string>Ellipses</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Approximation Style</string>
+			<key>Titles</key>
+			<array>
+				<string>Hill Climbing</string>
+				<string>Basic Genetic</string>
+			</array>
+			<key>Key</key>
+			<string>ApproximationStyle</string>
+			<key>DefaultValue</key>
+			<string>HillClimbing</string>
+			<key>Values</key>
+			<array>
+				<string>HillClimbing</string>
+				<string>BasicGenetic</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
