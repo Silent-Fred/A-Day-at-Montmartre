@@ -24,6 +24,8 @@
 		4CB21E9B202B56BE009B1326 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */; };
 		4CBBA82D1FF596D600BC6268 /* GeometricShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */; };
 		4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82E1FF5982100BC6268 /* Ellipse.swift */; };
+		4CC689F02030D01D00BAEA87 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4CC689EE2030D01C00BAEA87 /* README.md */; };
+		4CC689F12030D01D00BAEA87 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4CC689EF2030D01D00BAEA87 /* LICENSE */; };
 		4CD0CDE2201D00A7002DED6E /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0CDE1201D00A7002DED6E /* Rectangle.swift */; };
 		4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */; };
 		4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5C1FF31FA00067100F /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometricShape.swift; sourceTree = "<group>"; };
 		4CBBA82E1FF5982100BC6268 /* Ellipse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
+		4CC689EE2030D01C00BAEA87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4CC689EF2030D01D00BAEA87 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4CD0CDE1201D00A7002DED6E /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		4CD4FD571FF31FA00067100F /* A Day at Montmartre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Day at Montmartre.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		4CD4FD4E1FF31FA00067100F = {
 			isa = PBXGroup;
 			children = (
+				4CC689EF2030D01D00BAEA87 /* LICENSE */,
+				4CC689EE2030D01C00BAEA87 /* README.md */,
 				4CD4FD591FF31FA00067100F /* A Day at Montmartre */,
 				4CD4FD6E1FF31FA00067100F /* A Day at MontmartreTests */,
 				4CD4FD581FF31FA00067100F /* Products */,
@@ -274,8 +280,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC689F02030D01D00BAEA87 /* README.md in Resources */,
 				4CD4FD651FF31FA00067100F /* LaunchScreen.storyboard in Resources */,
 				4CD4FD621FF31FA00067100F /* Assets.xcassets in Resources */,
+				4CC689F12030D01D00BAEA87 /* LICENSE in Resources */,
 				4C34B110202B29CA00C7997C /* Settings.bundle in Resources */,
 				4CD4FD601FF31FA00067100F /* Main.storyboard in Resources */,
 				4C7E71B1200BACF5001820BC /* IcoMoon-Free.ttf in Resources */,
