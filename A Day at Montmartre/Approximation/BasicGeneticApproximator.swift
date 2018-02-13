@@ -11,7 +11,7 @@ import UIKit
 class BasicGeneticApproximator: Approximator {
 
     private let attemptedShapes = 8
-    private let acceptedFailuresPerShape = 50
+    private let acceptedFailuresPerShape = 100
 
     override func refineApproximation() {
 

@@ -49,10 +49,6 @@ class HillClimbApproximator: Approximator {
                     failedAttemptsInARow = 0
                 }
             }
-            // No need to undo the last step, we just mutate the best step again.
-            // Absolutely take care that when resetting to the shape before,
-            // mutated MUST NOT return the same mutation over and over again
-            mutatingShape = bestShape.mutated()
         }
         return (bestShape, bestImprovement)
     }
