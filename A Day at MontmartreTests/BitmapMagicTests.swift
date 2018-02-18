@@ -148,18 +148,15 @@ class BitmapMagicTests: XCTestCase {
     }
     
     func testMeanSquareDeviationBasedOnShape() {
-        let shapeInTheBlue = Ellipse(centerX: 0.5,
-                                     centerY: 0.25,
+        let shapeInTheBlue = Ellipse(center: Point(x: 0.5, y: 0.25),
                                      radiusX: 0.24,
                                      radiusY: 0.12,
                                      angleInDegrees: 0.0)
-        let shapeInTheWhite = Ellipse(centerX: 0.5,
-                                      centerY: 0.75,
+        let shapeInTheWhite = Ellipse(center: Point(x: 0.5, y: 0.75),
                                       radiusX: 0.24,
                                       radiusY: 0.12,
                                       angleInDegrees: 0.0)
-        let shapeAcrossColourBorder = Ellipse(centerX: 0.5,
-                                              centerY: 0.5,
+        let shapeAcrossColourBorder = Ellipse(center: Point(x: 0.5, y: 0.5),
                                               radiusX: 0.25,
                                               radiusY: 0.25,
                                               angleInDegrees: 0.0)

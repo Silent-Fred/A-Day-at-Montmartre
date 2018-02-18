@@ -12,12 +12,7 @@ class Ellipse: GeometricShape {
 
     static let mutationOptions = 3
 
-    // TODO these are mainly relevant for the basic genetic algorithm, could
-    // therefore need some restructuring later (basic shapes, hillclimb shapes,
-    // something like that)
-
     // do not smear across the whole canvas initially
-//    static let rangeForRandomRadius = 0.0625
     static let rangeForRandomRadius = 0.1
     // do not use tiny or even completely collapsed shapes
     static let minimumRandomRadius = 0.01
@@ -30,8 +25,8 @@ class Ellipse: GeometricShape {
     static func randomShape(frameWidth width: Int, frameHeight height: Int) -> GeometricShape {
         let maxExtent = max(Double(width),
                             Double(height))
-        return Ellipse(centerX: drand48() * Double(width) / maxExtent,
-                       centerY: drand48() * Double(height) / maxExtent,
+        return Ellipse(center: Point(x: drand48() * Double(width) / maxExtent,
+                                     y: drand48() * Double(height) / maxExtent),
                        radiusX: drand48() * rangeForRandomRadius + minimumRandomRadius,
                        radiusY: drand48() * rangeForRandomRadius + minimumRandomRadius,
                        angleInDegrees: drand48() * 360)
@@ -39,20 +34,19 @@ class Ellipse: GeometricShape {
 
     // TODO go back to fully private properties, once SVG export is
     // implemented.
-    public private (set) var centerX: Double
-    public private (set) var centerY: Double
+    public private (set) var center: Point
     public private (set) var radiusX: Double
     public private (set) var radiusY: Double
     public private (set) var angleInDegrees: Double
-    
+
+
     public var colour: MontmartreColour
     
-    init(centerX: Double, centerY: Double,
+    init(center: Point,
          radiusX: Double, radiusY: Double,
          angleInDegrees: Double,
          colour: MontmartreColour = MontmartreColour.clear) {
-        self.centerX = centerX
-        self.centerY = centerY
+        self.center = center
         self.radiusX = radiusX
         self.radiusY = radiusY
         self.angleInDegrees = angleInDegrees
@@ -78,46 +72,54 @@ class Ellipse: GeometricShape {
         return Ellipse.mutationOptions * 10
     }
 
+    private func randomValueForCenterMutation() -> Double {
+        return drand48() * Ellipse.rangeForCenterMutation
+    }
+
+    private func randomValueForRadiusMutation() -> Double {
+        return drand48() * Ellipse.rangeForRadiusMutation
+    }
+
+    private func randomValueForAngleMutation() -> Double {
+        return drand48() * Ellipse.rangeForAngleMutation
+    }
+
     func neighbours() -> [GeometricShape] {
-        let left = centerX - drand48() * Ellipse.rangeForCenterMutation
-        let right = centerX + drand48() * Ellipse.rangeForCenterMutation
-        let up = centerY - drand48() * Ellipse.rangeForCenterMutation
-        let down = centerY + drand48() * Ellipse.rangeForCenterMutation
-        let thinner = radiusX - drand48() * Ellipse.rangeForRandomRadius
-        let thicker = radiusX + drand48() * Ellipse.rangeForRandomRadius
-        let flatter = radiusY - drand48() * Ellipse.rangeForRandomRadius
-        let higher = radiusY + drand48() * Ellipse.rangeForRandomRadius
-        let clockwise = angleInDegreesBetween0And360(angle: angleInDegrees - drand48() * Ellipse.rangeForAngleMutation)
-        let counterClockwise = angleInDegreesBetween0And360(angle: angleInDegrees + drand48() * Ellipse.rangeForAngleMutation)
         var neighbours = [GeometricShape]()
-        neighbours.append(Ellipse(centerX: left, centerY: centerY,
+        neighbours.append(Ellipse(center: center.left(by: randomValueForCenterMutation()),
                                   radiusX: radiusX, radiusY: radiusY,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: right, centerY: centerY,
+        neighbours.append(Ellipse(center: center.right(by: randomValueForCenterMutation()),
                                   radiusX: radiusX, radiusY: radiusY,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: centerX, centerY: up,
+        neighbours.append(Ellipse(center: center.up(by: randomValueForCenterMutation()),
                                   radiusX: radiusX, radiusY: radiusY,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: centerX, centerY: down,
+        neighbours.append(Ellipse(center: center.down(by: randomValueForCenterMutation()),
                                   radiusX: radiusX, radiusY: radiusY,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: centerX, centerY: centerY,
+        let thinner = radiusX - randomValueForRadiusMutation()
+        neighbours.append(Ellipse(center: center,
                                   radiusX: thinner, radiusY: radiusY,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: centerX, centerY: centerY,
+        let thicker = radiusX + randomValueForRadiusMutation()
+        neighbours.append(Ellipse(center: center,
                                   radiusX: thicker, radiusY: radiusY,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: centerX, centerY: centerY,
+        let flatter = radiusY - randomValueForRadiusMutation()
+        neighbours.append(Ellipse(center: center,
                                   radiusX: radiusX, radiusY: flatter,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: centerX, centerY: centerY,
+        let higher = radiusY + randomValueForRadiusMutation()
+        neighbours.append(Ellipse(center: center,
                                   radiusX: radiusX, radiusY: higher,
                                   angleInDegrees: angleInDegrees))
-        neighbours.append(Ellipse(centerX: centerX, centerY: centerY,
+        let clockwise = angleInDegreesBetween0And360(angle: angleInDegrees - randomValueForAngleMutation())
+        neighbours.append(Ellipse(center: center,
                                   radiusX: radiusX, radiusY: radiusY,
                                   angleInDegrees: clockwise))
-        neighbours.append(Ellipse(centerX: centerX, centerY: centerY,
+        let counterClockwise = angleInDegreesBetween0And360(angle: angleInDegrees + randomValueForAngleMutation())
+        neighbours.append(Ellipse(center: center,
                                   radiusX: radiusX, radiusY: radiusY,
                                   angleInDegrees: counterClockwise))
         return neighbours
@@ -133,42 +135,46 @@ class Ellipse: GeometricShape {
     }
 
     private func mutatedCenter() -> GeometricShape {
-        // move the center around
-        let mutatedCenterX = centerX
-            + drand48() * Ellipse.rangeForCenterMutation
+        // move the center around, range is split to span both directions
+        let mutatedCenterX = center.x
+            + randomValueForCenterMutation()
             - Ellipse.rangeForCenterMutation / 2
-        let mutatedCenterY = centerY
-            + drand48() * Ellipse.rangeForCenterMutation
+        let mutatedCenterY = center.y
+            + randomValueForCenterMutation()
             - Ellipse.rangeForCenterMutation / 2
-        return Ellipse(centerX: mutatedCenterX, centerY: mutatedCenterY,
+        return Ellipse(center: Point(x: mutatedCenterX, y: mutatedCenterY),
                        radiusX: radiusX, radiusY: radiusY,
                        angleInDegrees: angleInDegrees)
     }
 
     private func mutatedRadius() -> GeometricShape {
         let mutatedRadiusX = radiusX
-            + drand48() * Ellipse.rangeForRadiusMutation
+            + randomValueForRadiusMutation()
             - Ellipse.rangeForRadiusMutation / 2
         let mutatedRadiusY = radiusY
-            + drand48() * Ellipse.rangeForRadiusMutation
+            + randomValueForRadiusMutation()
             - Ellipse.rangeForRadiusMutation / 2
-        return Ellipse(centerX: centerX, centerY: centerY,
+        return Ellipse(center: center,
                        radiusX: mutatedRadiusX, radiusY: mutatedRadiusY,
                        angleInDegrees: angleInDegrees)
     }
 
     private func mutatedAngle() -> GeometricShape {
         var mutatedAngle = angleInDegrees
-            + drand48() * Ellipse.rangeForAngleMutation
+            + randomValueForAngleMutation()
             - Ellipse.rangeForAngleMutation / 2
         if mutatedAngle < 0 {
             mutatedAngle = 360 - mutatedAngle
         } else if mutatedAngle > 360 {
             mutatedAngle = mutatedAngle - 360
         }
-        return Ellipse(centerX: centerX, centerY: centerY,
+        return Ellipse(center: center,
                        radiusX: radiusX, radiusY: radiusY,
                        angleInDegrees: mutatedAngle)
+    }
+
+    func drawInContext(context: UIGraphicsImageRendererContext) {
+        drawInContext(context: context, usingColour: colour.uiColor())
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext,
@@ -177,8 +183,8 @@ class Ellipse: GeometricShape {
         let factor: Double = max(Double(context.currentImage.size.width),
                                  Double(context.currentImage.size.height))
         
-        let pixelCenterX = round(centerX * factor)
-        let pixelCenterY = round(centerY * factor)
+        let pixelCenterX = round(center.x * factor)
+        let pixelCenterY = round(center.y * factor)
         let pixelRadiusX = round(radiusX * factor)
         let pixelRadiusY = round(radiusY * factor)
 

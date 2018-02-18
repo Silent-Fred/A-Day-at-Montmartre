@@ -14,13 +14,15 @@ protocol GeometricShape {
 
     static func randomShape(frameWidth: Int, frameHeight: Int) -> GeometricShape
 
-    var colour: MontmartreColour {get set}
+    var colour: MontmartreColour { get set }
 
     func neighbours() -> [GeometricShape]
 
     func mutated() -> GeometricShape
 
     func patienceWithFailedMutations() -> Int
+
+    func drawInContext(context: UIGraphicsImageRendererContext)
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor)
 

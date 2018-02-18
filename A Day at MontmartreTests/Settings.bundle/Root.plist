@@ -13,11 +13,15 @@
 			<array>
 				<string>Ellipses</string>
 				<string>Rectangles</string>
+				<string>SmallDots</string>
+				<string>Lines</string>
 			</array>
 			<key>Titles</key>
 			<array>
 				<string>Ellipses</string>
 				<string>Rectangles</string>
+				<string>SmallDots</string>
+				<string>Lines</string>
 			</array>
 			<key>Title</key>
 			<string>Shape Style</string>

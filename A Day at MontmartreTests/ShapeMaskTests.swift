@@ -16,8 +16,7 @@ class ShapeMaskTests: XCTestCase {
         let radius = 0.5
         let pixelRadiusUpperBound = edgeLength * radius + 1
         let pixelRadiusLowerBound = edgeLength * radius - 1
-        let shape = Ellipse(centerX: 0.5,
-                            centerY: 0.5,
+        let shape = Ellipse(center: Point(x: 0.5, y: 0.5),
                             radiusX: radius,
                             radiusY: radius,
                             angleInDegrees: 0.0)
@@ -33,14 +32,12 @@ class ShapeMaskTests: XCTestCase {
         let edgeLength = 256.0
         let mask = ShapeMask(width: Int(edgeLength), height: Int(edgeLength))
         let radius = 0.25
-        let shapeTopLeft = Ellipse(centerX: 0.25,
-                            centerY: 0.25,
+        let shapeTopLeft = Ellipse(center: Point(x: 0.25, y: 0.25),
                             radiusX: radius,
                             radiusY: radius,
                             angleInDegrees: 0.0)
         let countIndicesTopLeft = mask.maskedPixelIndices(shape: shapeTopLeft).count
-        let shapeBottomRight = Ellipse(centerX: 0.75,
-                                   centerY: 0.75,
+        let shapeBottomRight = Ellipse(center: Point(x: 0.75, y: 0.75),
                                    radiusX: radius,
                                    radiusY: radius,
                                    angleInDegrees: 0.0)

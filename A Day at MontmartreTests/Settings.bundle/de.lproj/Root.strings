@@ -1,0 +1,14 @@
+/* 
+  Root.strings
+  Created by Michael Kühweg on 17.02.18.
+*/
+"Ellipses" = "Ellipsen";
+"Rectangles" = "Rechtecke";
+"Lines" = "Linien";
+"SmallDots" = "Kleine Kreise";
+
+"Basic Genetic" = "Genetisch";
+"Hill Climbing" = "Hill Climbing";
+
+"Approximation Style" = "Verfahren";
+"Shape Style" = "Formen";

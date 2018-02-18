@@ -60,7 +60,8 @@ class ApproximationTests: XCTestCase {
 
         let mask = ShapeMask(width: Int(edgeLength), height: Int(edgeLength))
 
-        let shapeInTheBlue = Ellipse(centerX: 0.25, centerY: 0.25, radiusX: 0.25, radiusY: 0.25, angleInDegrees: 0.0)
+        let shapeInTheBlue = Ellipse(center: Point(x: 0.25, y: 0.25),
+                                     radiusX: 0.25, radiusY: 0.25, angleInDegrees: 0.0)
 
         let blueCloud = bitmapBlue.colourCloud(maskedByPixelIndices: mask.maskedPixelIndices(shape: shapeInTheBlue))
         let whiteCloud = bitmapWhite.colourCloud(maskedByPixelIndices: mask.maskedPixelIndices(shape: shapeInTheBlue))

@@ -11,6 +11,8 @@ import UIKit
 enum SupportedGeometricShapes {
     case rectangles
     case ellipses
+    case smallDots
+    case lines
 }
 
 class Approximator {
@@ -60,14 +62,18 @@ class Approximator {
         switch shapesToUse {
         case .rectangles:
             return Rectangle.randomShape(frameWidth: current.width, frameHeight: current.height)
+        case .smallDots:
+            return SmallDot.randomShape(frameWidth: current.width, frameHeight: current.height)
+        case .lines:
+            return Line.randomShape(frameWidth: current.width, frameHeight: current.height)
         default:
             return Ellipse.randomShape(frameWidth: current.width, frameHeight: current.height)
         }
     }
 
     private func emptyShape() -> GeometricShape {
-        // the kind of shape actually doesn't matter when it's empty
-        return Ellipse(centerX: 0.0, centerY: 0.0,
+        // the kind of shape actually doesn't matter when it's empty, so we pick our favourite
+        return Ellipse(center: Point(x: 0.0, y: 0.0),
                        radiusX: 0.0, radiusY: 0.0,
                        angleInDegrees: 0.0)
     }

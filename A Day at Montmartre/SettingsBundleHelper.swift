@@ -23,6 +23,8 @@ class SettingsBundleHelper {
     enum ShapeStyle: String {
         case ellipses = "Ellipses"
         case rectangles = "Rectangles"
+        case smallDots = "SmallDots"
+        case lines = "Lines"
     }
 
     class func approximationStyle() -> ApproximationStyle? {

@@ -90,21 +90,6 @@ class BitmapMagic {
                 alpha: Double(alpha) / 255))
             index += 4
         }
-        // TODO measure performance
-        /*
-        for index in stride(from: 0, to: pixelBuffer.count, by: 4) {
-            let red = pixelBuffer[index]
-            let green = pixelBuffer[index + 1]
-            let blue = pixelBuffer[index + 2]
-            let alpha = pixelBuffer[index + 3]
-            // colours come in premultiplied alpha
-            colouredPixels.append(MontmartreColour(
-                premultipliedRed: Double(red) / 255,
-                green: Double(green) / 255,
-                blue: Double(blue) / 255,
-                alpha: Double(alpha) / 255))
-        }
- */
         return colouredPixels
     }
 

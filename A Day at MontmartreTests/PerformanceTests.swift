@@ -26,7 +26,7 @@ class PerformanceTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
             let mask = ShapeMask(width: 256, height: 256)
-            let shape = Ellipse(centerX: 0.5, centerY: 0.5,
+            let shape = Ellipse(center: Point(x: 0.5, y: 0.5),
                                 radiusX: 0.25, radiusY: 0.3,
                                 angleInDegrees: 0.0)
             for _ in 1...100 {

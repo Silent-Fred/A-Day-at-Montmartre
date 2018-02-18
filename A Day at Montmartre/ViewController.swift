@@ -136,6 +136,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         switch SettingsBundleHelper.shapeStyle() {
         case .rectangles?:
             shapeStyle = .rectangles
+        case .smallDots?:
+            shapeStyle = .smallDots
+        case .lines?:
+            shapeStyle = .lines
         default:
             shapeStyle = .ellipses
         }

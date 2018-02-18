@@ -24,31 +24,42 @@ class Rectangle: GeometricShape {
 
     static func randomShape(frameWidth width: Int, frameHeight height: Int) -> GeometricShape {
         let maxExtent = max(Double(width), Double(height))
-        return Rectangle(centerX: drand48() * Double(width) / maxExtent,
-                         centerY: drand48() * Double(height) / maxExtent,
+        return Rectangle(center: Point(x: drand48() * Double(width) / maxExtent,
+                                       y: drand48() * Double(height) / maxExtent),
                          width: drand48() * rangeForRandomExtent + minimumRandomExtent,
                          height: drand48() * rangeForRandomExtent + minimumRandomExtent,
                          angleInDegrees: drand48() * 360)
     }
 
-    public private (set) var centerX: Double
-    public private (set) var centerY: Double
+    public private (set) var center: Point
     public private (set) var width: Double
     public private (set) var height: Double
     public private (set) var angleInDegrees: Double
 
     var colour: MontmartreColour
 
-    init(centerX: Double, centerY: Double,
+    init(center: Point,
          width: Double, height: Double,
          angleInDegrees: Double,
          colour: MontmartreColour = MontmartreColour.clear) {
-        self.centerX = centerX
-        self.centerY = centerY
+        self.center = center
         self.width = width
         self.height = height
         self.angleInDegrees = angleInDegrees
         self.colour = colour
+    }
+
+    // TODO anpassen
+    private func randomValueForCenterMutation() -> Double {
+        return drand48() * Rectangle.rangeForCenterMutation
+    }
+
+    private func randomValueForExtentMutation() -> Double {
+        return drand48() * Rectangle.rangeForExtentMutation
+    }
+
+    private func randomValueForAngleMutation() -> Double {
+        return drand48() * Rectangle.rangeForAngleMutation
     }
 
     func mutated() -> GeometricShape {
@@ -64,45 +75,41 @@ class Rectangle: GeometricShape {
     }
 
     func neighbours() -> [GeometricShape] {
-        let left = centerX - drand48() * Rectangle.rangeForCenterMutation
-        let right = centerX + drand48() * Rectangle.rangeForCenterMutation
-        let up = centerY - drand48() * Rectangle.rangeForCenterMutation
-        let down = centerY + drand48() * Rectangle.rangeForCenterMutation
-        let thinner = width - drand48() * Rectangle.rangeForRandomExtent
-        let thicker = width + drand48() * Rectangle.rangeForRandomExtent
-        let flatter = height - drand48() * Rectangle.rangeForRandomExtent
-        let higher = height + drand48() * Rectangle.rangeForRandomExtent
-        let clockwise = angleInDegreesBetween0And360(angle: angleInDegrees - drand48() * Rectangle.rangeForAngleMutation)
-        let counterClockwise = angleInDegreesBetween0And360(angle: angleInDegrees + drand48() * Rectangle.rangeForAngleMutation)
         var neighbours = [GeometricShape]()
-        neighbours.append(Rectangle(centerX: left, centerY: centerY,
+        neighbours.append(Rectangle(center: center.left(by: randomValueForCenterMutation()),
                                     width: width, height: height,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: right, centerY: centerY,
+        neighbours.append(Rectangle(center: center.right(by: randomValueForCenterMutation()),
                                     width: width, height: height,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: centerX, centerY: up,
+        neighbours.append(Rectangle(center: center.up(by: randomValueForCenterMutation()),
                                     width: width, height: height,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: centerX, centerY: down,
+        neighbours.append(Rectangle(center: center.down(by: randomValueForCenterMutation()),
                                     width: width, height: height,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: centerX, centerY: centerY,
+        let thinner = width - randomValueForExtentMutation()
+        neighbours.append(Rectangle(center: center,
                                     width: thinner, height: height,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: centerX, centerY: centerY,
+        let thicker = width + randomValueForExtentMutation()
+        neighbours.append(Rectangle(center: center,
                                     width: thicker, height: height,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: centerX, centerY: centerY,
+        let flatter = height - randomValueForExtentMutation()
+        neighbours.append(Rectangle(center: center,
                                     width: width, height: flatter,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: centerX, centerY: centerY,
+        let higher = height + randomValueForExtentMutation()
+        neighbours.append(Rectangle(center: center,
                                     width: width, height: higher,
                                     angleInDegrees: angleInDegrees))
-        neighbours.append(Rectangle(centerX: centerX, centerY: centerY,
+        let clockwise = angleInDegreesBetween0And360(angle: angleInDegrees - randomValueForAngleMutation())
+        neighbours.append(Rectangle(center: center,
                                     width: width, height: height,
                                     angleInDegrees: clockwise))
-        neighbours.append(Rectangle(centerX: centerX, centerY: centerY,
+        let counterClockwise = angleInDegreesBetween0And360(angle: angleInDegrees + randomValueForAngleMutation())
+        neighbours.append(Rectangle(center: center,
                                     width: width, height: height,
                                     angleInDegrees: counterClockwise))
         return neighbours
@@ -118,54 +125,59 @@ class Rectangle: GeometricShape {
     }
 
     private func mutatedCenter() -> GeometricShape {
-        // move the center around
-        let mutatedCenterX = centerX
-            + drand48() * Rectangle.rangeForCenterMutation
+        // move the center around, range is split to span both directions
+        let mutatedCenterX = center.x
+            + randomValueForCenterMutation()
             - Rectangle.rangeForCenterMutation / 2
-        let mutatedCenterY = centerY
-            + drand48() * Ellipse.rangeForCenterMutation
+        let mutatedCenterY = center.y
+            + randomValueForCenterMutation()
             - Rectangle.rangeForCenterMutation / 2
-        return Rectangle(centerX: mutatedCenterX, centerY: mutatedCenterY,
+        return Rectangle(center: Point(x: mutatedCenterX, y: mutatedCenterY),
                          width: width, height: height,
                          angleInDegrees: angleInDegrees)
     }
 
     private func mutatedExtent() -> GeometricShape {
         let mutatedWidth = width
-            + drand48() * Rectangle.rangeForExtentMutation
+            + randomValueForExtentMutation()
             - Rectangle.rangeForExtentMutation / 2
         let mutatedHeight = height
-            + drand48() * Rectangle.rangeForExtentMutation
+            + randomValueForExtentMutation()
             - Rectangle.rangeForExtentMutation / 2
-        return Rectangle(centerX: centerX, centerY: centerY,
+        return Rectangle(center: center,
                          width: mutatedWidth, height: mutatedHeight,
                          angleInDegrees: angleInDegrees)
     }
 
     private func mutatedAngle() -> GeometricShape {
         var mutatedAngle = angleInDegrees
-            + drand48() * Rectangle.rangeForAngleMutation
+            + randomValueForAngleMutation()
             - Rectangle.rangeForAngleMutation / 2
         if mutatedAngle < 0 {
             mutatedAngle = 360 - mutatedAngle
         } else if mutatedAngle > 360 {
             mutatedAngle = mutatedAngle - 360
         }
-        return Rectangle(centerX: centerX, centerY: centerY,
+        return Rectangle(center: center,
                          width: width, height: height,
-                         angleInDegrees: mutatedAngle)
+                       angleInDegrees: mutatedAngle)
+
     }
 
     func patienceWithFailedMutations() -> Int {
         return Rectangle.mutationOptions * 3
     }
 
+    func drawInContext(context: UIGraphicsImageRendererContext) {
+        drawInContext(context: context, usingColour: colour.uiColor())
+    }
+
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {
         let factor: Double = max(Double(context.currentImage.size.width),
                                  Double(context.currentImage.size.height))
 
-        let pixelCenterX = round(centerX * factor)
-        let pixelCenterY = round(centerY * factor)
+        let pixelCenterX = round(center.x * factor)
+        let pixelCenterY = round(center.y * factor)
         let pixelWidth = round(width * factor)
         let pixelHeight = round(height * factor)
 
@@ -175,7 +187,7 @@ class Rectangle: GeometricShape {
         cgContext.setLineWidth(0)
 
         cgContext.saveGState()
-        // set context origin to the center of the ellipse
+        // set context origin to the center of the rectangle
         cgContext.translateBy(x: CGFloat(pixelCenterX), y: CGFloat(pixelCenterY))
         // rotate the context
         cgContext.rotate(by: CGFloat(.pi*angleInDegrees/180))
