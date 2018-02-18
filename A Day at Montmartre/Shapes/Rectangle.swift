@@ -49,7 +49,6 @@ class Rectangle: GeometricShape {
         self.colour = colour
     }
 
-    // TODO anpassen
     private func randomValueForCenterMutation() -> Double {
         return drand48() * Rectangle.rangeForCenterMutation
     }
@@ -125,25 +124,18 @@ class Rectangle: GeometricShape {
     }
 
     private func mutatedCenter() -> GeometricShape {
-        // move the center around, range is split to span both directions
-        let mutatedCenterX = center.x
-            + randomValueForCenterMutation()
-            - Rectangle.rangeForCenterMutation / 2
-        let mutatedCenterY = center.y
-            + randomValueForCenterMutation()
-            - Rectangle.rangeForCenterMutation / 2
-        return Rectangle(center: Point(x: mutatedCenterX, y: mutatedCenterY),
+        return Rectangle(center: center.jiggle(peak: Rectangle.rangeForCenterMutation),
                          width: width, height: height,
                          angleInDegrees: angleInDegrees)
     }
 
     private func mutatedExtent() -> GeometricShape {
         let mutatedWidth = width
-            + randomValueForExtentMutation()
-            - Rectangle.rangeForExtentMutation / 2
+            + 2 * randomValueForExtentMutation()
+            - Rectangle.rangeForExtentMutation
         let mutatedHeight = height
-            + randomValueForExtentMutation()
-            - Rectangle.rangeForExtentMutation / 2
+            + 2 * randomValueForExtentMutation()
+            - Rectangle.rangeForExtentMutation
         return Rectangle(center: center,
                          width: mutatedWidth, height: mutatedHeight,
                          angleInDegrees: angleInDegrees)
@@ -151,8 +143,8 @@ class Rectangle: GeometricShape {
 
     private func mutatedAngle() -> GeometricShape {
         var mutatedAngle = angleInDegrees
-            + randomValueForAngleMutation()
-            - Rectangle.rangeForAngleMutation / 2
+            + 2 * randomValueForAngleMutation()
+            - Rectangle.rangeForAngleMutation
         if mutatedAngle < 0 {
             mutatedAngle = 360 - mutatedAngle
         } else if mutatedAngle > 360 {
@@ -160,7 +152,7 @@ class Rectangle: GeometricShape {
         }
         return Rectangle(center: center,
                          width: width, height: height,
-                       angleInDegrees: mutatedAngle)
+                         angleInDegrees: mutatedAngle)
 
     }
 

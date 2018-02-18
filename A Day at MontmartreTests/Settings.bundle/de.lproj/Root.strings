@@ -6,6 +6,7 @@
 "Rectangles" = "Rechtecke";
 "Lines" = "Linien";
 "SmallDots" = "Kleine Kreise";
+"Triangles" = "Dreiecke";
 
 "Basic Genetic" = "Genetisch";
 "Hill Climbing" = "Hill Climbing";

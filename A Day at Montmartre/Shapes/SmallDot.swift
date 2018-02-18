@@ -74,21 +74,15 @@ class SmallDot: GeometricShape {
     }
 
     private func mutatedCenter() -> GeometricShape {
-        // move the center around, range is split to span both directions
-        let mutatedCenterX = center.x
-            + randomValueForCenterMutation()
-            - SmallDot.rangeForCenterMutation / 2
-        let mutatedCenterY = center.y
-            + randomValueForCenterMutation()
-            - SmallDot.rangeForCenterMutation / 2
-        return SmallDot(center: Point(x: mutatedCenterX, y: mutatedCenterY),
+        // move the center around
+        return SmallDot(center: center.jiggle(peak: SmallDot.rangeForCenterMutation),
                         radius: radius)
     }
 
     private func mutatedRadius() -> GeometricShape {
         let mutatedRadius: Double = radius
-            + randomValueForRadiusMutation()
-            - SmallDot.rangeForRadiusMutation / 2
+            + 2 * randomValueForRadiusMutation()
+            - SmallDot.rangeForRadiusMutation
         return SmallDot(center: center,
                         radius: mutatedRadius.clamp(between: SmallDot.minimumRadius,
                                                     and: SmallDot.maximumRadius))

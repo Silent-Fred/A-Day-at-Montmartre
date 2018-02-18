@@ -26,4 +26,10 @@ struct Point {
     func down(by: Double) -> Point {
         return Point(x: x, y: y + by)
     }
+
+    func jiggle(peak: Double) -> Point {
+        let jiggleX = x + (drand48() * peak * 2) - peak
+        let jiggleY = y + (drand48() * peak * 2) - peak
+        return Point(x: jiggleX, y: jiggleY)
+    }
 }

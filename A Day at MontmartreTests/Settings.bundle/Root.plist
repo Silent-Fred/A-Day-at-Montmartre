@@ -15,6 +15,7 @@
 				<string>Rectangles</string>
 				<string>SmallDots</string>
 				<string>Lines</string>
+				<string>Triangles</string>
 			</array>
 			<key>Titles</key>
 			<array>
@@ -22,6 +23,7 @@
 				<string>Rectangles</string>
 				<string>SmallDots</string>
 				<string>Lines</string>
+				<string>Triangles</string>
 			</array>
 			<key>Title</key>
 			<string>Shape Style</string>

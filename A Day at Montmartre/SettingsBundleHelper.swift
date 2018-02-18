@@ -25,6 +25,7 @@ class SettingsBundleHelper {
         case rectangles = "Rectangles"
         case smallDots = "SmallDots"
         case lines = "Lines"
+        case triangles = "Triangles"
     }
 
     class func approximationStyle() -> ApproximationStyle? {

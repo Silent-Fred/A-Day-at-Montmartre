@@ -10,6 +10,7 @@
 		4C12C08E201D3C10007F5EAF /* HillClimbApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */; };
 		4C12C097201D4A05007F5EAF /* BasicGeneticApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */; };
 		4C34B110202B29CA00C7997C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C34B10F202B29CA00C7997C /* Settings.bundle */; };
+		4C528001203A01D7000A1F19 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C528000203A01D7000A1F19 /* Triangle.swift */; };
 		4C78F91F2020FB5D00016B0B /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */; };
 		4C7A7FB91FF5716000F1852D /* MyWorldOfColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A7FB81FF5716000F1852D /* MyWorldOfColours.swift */; };
 		4C7E71B1200BACF5001820BC /* IcoMoon-Free.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E71B0200BACF4001820BC /* IcoMoon-Free.ttf */; };
@@ -55,6 +56,7 @@
 		4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HillClimbApproximator.swift; sourceTree = "<group>"; };
 		4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGeneticApproximator.swift; sourceTree = "<group>"; };
 		4C34B10F202B29CA00C7997C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		4C528000203A01D7000A1F19 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		4C7A7FB81FF5716000F1852D /* MyWorldOfColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorldOfColours.swift; sourceTree = "<group>"; };
 		4C7E71B0200BACF4001820BC /* IcoMoon-Free.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IcoMoon-Free.ttf"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				4CD0CDE1201D00A7002DED6E /* Rectangle.swift */,
 				4CA251882038838D00981E48 /* Line.swift */,
 				4C960C252039987B00FEABE3 /* Point.swift */,
+				4C528000203A01D7000A1F19 /* Triangle.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				4CF81C961FF59F80008B10D8 /* Double+Extensions.swift in Sources */,
 				4C12C08E201D3C10007F5EAF /* HillClimbApproximator.swift in Sources */,
 				4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */,
+				4C528001203A01D7000A1F19 /* Triangle.swift in Sources */,
 				4CAB6674200AD7C100F71E7C /* ShapeMask.swift in Sources */,
 				4C960C262039987B00FEABE3 /* Point.swift in Sources */,
 				4CD78686200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift in Sources */,

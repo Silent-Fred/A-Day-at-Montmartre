@@ -140,6 +140,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             shapeStyle = .smallDots
         case .lines?:
             shapeStyle = .lines
+        case .triangles?:
+            shapeStyle = .triangles
         default:
             shapeStyle = .ellipses
         }
@@ -171,13 +173,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     private func shapeStyleSettingsChanged() -> Bool {
 
-        guard approximator != nil else { return false }
+        guard let approximatorUsesShape = approximator?.shapesToUse,
+            let bundleSuggestsShape = SettingsBundleHelper.shapeStyle()
+            else { return false }
 
-        switch SettingsBundleHelper.shapeStyle() {
-        case .rectangles?:
-            return approximator?.shapesToUse != .rectangles
+        switch bundleSuggestsShape {
+        case .rectangles:
+            return approximatorUsesShape != .rectangles
+        case .smallDots:
+            return approximatorUsesShape != .smallDots
+        case .lines:
+            return approximatorUsesShape != .lines
+        case .triangles:
+            return approximatorUsesShape != .triangles
         default:
-            return approximator?.shapesToUse != .ellipses
+            return approximatorUsesShape != .ellipses
         }
     }
 

@@ -103,33 +103,22 @@ class Line: GeometricShape {
 
     }
 
-    private func mutatedPoint(_ point: Point) -> Point {
-        // move point around, range is split to span both directions
-        let mutatedX = point.x
-            + randomValueForPointMutation()
-            - Line.rangeForPointMutation / 2
-        let mutatedY = point.y
-            + randomValueForPointMutation()
-            - Line.rangeForPointMutation / 2
-        return Point(x: mutatedX, y: mutatedY)
-    }
-
     private func mutatedMoveTo() -> GeometricShape {
-        return Line(moveTo: mutatedPoint(moveTo),
+        return Line(moveTo: moveTo.jiggle(peak: Line.rangeForPointMutation),
                     lineTo: lineTo,
                     stroke: stroke)
     }
 
     private func mutatedLineTo() -> GeometricShape {
         return Line(moveTo: moveTo,
-                    lineTo: mutatedPoint(lineTo),
+                    lineTo: lineTo.jiggle(peak: Line.rangeForPointMutation),
                     stroke: stroke)
     }
 
     private func mutatedStroke() -> GeometricShape {
         let mutatedStroke = stroke
-            + drand48() * Line.rangeForStrokeMutation
-            - Line.rangeForStrokeMutation / 2
+            + 2 * drand48() * Line.rangeForStrokeMutation
+            - Line.rangeForStrokeMutation
         return Line(moveTo: moveTo,
                     lineTo: lineTo,
                     stroke: mutatedStroke.clamp(between: Line.minimumStroke, and: Line.maximumStroke))

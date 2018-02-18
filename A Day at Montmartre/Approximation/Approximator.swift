@@ -10,9 +10,10 @@ import UIKit
 
 enum SupportedGeometricShapes {
     case rectangles
-    case ellipses
     case smallDots
     case lines
+    case triangles
+    case ellipses
 }
 
 class Approximator {
@@ -66,6 +67,8 @@ class Approximator {
             return SmallDot.randomShape(frameWidth: current.width, frameHeight: current.height)
         case .lines:
             return Line.randomShape(frameWidth: current.width, frameHeight: current.height)
+        case .triangles:
+            return Triangle.randomShape(frameWidth: current.width, frameHeight: current.height)
         default:
             return Ellipse.randomShape(frameWidth: current.width, frameHeight: current.height)
         }

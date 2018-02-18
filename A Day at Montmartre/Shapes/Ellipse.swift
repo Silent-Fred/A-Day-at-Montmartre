@@ -135,25 +135,18 @@ class Ellipse: GeometricShape {
     }
 
     private func mutatedCenter() -> GeometricShape {
-        // move the center around, range is split to span both directions
-        let mutatedCenterX = center.x
-            + randomValueForCenterMutation()
-            - Ellipse.rangeForCenterMutation / 2
-        let mutatedCenterY = center.y
-            + randomValueForCenterMutation()
-            - Ellipse.rangeForCenterMutation / 2
-        return Ellipse(center: Point(x: mutatedCenterX, y: mutatedCenterY),
+        return Ellipse(center: center.jiggle(peak: Ellipse.rangeForCenterMutation),
                        radiusX: radiusX, radiusY: radiusY,
                        angleInDegrees: angleInDegrees)
     }
 
     private func mutatedRadius() -> GeometricShape {
         let mutatedRadiusX = radiusX
-            + randomValueForRadiusMutation()
-            - Ellipse.rangeForRadiusMutation / 2
+            + 2 * randomValueForRadiusMutation()
+            - Ellipse.rangeForRadiusMutation
         let mutatedRadiusY = radiusY
-            + randomValueForRadiusMutation()
-            - Ellipse.rangeForRadiusMutation / 2
+            + 2 * randomValueForRadiusMutation()
+            - Ellipse.rangeForRadiusMutation
         return Ellipse(center: center,
                        radiusX: mutatedRadiusX, radiusY: mutatedRadiusY,
                        angleInDegrees: angleInDegrees)
@@ -161,8 +154,8 @@ class Ellipse: GeometricShape {
 
     private func mutatedAngle() -> GeometricShape {
         var mutatedAngle = angleInDegrees
-            + randomValueForAngleMutation()
-            - Ellipse.rangeForAngleMutation / 2
+            + 2 * randomValueForAngleMutation()
+            - Ellipse.rangeForAngleMutation
         if mutatedAngle < 0 {
             mutatedAngle = 360 - mutatedAngle
         } else if mutatedAngle > 360 {
