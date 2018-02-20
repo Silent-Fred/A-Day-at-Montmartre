@@ -1,5 +1,5 @@
 //
-//  BasicGeneticApproximator.swift
+//  BasicEvolutionaryApproximator.swift
 //  A Day at Montmartre
 //
 //  Created by Michael Kühweg on 28.01.18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicGeneticApproximator: Approximator {
+class BasicEvolutionaryApproximator: Approximator {
 
     private let attemptedShapes = 8
     private let acceptedFailuresPerShape = 100
@@ -17,9 +17,9 @@ class BasicGeneticApproximator: Approximator {
 
         guard let context = context else { return }
 
-        var bestAttempt = basicGeneticWithRandomShape()
+        var bestAttempt = basicEvolutionaryWithRandomShape()
         for _ in 1...attemptedShapes {
-            let climber = basicGeneticWithRandomShape()
+            let climber = basicEvolutionaryWithRandomShape()
             if climber.improvement > bestAttempt.improvement {
                 bestAttempt = climber
             }
@@ -29,11 +29,11 @@ class BasicGeneticApproximator: Approximator {
         }
     }
 
-    private func basicGeneticWithRandomShape() -> (shape: GeometricShape, improvement: Double) {
-        return basicGenetic(startingWith: randomShape())
+    private func basicEvolutionaryWithRandomShape() -> (shape: GeometricShape, improvement: Double) {
+        return basicEvolutionary(startingWith: randomShape())
     }
 
-    private func basicGenetic(startingWith: GeometricShape)
+    private func basicEvolutionary(startingWith: GeometricShape)
         -> (shape: GeometricShape, improvement: Double) {
 
             var mutatingShape = startingWith

@@ -17,7 +17,7 @@ class SettingsBundleHelper {
 
     enum ApproximationStyle: String {
         case hillClimb = "HillClimbing"
-        case basicGenetic = "BasicGenetic"
+        case basicEvolutionary = "BasicEvolutionary"
     }
 
     enum ShapeStyle: String {

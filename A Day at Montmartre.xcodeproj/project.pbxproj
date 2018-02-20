@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C12C08E201D3C10007F5EAF /* HillClimbApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */; };
-		4C12C097201D4A05007F5EAF /* BasicGeneticApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */; };
+		4C12C097201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C096201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift */; };
 		4C34B110202B29CA00C7997C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C34B10F202B29CA00C7997C /* Settings.bundle */; };
 		4C528001203A01D7000A1F19 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C528000203A01D7000A1F19 /* Triangle.swift */; };
 		4C78F91F2020FB5D00016B0B /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */; };
@@ -54,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HillClimbApproximator.swift; sourceTree = "<group>"; };
-		4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGeneticApproximator.swift; sourceTree = "<group>"; };
+		4C12C096201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEvolutionaryApproximator.swift; sourceTree = "<group>"; };
 		4C34B10F202B29CA00C7997C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4C528000203A01D7000A1F19 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 				4C8438281FFBCDA000090BC4 /* Approximator.swift */,
 				4C942C8A200B57E100F96821 /* ApproximationContext.swift */,
 				4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */,
-				4C12C096201D4A05007F5EAF /* BasicGeneticApproximator.swift */,
+				4C12C096201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift */,
 			);
 			path = Approximation;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CEF3BCA20378D2D00828B71 /* SmallDot.swift in Sources */,
-				4C12C097201D4A05007F5EAF /* BasicGeneticApproximator.swift in Sources */,
+				4C12C097201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift in Sources */,
 				4C97D3CC2011164C002772CA /* MontmartreColour.swift in Sources */,
 				4C7A7FB91FF5716000F1852D /* MyWorldOfColours.swift in Sources */,
 				4CF81C961FF59F80008B10D8 /* Double+Extensions.swift in Sources */,

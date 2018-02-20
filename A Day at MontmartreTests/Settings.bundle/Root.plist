@@ -40,7 +40,7 @@
 			<key>Titles</key>
 			<array>
 				<string>Hill Climbing</string>
-				<string>Basic Genetic</string>
+				<string>Basic Evolutionary</string>
 			</array>
 			<key>Key</key>
 			<string>ApproximationStyle</string>
@@ -49,7 +49,7 @@
 			<key>Values</key>
 			<array>
 				<string>HillClimbing</string>
-				<string>BasicGenetic</string>
+				<string>BasicEvolutionary</string>
 			</array>
 		</dict>
 	</array>
