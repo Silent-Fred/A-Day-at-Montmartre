@@ -15,9 +15,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var theCurrentState: UIImageView!
     
     @IBOutlet weak var approximationStatusLabel: UILabel!
-    @IBOutlet weak var approximationPrecisionLabel: UILabel!
-    
+
     @IBOutlet weak var toolbar: UIToolbar!
+
+    @IBOutlet weak var playPauseButton: UIButton!
     
     let imagePicker = UIImagePickerController()
     
@@ -29,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         theTarget.layer.borderWidth = 3
         theTarget.layer.borderColor = UIColor.white.cgColor
         
@@ -47,7 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     @IBAction func photoFromLibrary(_ sender: UIBarButtonItem) {
         stopApproximation()
         imagePicker.allowsEditing = false
@@ -60,7 +61,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         stopApproximation()
         shareCurrentApproximation()
     }
-    
+
+    @IBAction func startPauseApproximation() {
+        togglePlayPauseButton()
+        refreshApproximationStateAndContinue()
+    }
+
+    @IBAction func callSettings() {
+        if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.open(appSettings)
+        }
+    }
+
     private func shareCurrentApproximation() {
         
         guard let safeImage = approximator?.currentImage else { return }
@@ -82,28 +94,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(activityViewController, animated: true, completion: nil)
     }
     
-    @IBAction func refineApproximation(_ sender: UIBarButtonItem) {
-        togglePlayPauseButton()
-        refreshApproximationStateAndContinue()
-    }
-    
     func startApproximation() {
         approximating = true
-        let pause =
-            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pause,
-                            target: self,
-                            action: #selector(ViewController.refineApproximation(_:)))
-        replaceApproximationButton(with: pause)
+        playPauseButton.setImage(UIImage(named: "Pause"), for: .normal)
         startRefreshTimer()
     }
     
     func stopApproximation() {
         approximating = false
-        let play =
-            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.play,
-                            target: self,
-                            action: #selector(ViewController.refineApproximation(_:)))
-        replaceApproximationButton(with: play)
+        playPauseButton.setImage(UIImage(named: "Play"), for: .normal)
         stopRefreshTimer()
     }
     
@@ -244,7 +243,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let safeApproximator = approximator {
             let shapes = safeApproximator.shapeCount
             let attempts = safeApproximator.approximationAttempts
-            approximationStatusLabel.text = "\(shapes)\n\(attempts)"
+            approximationStatusLabel.text = "\(attempts)\n\(shapes)"
         } else {
             approximationStatusLabel.text = ""
         }

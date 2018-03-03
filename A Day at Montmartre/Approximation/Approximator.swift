@@ -88,7 +88,7 @@ class Approximator {
         // increase number of attempts made so far (statistics / insight)
         approximationAttempts += 1
 
-        let mask = context.mask.maskedPixelIndices(shape: shape)
+        let mask = context.maskedPixelIndices(shape: shape)
 
         let colourCloudTarget = context.target.colourCloud(maskedByPixelIndices: mask)
         let colourCloudCurrent = context.current.colourCloud(maskedByPixelIndices: mask)

@@ -26,11 +26,7 @@ class ShapeMask {
     }
 
     func maskedPixelIndices(shape: GeometricShape) -> [Int] {
-
-        guard let imageMask = drawShapeMask(shape: shape)
-            else { return [Int]() }
-
-        return maskIndices(image: imageMask)
+        return maskIndices(image: drawShapeMask(shape: shape))
     }
 
     func unmaskedPixelIndices() -> [Int] {
@@ -46,26 +42,26 @@ class ShapeMask {
                                        format: format)
     }
 
-    private func drawShapeMask(shape: GeometricShape) -> CGImage? {
-        let image = renderer.image { context in
+    private func drawShapeMask(shape: GeometricShape) -> UIImage {
+        return renderer.image { context in
             shape.drawInContext(context: context,
                                 usingColour: ShapeMask.shapeColour)
         }
-        return image.cgImage
     }
 
-    private func maskIndices(image: CGImage) -> [Int] {
+    private func maskIndices(image: UIImage) -> [Int] {
         var indices = [Int]()
 
         guard
-            let cfData = image.dataProvider?.data,
-            let pixelDataPointer = CFDataGetBytePtr(cfData)
+            let cgImage = image.cgImage,
+            let pixelData = image.cgImage?.dataProvider?.data,
+            let pixelDataPointer = CFDataGetBytePtr(pixelData)
             else { return indices }
 
         var movingPointer = pixelDataPointer
 
         var index = 0
-        let maxIndex = image.width * image.height
+        let maxIndex = cgImage.width * cgImage.height
         while index < maxIndex {
             if movingPointer.pointee != 0 {
                 indices.append(index)

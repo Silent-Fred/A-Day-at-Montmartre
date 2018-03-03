@@ -52,12 +52,17 @@ class BitmapMagic {
         colouredPixels = imageToColouredPixels(image: imageInExpectedColourSpace)
     }
 
+    private func imageToColouredPixels(image: CGImage) -> [MontmartreColour] {
+        copyImageToPixelBuffer(image: image)
+        return convertPixelBufferToColours(pixelBuffer: pixelBuffer)
+    }
+
     private func copyImageToPixelBuffer(image: CGImage) {
 
-        guard let cfData = image
+        guard let pixelData = image
             .dataProvider?
             .data else { return }
-        guard let pixelDataPointer = CFDataGetBytePtr(cfData)
+        guard let pixelDataPointer = CFDataGetBytePtr(pixelData)
             else {
                 reservePixelBuffer()
                 return
@@ -66,11 +71,6 @@ class BitmapMagic {
         for index in 0..<pixelBuffer.count {
             pixelBuffer[index] = pixelDataPointer[index]
         }
-    }
-
-    private func imageToColouredPixels(image: CGImage) -> [MontmartreColour] {
-        copyImageToPixelBuffer(image: image)
-        return convertPixelBufferToColours(pixelBuffer: pixelBuffer)
     }
 
     private func convertPixelBufferToColours(pixelBuffer: [UInt8]) -> [MontmartreColour] {

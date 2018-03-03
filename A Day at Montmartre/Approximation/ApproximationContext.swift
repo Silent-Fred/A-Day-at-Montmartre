@@ -12,9 +12,7 @@ class ApproximationContext {
 
     public private (set) var target: BitmapMagic
     public private (set) var current: BitmapMagic
-    public private (set) var mask: ShapeMask
 
-    // public private (set) var images: PaintingProgress
     public private(set) var targetImage: UIImage
     public private(set) var targetImageScaledToSizeForApproximation: UIImage
     public private(set) var currentStateOfApproximation: UIImage
@@ -22,14 +20,19 @@ class ApproximationContext {
 
     public private(set) var shapes = [GeometricShape]()
 
-    private let dynamicSizes = [64, 128, 256]
+    private var mask: ShapeMask
+
+    private static let defaultSize = 256
+    private let dynamicSizes = [10 : 64,
+                                50 : 128,
+                                100 : defaultSize]
 
     init?(originalImage: UIImage) {
         targetImage = ApproximationContext.scaledVersion(original: originalImage, scale: 1)
         currentStateForDisplay =
             ApproximationContext.emptyCanvas(width: targetImage.size.width,
                                              height: targetImage.size.height)
-        let initialApproximationSize = dynamicSizes.first!
+        let initialApproximationSize = dynamicSizes.first!.value
         targetImageScaledToSizeForApproximation =
             ApproximationContext.scaledVersionForBetterPerformance(original: targetImage,
                                                                    imageSizeUsedDuringApproximation: initialApproximationSize)
@@ -37,13 +40,17 @@ class ApproximationContext {
             ApproximationContext.emptyCanvas(width: targetImageScaledToSizeForApproximation.size.width,
                                              height: targetImageScaledToSizeForApproximation.size.height)
 
-        guard let cgTarget = targetImageScaledToSizeForApproximation.cgImage,
-            let cgCurrent = currentStateOfApproximation.cgImage
+        guard let cgTargetScaled = targetImageScaledToSizeForApproximation.cgImage,
+            let cgCurrentScaled = currentStateOfApproximation.cgImage
             else { return nil }
 
-        target = BitmapMagic(forImage: cgTarget)
-        current = BitmapMagic(forImage: cgCurrent)
+        target = BitmapMagic(forImage: cgTargetScaled)
+        current = BitmapMagic(forImage: cgCurrentScaled)
         mask = ShapeMask(width: target.width, height: target.height)
+    }
+
+    func maskedPixelIndices(shape: GeometricShape) -> [Int] {
+        return mask.maskedPixelIndices(shape: shape)
     }
 
     func append(shape: GeometricShape) {
@@ -92,12 +99,13 @@ class ApproximationContext {
 
     private func dynamicSize() -> Int {
         let shapeCount = shapes.count
-        for size in dynamicSizes {
-            if shapeCount < size {
-                return size
+        var size = ApproximationContext.defaultSize
+        for shapesToSizes in dynamicSizes {
+            if shapeCount < shapesToSizes.key {
+                size = shapesToSizes.value
             }
         }
-        return dynamicSizes.last!
+        return size
     }
 
     private func dynamicSizeShouldChange() -> Bool {
