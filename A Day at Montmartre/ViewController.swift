@@ -96,6 +96,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func startApproximation() {
         approximating = true
+        theMainView.backgroundColor = averageColourOf(approximator?.targetScaledImage)
         playPauseButton.setImage(UIImage(named: "Pause"), for: .normal)
         startRefreshTimer()
     }
@@ -193,9 +194,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     private func refreshApproximationStateAndContinue() {
         if approximating {
             refreshApproximationState()
-            let queue = DispatchQueue(label: "de.kuehweg.A-Day-at-Montmartre.approximatorQueue",
-                                      qos: .userInitiated,
-                                      attributes: .concurrent)
+            let queue = DispatchQueue(label: "de.kuehweg.montmartre.approximatorQueue",
+                                      qos: .userInitiated)
             queue.async {
                 self.approximator?.refineApproximation()
                 DispatchQueue.main.async {
@@ -228,16 +228,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    private func replaceApproximationButton(with newButton: UIBarButtonItem) {
-        for itemNumber in 0..<toolbar.items!.count {
-            if let action = toolbar.items![itemNumber].action?.description {
-                if action == "refineApproximation:" {
-                    toolbar.items![itemNumber] = newButton
-                }
-            }
-        }
-    }
-    
     @objc private func refreshProgressLabel() {
         approximationStatusLabel.isHidden = !approximating
         if let safeApproximator = approximator {
@@ -252,12 +242,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     private func pickImageAndVisuallyRestartApproximation(image: UIImage) {
         theTarget.image = image
         restartApproximatorOnTargetImageWithCurrentSettings()
-        
-        theMainView.backgroundColor = averageColourOf(approximator?.targetScaledImage)
-        
-        // reset the current state image to the, well, reset current state
-        theCurrentState.image = approximator?.currentImage
-        
+        // initially always show the title image
+        theCurrentState.image = UIImage(named: "Title")
         refreshProgressLabel()
     }
     

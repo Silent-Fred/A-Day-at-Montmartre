@@ -26,8 +26,6 @@
 		4CB21E9B202B56BE009B1326 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */; };
 		4CBBA82D1FF596D600BC6268 /* GeometricShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */; };
 		4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82E1FF5982100BC6268 /* Ellipse.swift */; };
-		4CC689F02030D01D00BAEA87 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4CC689EE2030D01C00BAEA87 /* README.md */; };
-		4CC689F12030D01D00BAEA87 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4CC689EF2030D01D00BAEA87 /* LICENSE */; };
 		4CD0CDE2201D00A7002DED6E /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0CDE1201D00A7002DED6E /* Rectangle.swift */; };
 		4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */; };
 		4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5C1FF31FA00067100F /* ViewController.swift */; };
@@ -291,10 +289,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CC689F02030D01D00BAEA87 /* README.md in Resources */,
 				4CD4FD651FF31FA00067100F /* LaunchScreen.storyboard in Resources */,
 				4CD4FD621FF31FA00067100F /* Assets.xcassets in Resources */,
-				4CC689F12030D01D00BAEA87 /* LICENSE in Resources */,
 				4C34B110202B29CA00C7997C /* Settings.bundle in Resources */,
 				4CD4FD601FF31FA00067100F /* Main.storyboard in Resources */,
 			);
@@ -437,6 +433,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -488,6 +485,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

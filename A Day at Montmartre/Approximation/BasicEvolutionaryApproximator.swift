@@ -19,9 +19,11 @@ class BasicEvolutionaryApproximator: Approximator {
 
         var bestAttempt = basicEvolutionaryWithRandomShape()
         for _ in 1...attemptedShapes {
-            let climber = basicEvolutionaryWithRandomShape()
-            if climber.improvement > bestAttempt.improvement {
-                bestAttempt = climber
+            autoreleasepool {
+                let generation = basicEvolutionaryWithRandomShape()
+                if generation.improvement > bestAttempt.improvement {
+                    bestAttempt = generation
+                }
             }
         }
         if (bestAttempt.improvement > 0.0) {
