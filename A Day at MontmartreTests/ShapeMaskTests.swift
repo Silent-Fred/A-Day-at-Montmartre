@@ -10,7 +10,7 @@ import XCTest
 @testable import A_Day_at_Montmartre
 
 class ShapeMaskTests: XCTestCase {
-    
+
     func testMaskWithShape() {
         let edgeLength = 256.0
         let radius = 0.5

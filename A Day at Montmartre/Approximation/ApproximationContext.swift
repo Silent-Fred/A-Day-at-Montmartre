@@ -23,9 +23,9 @@ class ApproximationContext {
     private var mask: ShapeMask
 
     private static let defaultSize = 256
-    private let dynamicSizes = [10 : 64,
-                                50 : 128,
-                                100 : defaultSize]
+    private let dynamicSizes = [10: 64,
+                                50: 128,
+                                100: defaultSize]
 
     init?(originalImage: UIImage) {
         targetImage = ApproximationContext.scaledVersion(original: originalImage, scale: 1)
@@ -34,8 +34,9 @@ class ApproximationContext {
                                              height: targetImage.size.height)
         let initialApproximationSize = dynamicSizes.first!.value
         targetImageScaledToSizeForApproximation =
-            ApproximationContext.scaledVersionForBetterPerformance(original: targetImage,
-                                                                   imageSizeUsedDuringApproximation: initialApproximationSize)
+            ApproximationContext.scaledVersionForBetterPerformance(
+                original: targetImage,
+                imageSizeUsedDuringApproximation: initialApproximationSize)
         currentStateOfApproximation =
             ApproximationContext.emptyCanvas(width: targetImageScaledToSizeForApproximation.size.width,
                                              height: targetImageScaledToSizeForApproximation.size.height)
@@ -100,10 +101,8 @@ class ApproximationContext {
     private func dynamicSize() -> Int {
         let shapeCount = shapes.count
         var size = ApproximationContext.defaultSize
-        for shapesToSizes in dynamicSizes {
-            if shapeCount < shapesToSizes.key {
-                size = shapesToSizes.value
-            }
+        for shapesToSizes in dynamicSizes where shapeCount < shapesToSizes.key {
+            size = shapesToSizes.value
         }
         return size
     }
@@ -171,7 +170,7 @@ class ApproximationContext {
         let boundingRectangle = CGRect(x: 0, y: 0, width: width, height: height)
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height),
                                                format: format)
-        let scaledDownImage = renderer.image { context in
+        let scaledDownImage = renderer.image { _ in
             original.draw(in: boundingRectangle)
         }
         return scaledDownImage

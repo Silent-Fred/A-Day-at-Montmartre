@@ -23,7 +23,7 @@ class HillClimbApproximator: Approximator {
                 bestAttempt = climber
             }
         }
-        if (bestAttempt.improvement > 0.0) {
+        if bestAttempt.improvement > 0.0 {
             context.append(shape: bestAttempt.shape)
         }
     }

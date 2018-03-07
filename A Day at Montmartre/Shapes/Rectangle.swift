@@ -148,7 +148,7 @@ class Rectangle: GeometricShape {
         if mutatedAngle < 0 {
             mutatedAngle = 360 - mutatedAngle
         } else if mutatedAngle > 360 {
-            mutatedAngle = mutatedAngle - 360
+            mutatedAngle -= 360
         }
         return Rectangle(center: center,
                          width: width, height: height,

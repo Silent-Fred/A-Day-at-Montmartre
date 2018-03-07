@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 class ColourAverager {
-    
+
     static let assumedBackgroundColour = MontmartreColour.white
 
     private var cumulatedRed = 0.0
@@ -25,9 +24,9 @@ class ColourAverager {
         cumulatedRed += opaque.red * opaque.red
         cumulatedGreen += opaque.green * opaque.green
         cumulatedBlue += opaque.blue * opaque.blue
-        count = count + 1
+        count += 1
     }
-    
+
     func average() -> MontmartreColour {
 
         guard count > 0 else { return MontmartreColour.clear }
@@ -47,13 +46,13 @@ class ColourAverager {
 // Two ColourClouds can therefore be compared pixel by pixel if and
 // only if they were both built in the same order of pixels.
 class ColourCloud {
-    
+
     public private (set) var colourCloud = [MontmartreColour]()
     private var cachedAverageColour: MontmartreColour?
-    
+
     public var count: Int { return colourCloud.count }
-    
-    func appendPoint(inColour colour : MontmartreColour) {
+
+    func appendPoint(inColour colour: MontmartreColour) {
         colourCloud.append(colour)
         cachedAverageColour = nil
     }
@@ -72,7 +71,7 @@ class ColourCloud {
         cachedAverageColour = calculateAverageColour()
         return cachedAverageColour!
     }
-    
+
     func squareDeviationFrom(target: ColourCloud) -> Double {
 
         // no fast and reliable detection whether clouds are actually the same

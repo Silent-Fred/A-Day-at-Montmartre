@@ -80,10 +80,14 @@ class Line: GeometricShape {
                                lineTo: lineTo.down(by: randomValueForPointMutation()),
                                stroke: stroke))
 
-        let thinner = (stroke - randomValueForStrokeMutation()).clamp(between: Line.minimumStroke, and: Line.maximumStroke)
+        let thinner =
+            (stroke - randomValueForStrokeMutation()).clamp(between: Line.minimumStroke,
+                                                            and: Line.maximumStroke)
         neighbours.append(Line(moveTo: moveTo, lineTo: lineTo,
                                stroke: thinner))
-        let thicker = (stroke + randomValueForStrokeMutation()).clamp(between: Line.minimumStroke, and: Line.maximumStroke)
+        let thicker =
+            (stroke + randomValueForStrokeMutation()).clamp(between: Line.minimumStroke,
+                                                            and: Line.maximumStroke)
         neighbours.append(Line(moveTo: moveTo, lineTo: lineTo,
                                stroke: thicker))
 

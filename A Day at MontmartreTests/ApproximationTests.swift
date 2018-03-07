@@ -10,7 +10,7 @@ import XCTest
 @testable import A_Day_at_Montmartre
 
 class ApproximationTests: XCTestCase {
-    
+
     func testSquareDeviation() {
         let colourCloudBlue = ColourCloud()
         colourCloudBlue.appendPoint(inColour: MontmartreColour.blue)
@@ -28,7 +28,7 @@ class ApproximationTests: XCTestCase {
                        4.0,
                        accuracy: 0.1)
     }
-    
+
     func testMeanSquareDeviation() {
         let colourCloudBlue = ColourCloud()
         colourCloudBlue.appendPoint(inColour: MontmartreColour.blue)
@@ -46,7 +46,7 @@ class ApproximationTests: XCTestCase {
                        2.0,
                        accuracy: 0.1)
     }
-    
+
     func testSquareDifferenceInImage() {
         let edgeLength = 256.0
         let white = TestImageProvider.colourQuadrants(edgeLength: Int(edgeLength),

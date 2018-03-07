@@ -13,7 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
+        -> Bool {
         // using a pseudo random number generator - and please do NOT produce the same sequence
         // each time the app runs
         let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
@@ -47,4 +49,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

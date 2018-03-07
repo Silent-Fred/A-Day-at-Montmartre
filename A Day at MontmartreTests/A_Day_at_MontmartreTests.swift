@@ -9,8 +9,8 @@
 import XCTest
 @testable import A_Day_at_Montmartre
 
-class A_Day_at_MontmartreTests: XCTestCase {
-    
+class ADayAtMontmartreTests: XCTestCase {
+
     func testColourAverageInColourCloud() {
         let colourCloud = ColourCloud()
         colourCloud.appendPoint(inColour: MontmartreColour.white)
@@ -24,7 +24,7 @@ class A_Day_at_MontmartreTests: XCTestCase {
         XCTAssertEqual(colourCloud.averageColour().green, 0.7, accuracy: 0.01)
         XCTAssertEqual(colourCloud.averageColour().blue, 0.7, accuracy: 0.01)
     }
-    
+
     func testClamp() {
         XCTAssertEqual(0.5, 0.5.clamp(between: 0, and: 1))
         XCTAssertEqual(0.7, 0.5.clamp(between: 0.7, and: 1))

@@ -9,7 +9,7 @@
 import Foundation
 
 extension Double {
-    
+
     func clamp(between lowerBound: Double, and upperBound: Double) -> Double {
         return max(lowerBound, min(self, upperBound))
     }

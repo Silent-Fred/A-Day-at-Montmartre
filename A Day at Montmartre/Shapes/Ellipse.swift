@@ -39,9 +39,8 @@ class Ellipse: GeometricShape {
     public private (set) var radiusY: Double
     public private (set) var angleInDegrees: Double
 
-
     public var colour: MontmartreColour
-    
+
     init(center: Point,
          radiusX: Double, radiusY: Double,
          angleInDegrees: Double,
@@ -159,7 +158,7 @@ class Ellipse: GeometricShape {
         if mutatedAngle < 0 {
             mutatedAngle = 360 - mutatedAngle
         } else if mutatedAngle > 360 {
-            mutatedAngle = mutatedAngle - 360
+            mutatedAngle -= 360
         }
         return Ellipse(center: center,
                        radiusX: radiusX, radiusY: radiusY,
@@ -175,7 +174,7 @@ class Ellipse: GeometricShape {
 
         let factor: Double = max(Double(context.currentImage.size.width),
                                  Double(context.currentImage.size.height))
-        
+
         let pixelCenterX = round(center.x * factor)
         let pixelCenterY = round(center.y * factor)
         let pixelRadiusX = round(radiusX * factor)

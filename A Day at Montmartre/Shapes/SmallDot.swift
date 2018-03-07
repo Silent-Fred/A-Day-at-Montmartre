@@ -56,9 +56,13 @@ class SmallDot: GeometricShape {
                                    radius: radius))
         neighbours.append(SmallDot(center: center.down(by: randomValueForCenterMutation()),
                                    radius: radius))
-        let smaller = (radius - randomValueForRadiusMutation()).clamp(between: SmallDot.minimumRadius, and: SmallDot.maximumRadius)
+        let smaller =
+            (radius - randomValueForRadiusMutation()).clamp(between: SmallDot.minimumRadius,
+                                                            and: SmallDot.maximumRadius)
         neighbours.append(SmallDot(center: center, radius: smaller))
-        let bigger = (radius + randomValueForRadiusMutation()).clamp(between: SmallDot.minimumRadius, and: SmallDot.maximumRadius)
+        let bigger =
+            (radius + randomValueForRadiusMutation()).clamp(between: SmallDot.minimumRadius,
+                                                            and: SmallDot.maximumRadius)
         neighbours.append(SmallDot(center: center, radius: bigger))
         return neighbours
     }

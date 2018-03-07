@@ -9,7 +9,7 @@
 import UIKit
 
 class Triangle: GeometricShape {
-    
+
     static let mutationOptions = 3
 
     private static let rangeForPointMutation = 0.1
@@ -24,9 +24,9 @@ class Triangle: GeometricShape {
                            y: drand48() * Double(height) / maxExtent)
         return Triangle(pointA: pointA, pointB: pointB, pointC: pointC)
     }
-    
+
     var colour: MontmartreColour
-    
+
     public private (set) var pointA: Point
     public private (set) var pointB: Point
     public private (set) var pointC: Point
@@ -89,7 +89,7 @@ class Triangle: GeometricShape {
 
         return neighbours
     }
-    
+
     func mutated() -> GeometricShape {
         let whichPoint = arc4random_uniform(UInt32(Triangle.mutationOptions))
         switch whichPoint {
@@ -107,16 +107,16 @@ class Triangle: GeometricShape {
                             pointC: pointC.jiggle(peak: Triangle.rangeForPointMutation))
         }
     }
-    
+
     func patienceWithFailedMutations() -> Int {
         // several (random) attempts at mutating all variants
         return Triangle.mutationOptions * 10
     }
-    
+
     func drawInContext(context: UIGraphicsImageRendererContext) {
         drawInContext(context: context, usingColour: colour.uiColor())
     }
-    
+
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {
         let factor: Double = max(Double(context.currentImage.size.width),
                                  Double(context.currentImage.size.height))

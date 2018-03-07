@@ -86,7 +86,7 @@ struct MontmartreColour: Equatable {
     }
 
     func requiredOverpaintToAchieve(targetColour: MontmartreColour,
-                                           usingAlpha: Double) -> MontmartreColour {
+                                    usingAlpha: Double) -> MontmartreColour {
 
         guard usingAlpha != 0 else { return MontmartreColour.clear }
 
@@ -108,11 +108,10 @@ struct MontmartreColour: Equatable {
     }
 
     // MARK: delegates
-    static func ==(lhs: MontmartreColour, rhs: MontmartreColour) -> Bool {
+    static func == (lhs: MontmartreColour, rhs: MontmartreColour) -> Bool {
         return lhs.red == rhs.red
             && lhs.green == rhs.green
             && lhs.blue == rhs.blue
             && lhs.alpha == rhs.alpha
     }
 }
-

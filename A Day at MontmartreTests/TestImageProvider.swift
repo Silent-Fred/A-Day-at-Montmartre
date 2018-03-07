@@ -10,7 +10,7 @@ import XCTest
 @testable import A_Day_at_Montmartre
 
 class TestImageProvider {
-    
+
     /*
      For ease of coding, quadrants are not in mathematical order.
      They are ordered this way:
@@ -51,11 +51,13 @@ class TestImageProvider {
             }
             return image
     }
-    
+
     static func colourQuadrantsOnTransparentBackground(
         edgeLength: Int,
         coloursInQuadrants: [MontmartreColour])
         -> UIImage {
-            return colourQuadrants(edgeLength: edgeLength, backgroundColour: nil, coloursInQuadrants: coloursInQuadrants)
+            return colourQuadrants(edgeLength: edgeLength,
+                                   backgroundColour: nil,
+                                   coloursInQuadrants: coloursInQuadrants)
     }
 }

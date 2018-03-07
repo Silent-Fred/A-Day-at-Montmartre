@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.photography</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allowing access to your photo library lets you pick your own photos to recreate them in geometric shapes.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -48,8 +48,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>
