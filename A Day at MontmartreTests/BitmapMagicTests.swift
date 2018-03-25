@@ -110,12 +110,9 @@ class BitmapMagicTests: XCTestCase {
                                  MontmartreColour.white])
         let approximationContext = ApproximationContext(originalImage: image)
         let targetImage = approximationContext?.targetImage
-        let mask = ShapeMask(width: (targetImage?.cgImage?.width)!,
-                             height: (targetImage?.cgImage?.height)!)
-        let unmasked = mask.unmaskedPixelIndices()
         let colourCloud =
             BitmapMagic(forImage: (targetImage?.cgImage)!
-                ).colourCloud(maskedByPixelIndices: unmasked)
+                ).colourCloud()
         let average = colourCloud.averageColour()
 
         XCTAssertEqual(average.red, 0.7, accuracy: 0.01)

@@ -32,9 +32,9 @@ class ColourAverager {
         guard count > 0 else { return MontmartreColour.clear }
 
         let countDouble = Double(count)
-        let red = sqrt(cumulatedRed / countDouble)
-        let green = sqrt(cumulatedGreen / countDouble)
-        let blue = sqrt(cumulatedBlue / countDouble)
+        let red = (cumulatedRed / countDouble).squareRoot()
+        let green = (cumulatedGreen / countDouble).squareRoot()
+        let blue = (cumulatedBlue / countDouble).squareRoot()
         // average colour is calculated as an opaque colour
         let alpha = 1.0
         return MontmartreColour(red: red, green: green, blue: blue, alpha: alpha)
@@ -96,9 +96,10 @@ class ColourCloud {
         return squareDeviationFrom(target: target) / Double(count)
     }
 
-    func maximumSquareDeviationEstimate() -> Double {
-        let maximumDistanceOfAverageColour = averageColour().maximumDistance()
-        return maximumDistanceOfAverageColour * maximumDistanceOfAverageColour
+    func normalisedRootMeanSquareDeviationFrom(target: ColourCloud) -> Double {
+        let rootMeanSquareDeviation = (meanSquareDeviationFrom(target: target)).squareRoot()
+        let maxDistance = MontmartreColour.white.distance(to: MontmartreColour.black)
+        return rootMeanSquareDeviation / maxDistance
     }
 
     func overpainted(withColour colour: MontmartreColour) -> ColourCloud {

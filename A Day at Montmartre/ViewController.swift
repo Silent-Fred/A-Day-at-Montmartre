@@ -31,7 +31,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        theTarget.layer.borderWidth = 3
+        theTarget.layer.borderWidth = 5
         theTarget.layer.borderColor = UIColor.white.cgColor
 
         imagePicker.delegate = self
@@ -96,7 +96,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func startApproximation() {
         approximating = true
-        theMainView.backgroundColor = averageColourOf(approximator?.targetScaledImage)
         playPauseButton.setImage(UIImage(named: "Pause"), for: .normal)
         startRefreshTimer()
     }
@@ -109,7 +108,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func restartApproximatorIfSettingsChanged() {
         if settingsChanged() {
-            restartApproximatorOnTargetImageWithCurrentSettings()
+            restartApproximatorWithCurrentSettings(imageToApproximate: theTarget.image)
         }
     }
 
@@ -127,9 +126,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         refreshTimer.invalidate()
     }
 
-    private func restartApproximatorOnTargetImageWithCurrentSettings() {
+    private func restartApproximatorWithCurrentSettings(imageToApproximate: UIImage?) {
 
-        guard let imageToApproximate = theTarget.image else { return }
+        guard let imageToApproximate = imageToApproximate else { return }
 
         let approximationStyle = SettingsBundleHelper.approximationStyle()
         var shapeStyle: SupportedGeometricShapes
@@ -233,15 +232,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let safeApproximator = approximator {
             let shapes = safeApproximator.shapeCount
             let attempts = safeApproximator.approximationAttempts
-            approximationStatusLabel.text = "\(attempts)\n\(shapes)"
+            let rating = safeApproximator.approximationRating()
+            let percentageRating = String(format: "%.1f", 100.0 - rating * 100)
+            approximationStatusLabel.text = "\(attempts)\n\(shapes)\n\(percentageRating)%"
         } else {
             approximationStatusLabel.text = ""
         }
     }
 
     private func pickImageAndVisuallyRestartApproximation(image: UIImage) {
+        restartApproximatorWithCurrentSettings(imageToApproximate: image)
+        // visualise
         theTarget.image = image
-        restartApproximatorOnTargetImageWithCurrentSettings()
+        theTarget.layer.borderColor =
+            averageColourOf(approximator?.targetScaledImage).cgColor
         // initially always show the title image
         theCurrentState.image = UIImage(named: "Title")
         refreshProgressLabel()
@@ -252,9 +256,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let safeImage = image?.cgImage
             else { return UIColor.white }
 
-        let mask = ShapeMask(width: safeImage.width, height: safeImage.height)
         let bitmap = BitmapMagic(forImage: safeImage)
-        let averageColour = bitmap.colourCloud(maskedByPixelIndices: mask.unmaskedPixelIndices()).averageColour()
+        let averageColour = bitmap.colourCloud().averageColour()
         return averageColour.uiColor()
     }
 

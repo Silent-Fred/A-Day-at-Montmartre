@@ -74,6 +74,16 @@ class Approximator {
         }
     }
 
+    func approximationRating() -> Double {
+
+        guard let targetColourCloud = context?.target.colourCloud(),
+            let currentColourCloud = context?.current.colourCloud()
+            else { return 0.0 }
+
+        return currentColourCloud.normalisedRootMeanSquareDeviationFrom(
+            target: targetColourCloud)
+    }
+
     private func emptyShape() -> GeometricShape {
         // the kind of shape actually doesn't matter when it's empty, so we pick our favourite
         return Ellipse(center: Point(x: 0.0, y: 0.0),
@@ -116,9 +126,9 @@ class Approximator {
                                                        with overpaintColour: MontmartreColour,
                                                        approximating target: ColourCloud)
         -> Double {
-        let currentDeviation = current.squareDeviationFrom(target: target)
-        let overpaintedColourCloud = current.overpainted(withColour: overpaintColour)
-        let nextDeviation = overpaintedColourCloud.squareDeviationFrom(target: target)
-        return currentDeviation - nextDeviation
+            let currentDeviation = current.squareDeviationFrom(target: target)
+            let overpaintedColourCloud = current.overpainted(withColour: overpaintColour)
+            let nextDeviation = overpaintedColourCloud.squareDeviationFrom(target: target)
+            return currentDeviation - nextDeviation
     }
 }

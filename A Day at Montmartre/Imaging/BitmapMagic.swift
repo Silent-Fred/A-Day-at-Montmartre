@@ -29,6 +29,14 @@ class BitmapMagic {
         attachTo(image: image)
     }
 
+    func colourCloud() -> ColourCloud {
+        let colourCloud = ColourCloud()
+        for colouredPixel in colouredPixels {
+            colourCloud.appendPoint(inColour: colouredPixel)
+        }
+        return colourCloud
+    }
+
     func colourCloud(maskedByPixelIndices mask: [Int]) -> ColourCloud {
         let colourCloud = ColourCloud()
         for index in mask {

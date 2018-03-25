@@ -61,7 +61,7 @@ struct MontmartreColour: Equatable {
         let deltaRed = opaqueSelf.red - opaqueOther.red
         let deltaGreen = opaqueSelf.green - opaqueOther.green
         let deltaBlue = opaqueSelf.blue - opaqueOther.blue
-        return sqrt(deltaRed * deltaRed + deltaGreen * deltaGreen + deltaBlue * deltaBlue)
+        return (deltaRed * deltaRed + deltaGreen * deltaGreen + deltaBlue * deltaBlue).squareRoot()
     }
 
     func overpainted(with: MontmartreColour) -> MontmartreColour {
