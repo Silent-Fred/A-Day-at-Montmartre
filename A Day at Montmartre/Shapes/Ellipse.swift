@@ -32,12 +32,10 @@ class Ellipse: GeometricShape {
                        angleInDegrees: drand48() * 360)
     }
 
-    // TODO go back to fully private properties, once SVG export is
-    // implemented.
-    public private (set) var center: Point
-    public private (set) var radiusX: Double
-    public private (set) var radiusY: Double
-    public private (set) var angleInDegrees: Double
+    private var center: Point
+    private var radiusX: Double
+    private var radiusY: Double
+    private var angleInDegrees: Double
 
     public var colour: MontmartreColour
 

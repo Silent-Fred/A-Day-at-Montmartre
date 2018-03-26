@@ -201,15 +201,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.refreshApproximationStateAndContinue()
                 }
             }
-            // TODO this might be easier to understand
-            /*
-             DispatchQueue.global(qos: .background).async {
-             self.approximator?.refineApproximation()
-             DispatchQueue.main.async {
-             self.refreshApproximationStateAndContinue()
-             }
-             }
-             */
         }
     }
 

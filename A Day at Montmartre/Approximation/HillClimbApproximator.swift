@@ -10,6 +10,8 @@ import UIKit
 
 class HillClimbApproximator: Approximator {
 
+    private let tolerateFailedAttempsInARow = 2
+
     private let attemptedClimbers = 8
 
     override func refineApproximation() {
@@ -39,7 +41,7 @@ class HillClimbApproximator: Approximator {
         var bestImprovement = tintShapeAndCalculateImprovement(shape: &mutatingShape)
         var bestShape = mutatingShape
         var failedAttemptsInARow = 0
-        while failedAttemptsInARow < 2 {
+        while failedAttemptsInARow < tolerateFailedAttempsInARow {
             failedAttemptsInARow += 1
             autoreleasepool {
                 for var shape in bestShape.neighbours() {
