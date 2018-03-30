@@ -28,8 +28,8 @@ class SmallDot: GeometricShape {
 
     var colour: MontmartreColour
 
-    public private (set) var center: Point
-    public private (set) var radius: Double
+    private var center: Point
+    private var radius: Double
 
     init(center: Point, radius: Double,
          colour: MontmartreColour = MontmartreColour.clear) {
@@ -95,10 +95,6 @@ class SmallDot: GeometricShape {
     func patienceWithFailedMutations() -> Int {
         // several (random) attempts at mutating all variants
         return Ellipse.mutationOptions * 10
-    }
-
-    func drawInContext(context: UIGraphicsImageRendererContext) {
-        drawInContext(context: context, usingColour: colour.uiColor())
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

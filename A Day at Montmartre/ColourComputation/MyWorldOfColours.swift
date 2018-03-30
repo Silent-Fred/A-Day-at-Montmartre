@@ -97,7 +97,7 @@ class ColourCloud {
     }
 
     func normalisedRootMeanSquareDeviationFrom(target: ColourCloud) -> Double {
-        let rootMeanSquareDeviation = (meanSquareDeviationFrom(target: target)).squareRoot()
+        let rootMeanSquareDeviation = meanSquareDeviationFrom(target: target).squareRoot()
         let maxDistance = MontmartreColour.white.distance(to: MontmartreColour.black)
         return rootMeanSquareDeviation / maxDistance
     }

@@ -27,9 +27,9 @@ class Triangle: GeometricShape {
 
     var colour: MontmartreColour
 
-    public private (set) var pointA: Point
-    public private (set) var pointB: Point
-    public private (set) var pointC: Point
+    private var pointA: Point
+    private var pointB: Point
+    private var pointC: Point
 
     init(pointA: Point,
          pointB: Point,
@@ -111,10 +111,6 @@ class Triangle: GeometricShape {
     func patienceWithFailedMutations() -> Int {
         // several (random) attempts at mutating all variants
         return Triangle.mutationOptions * 10
-    }
-
-    func drawInContext(context: UIGraphicsImageRendererContext) {
-        drawInContext(context: context, usingColour: colour.uiColor())
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

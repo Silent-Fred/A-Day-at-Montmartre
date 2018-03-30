@@ -29,9 +29,9 @@ class Line: GeometricShape {
 
     var colour: MontmartreColour
 
-    public private (set) var moveTo: Point
-    public private (set) var lineTo: Point
-    public private (set) var stroke: Double
+    private var moveTo: Point
+    private var lineTo: Point
+    private var stroke: Double
 
     init(moveTo: Point,
          lineTo: Point,
@@ -130,10 +130,6 @@ class Line: GeometricShape {
 
     func patienceWithFailedMutations() -> Int {
         return Line.mutationOptions * 10
-    }
-
-    func drawInContext(context: UIGraphicsImageRendererContext) {
-        drawInContext(context: context, usingColour: colour.uiColor())
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

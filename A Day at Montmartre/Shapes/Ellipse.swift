@@ -32,12 +32,12 @@ class Ellipse: GeometricShape {
                        angleInDegrees: drand48() * 360)
     }
 
+    var colour: MontmartreColour
+
     private var center: Point
     private var radiusX: Double
     private var radiusY: Double
     private var angleInDegrees: Double
-
-    public var colour: MontmartreColour
 
     init(center: Point,
          radiusX: Double, radiusY: Double,
@@ -161,10 +161,6 @@ class Ellipse: GeometricShape {
         return Ellipse(center: center,
                        radiusX: radiusX, radiusY: radiusY,
                        angleInDegrees: mutatedAngle)
-    }
-
-    func drawInContext(context: UIGraphicsImageRendererContext) {
-        drawInContext(context: context, usingColour: colour.uiColor())
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext,

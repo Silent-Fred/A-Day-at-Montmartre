@@ -31,12 +31,12 @@ class Rectangle: GeometricShape {
                          angleInDegrees: drand48() * 360)
     }
 
-    public private (set) var center: Point
-    public private (set) var width: Double
-    public private (set) var height: Double
-    public private (set) var angleInDegrees: Double
-
     var colour: MontmartreColour
+
+    private var center: Point
+    private var width: Double
+    private var height: Double
+    private var angleInDegrees: Double
 
     init(center: Point,
          width: Double, height: Double,
@@ -158,10 +158,6 @@ class Rectangle: GeometricShape {
 
     func patienceWithFailedMutations() -> Int {
         return Rectangle.mutationOptions * 3
-    }
-
-    func drawInContext(context: UIGraphicsImageRendererContext) {
-        drawInContext(context: context, usingColour: colour.uiColor())
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

@@ -22,8 +22,6 @@ protocol GeometricShape {
 
     func patienceWithFailedMutations() -> Int
 
-    func drawInContext(context: UIGraphicsImageRendererContext)
-
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor)
 
 }
