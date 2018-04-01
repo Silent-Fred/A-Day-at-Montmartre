@@ -91,9 +91,10 @@ class Approximator {
                        angleInDegrees: 0.0)
     }
 
-    func tintShapeAndCalculateImprovement(shape: inout GeometricShape) -> Double {
+    func calculateImprovement(shape: GeometricShape)
+        -> (shape: GeometricShape, improvement: Double) {
 
-        guard let context = context else { return 0.0 }
+        guard let context = context else { return (shape, 0.0) }
 
         // increase number of attempts made so far (statistics / insight)
         approximationAttempts += 1
@@ -103,13 +104,15 @@ class Approximator {
         let colourCloudTarget = context.target.colourCloud(maskedByPixelIndices: mask)
         let colourCloudCurrent = context.current.colourCloud(maskedByPixelIndices: mask)
 
-        shape.colour = findOverpaintColour(making: colourCloudCurrent,
-                                           lookLike: colourCloudTarget)
+        let overpaint = findOverpaintColour(making: colourCloudCurrent,
+                                            lookLike: colourCloudTarget)
 
+        var colouredShape = shape
+        colouredShape.colour = overpaint
         let improvement = calculateImprovementInSquareDeviation(overpainting: colourCloudCurrent,
-                                                                with: shape.colour,
+                                                                with: overpaint,
                                                                 approximating: colourCloudTarget)
-        return improvement
+        return (colouredShape, improvement)
     }
 
     private func findOverpaintColour(making current: ColourCloud,
@@ -126,9 +129,9 @@ class Approximator {
                                                        with overpaintColour: MontmartreColour,
                                                        approximating target: ColourCloud)
         -> Double {
-            let currentDeviation = current.squareDeviationFrom(target: target)
-            let overpaintedColourCloud = current.overpainted(withColour: overpaintColour)
-            let nextDeviation = overpaintedColourCloud.squareDeviationFrom(target: target)
-            return currentDeviation - nextDeviation
+        let currentDeviation = current.squareDeviationFrom(target: target)
+        let overpaintedColourCloud = current.overpainted(withColour: overpaintColour)
+        let nextDeviation = overpaintedColourCloud.squareDeviationFrom(target: target)
+        return currentDeviation - nextDeviation
     }
 }

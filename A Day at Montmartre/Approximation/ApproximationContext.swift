@@ -152,11 +152,11 @@ class ApproximationContext {
     private class func scaledVersionForBetterPerformance(original: UIImage,
                                                          imageSizeUsedDuringApproximation: Int)
         -> UIImage {
-            let safeSize = max(1, imageSizeUsedDuringApproximation)
-            return scaledVersion(original: original,
-                                 scale: calculateScaleFactorForDownscale(
-                                    original: original,
-                                    imageSizeUsedDuringApproximation: safeSize))
+        let safeSize = max(1, imageSizeUsedDuringApproximation)
+        return scaledVersion(original: original,
+                             scale: calculateScaleFactorForDownscale(
+                                original: original,
+                                imageSizeUsedDuringApproximation: safeSize))
     }
 
     private class func scaledVersion(original: UIImage, scale: Double) -> UIImage {
@@ -179,11 +179,11 @@ class ApproximationContext {
     private class func calculateScaleFactorForDownscale(original: UIImage,
                                                         imageSizeUsedDuringApproximation: Int)
         -> Double {
-            let maxExtent = Int(max(original.size.width, original.size.height))
-            if maxExtent > imageSizeUsedDuringApproximation {
-                return Double(imageSizeUsedDuringApproximation) / Double(maxExtent)
-            }
-            return 1
+        let maxExtent = Int(max(original.size.width, original.size.height))
+        if maxExtent > imageSizeUsedDuringApproximation {
+            return Double(imageSizeUsedDuringApproximation) / Double(maxExtent)
+        }
+        return 1
     }
 
     private class func emptyCanvas(width: CGFloat, height: CGFloat) -> UIImage {

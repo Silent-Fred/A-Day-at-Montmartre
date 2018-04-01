@@ -35,26 +35,24 @@ class HillClimbApproximator: Approximator {
             return hillClimb(startingWith: randomShape())
     }
 
-    private func hillClimb(startingWith: GeometricShape) -> (shape: GeometricShape, improvement: Double) {
+    private func hillClimb(startingWith: GeometricShape)
+        -> (shape: GeometricShape, improvement: Double) {
 
-        var mutatingShape = startingWith
-        var bestImprovement = tintShapeAndCalculateImprovement(shape: &mutatingShape)
-        var bestShape = mutatingShape
+        var bestImprovement = calculateImprovement(shape: startingWith)
         var failedAttemptsInARow = 0
         while failedAttemptsInARow < tolerateFailedAttempsInARow {
             failedAttemptsInARow += 1
             autoreleasepool {
-                for var shape in bestShape.neighbours() {
-                    let improvement = tintShapeAndCalculateImprovement(shape: &shape)
-                    if improvement > bestImprovement {
+                for neighbour in bestImprovement.shape.neighbours() {
+                    let improvement = calculateImprovement(shape: neighbour)
+                    if improvement.improvement > bestImprovement.improvement {
                         bestImprovement = improvement
-                        bestShape = shape
                         failedAttemptsInARow = 0
                     }
                 }
             }
         }
-        return (bestShape, bestImprovement)
+        return bestImprovement
     }
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Rectangle: GeometricShape {
+struct Rectangle: GeometricShape {
 
     static let mutationOptions = 3
 

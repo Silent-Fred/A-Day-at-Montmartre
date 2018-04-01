@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SmallDot: GeometricShape {
+struct SmallDot: GeometricShape {
 
     static let mutationOptions = 2
 

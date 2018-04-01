@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Triangle: GeometricShape {
+struct Triangle: GeometricShape {
 
     static let mutationOptions = 3
 

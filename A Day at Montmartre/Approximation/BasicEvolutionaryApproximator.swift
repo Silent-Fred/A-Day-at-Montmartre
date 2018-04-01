@@ -38,28 +38,26 @@ class BasicEvolutionaryApproximator: Approximator {
     private func basicEvolutionary(startingWith: GeometricShape)
         -> (shape: GeometricShape, improvement: Double) {
 
-            var mutatingShape = startingWith
-            var bestImprovement = 0.0
-            var bestShape = startingWith
-            var failuresLeft = acceptedFailuresPerShape
-            var failedAttemptsInARow = 0
-            while failuresLeft > 0
-                && failedAttemptsInARow < startingWith.patienceWithFailedMutations() {
-                    let improvement = tintShapeAndCalculateImprovement(shape: &mutatingShape)
-                    if improvement > bestImprovement {
-                        bestImprovement = improvement
-                        bestShape = mutatingShape
-                        failedAttemptsInARow = 0
-                    } else {
-                        failuresLeft -= 1
-                        failedAttemptsInARow += 1
-                    }
-                    // No need to undo the last step, we just mutate the best step again.
-                    // Absolutely take care that when resetting to the shape before,
-                    // mutated MUST NOT return the same mutation over and over again
-                    mutatingShape = bestShape.mutated()
-            }
-            return (bestShape, bestImprovement)
+        var bestImprovement = (shape: startingWith, improvement: -Double.infinity)
+        var mutatingShape = startingWith
+        var failuresLeft = acceptedFailuresPerShape
+        var failedAttemptsInARow = 0
+        while failuresLeft > 0
+            && failedAttemptsInARow < startingWith.patienceWithFailedMutations() {
+                let improvement = calculateImprovement(shape: mutatingShape)
+                if improvement.improvement > bestImprovement.improvement {
+                    bestImprovement = improvement
+                    failedAttemptsInARow = 0
+                } else {
+                    failuresLeft -= 1
+                    failedAttemptsInARow += 1
+                }
+                // No need to undo the last step, we just mutate the best step again.
+                // Absolutely take care that when resetting to the shape before,
+                // mutated MUST NOT return the same mutation over and over again
+                mutatingShape = bestImprovement.shape.mutated()
+        }
+        return bestImprovement
     }
 
 }

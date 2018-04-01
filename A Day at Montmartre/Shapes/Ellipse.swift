@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Ellipse: GeometricShape {
+struct Ellipse: GeometricShape {
 
     static let mutationOptions = 3
 

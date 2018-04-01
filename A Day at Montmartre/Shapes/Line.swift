@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Line: GeometricShape {
+struct Line: GeometricShape {
 
     static let mutationOptions = 3
 
