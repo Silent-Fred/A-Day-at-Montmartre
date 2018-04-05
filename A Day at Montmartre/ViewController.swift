@@ -131,20 +131,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let imageToApproximate = imageToApproximate else { return }
 
         let approximationStyle = SettingsBundleHelper.approximationStyle()
-        var shapeStyle: SupportedGeometricShapes
-        switch SettingsBundleHelper.shapeStyle() {
-        case .rectangles?:
-            shapeStyle = .rectangles
-        case .smallDots?:
-            shapeStyle = .smallDots
-        case .lines?:
-            shapeStyle = .lines
-        case .triangles?:
-            shapeStyle = .triangles
-        default:
-            shapeStyle = .ellipses
-        }
-        if approximationStyle == SettingsBundleHelper.ApproximationStyle.basicEvolutionary {
+        let shapeStyle = SettingsBundleHelper.shapeStyle() ?? .ellipses
+        if approximationStyle == ApproximationStyle.basicEvolutionary {
             approximator = BasicEvolutionaryApproximator(imageToApproximate: imageToApproximate,
                                                          using: shapeStyle)
         } else {
@@ -172,22 +160,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     private func shapeStyleSettingsChanged() -> Bool {
 
-        guard let approximatorUsesShape = approximator?.shapesToUse,
-            let bundleSuggestsShape = SettingsBundleHelper.shapeStyle()
+        guard let approximatorUsesShape = approximator?.shapesToUse
+            else { return true }
+        guard let bundleSuggestsShape = SettingsBundleHelper.shapeStyle()
             else { return false }
 
-        switch bundleSuggestsShape {
-        case .rectangles:
-            return approximatorUsesShape != .rectangles
-        case .smallDots:
-            return approximatorUsesShape != .smallDots
-        case .lines:
-            return approximatorUsesShape != .lines
-        case .triangles:
-            return approximatorUsesShape != .triangles
-        default:
-            return approximatorUsesShape != .ellipses
-        }
+        return approximatorUsesShape != bundleSuggestsShape
     }
 
     private func refreshApproximationStateAndContinue() {

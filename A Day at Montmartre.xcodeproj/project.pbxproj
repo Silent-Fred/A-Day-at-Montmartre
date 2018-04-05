@@ -27,6 +27,8 @@
 		4CB21E9B202B56BE009B1326 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */; };
 		4CBBA82D1FF596D600BC6268 /* GeometricShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */; };
 		4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBA82E1FF5982100BC6268 /* Ellipse.swift */; };
+		4CC55C3A2076A793002999C1 /* ShapeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC55C392076A793002999C1 /* ShapeFactory.swift */; };
+		4CC55C3D2076A8E8002999C1 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC55C3C2076A8E8002999C1 /* Types.swift */; };
 		4CD0CDE2201D00A7002DED6E /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0CDE1201D00A7002DED6E /* Rectangle.swift */; };
 		4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */; };
 		4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD5C1FF31FA00067100F /* ViewController.swift */; };
@@ -76,6 +78,8 @@
 		4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		4CBBA82C1FF596D600BC6268 /* GeometricShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometricShape.swift; sourceTree = "<group>"; };
 		4CBBA82E1FF5982100BC6268 /* Ellipse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
+		4CC55C392076A793002999C1 /* ShapeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFactory.swift; sourceTree = "<group>"; };
+		4CC55C3C2076A8E8002999C1 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		4CC689EE2030D01C00BAEA87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4CC689EF2030D01D00BAEA87 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4CD0CDE1201D00A7002DED6E /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				4CA251882038838D00981E48 /* Line.swift */,
 				4C960C252039987B00FEABE3 /* Point.swift */,
 				4C528000203A01D7000A1F19 /* Triangle.swift */,
+				4CC55C392076A793002999C1 /* ShapeFactory.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -170,6 +175,14 @@
 				4C97D3CB2011164C002772CA /* MontmartreColour.swift */,
 			);
 			path = ColourComputation;
+			sourceTree = "<group>";
+		};
+		4CC55C3B2076A8D8002999C1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4CC55C3C2076A8E8002999C1 /* Types.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		4CD4FD4E1FF31FA00067100F = {
@@ -197,6 +210,7 @@
 		4CD4FD591FF31FA00067100F /* A Day at Montmartre */ = {
 			isa = PBXGroup;
 			children = (
+				4CC55C3B2076A8D8002999C1 /* Base */,
 				4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */,
 				4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */,
 				4CD4FD5C1FF31FA00067100F /* ViewController.swift */,
@@ -467,8 +481,10 @@
 				4C7A7FB91FF5716000F1852D /* MyWorldOfColours.swift in Sources */,
 				4CF81C961FF59F80008B10D8 /* Double+Extensions.swift in Sources */,
 				4C12C08E201D3C10007F5EAF /* HillClimbApproximator.swift in Sources */,
+				4CC55C3A2076A793002999C1 /* ShapeFactory.swift in Sources */,
 				4CD4FD5D1FF31FA00067100F /* ViewController.swift in Sources */,
 				4C528001203A01D7000A1F19 /* Triangle.swift in Sources */,
+				4CC55C3D2076A8E8002999C1 /* Types.swift in Sources */,
 				4CAB6674200AD7C100F71E7C /* ShapeMask.swift in Sources */,
 				4C960C262039987B00FEABE3 /* Point.swift in Sources */,
 				4CD78686200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift in Sources */,

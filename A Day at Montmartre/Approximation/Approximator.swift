@@ -8,14 +8,6 @@
 
 import UIKit
 
-enum SupportedGeometricShapes {
-    case rectangles
-    case smallDots
-    case lines
-    case triangles
-    case ellipses
-}
-
 class Approximator {
 
     // maybe make alpha configurable later
@@ -45,9 +37,9 @@ class Approximator {
         return 0
     }
 
-    private (set) var shapesToUse: SupportedGeometricShapes
+    private (set) var shapesToUse: ShapeStyle
 
-    init(imageToApproximate: UIImage, using: SupportedGeometricShapes = .ellipses) {
+    init(imageToApproximate: UIImage, using: ShapeStyle = .ellipses) {
         context = ApproximationContext(originalImage: imageToApproximate)
         shapesToUse = using
     }
@@ -60,18 +52,9 @@ class Approximator {
 
         guard let current = context?.current else { return emptyShape() }
 
-        switch shapesToUse {
-        case .rectangles:
-            return Rectangle.randomShape(frameWidth: current.width, frameHeight: current.height)
-        case .smallDots:
-            return SmallDot.randomShape(frameWidth: current.width, frameHeight: current.height)
-        case .lines:
-            return Line.randomShape(frameWidth: current.width, frameHeight: current.height)
-        case .triangles:
-            return Triangle.randomShape(frameWidth: current.width, frameHeight: current.height)
-        default:
-            return Ellipse.randomShape(frameWidth: current.width, frameHeight: current.height)
-        }
+        return ShapeFactory.randomShape(shapesToUse,
+                                        screenRatioWidth: current.width,
+                                        toHeight: current.height)
     }
 
     func approximationRating() -> Double {

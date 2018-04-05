@@ -15,19 +15,6 @@ class SettingsBundleHelper {
         static let shapeStyle = "ShapeStyle"
     }
 
-    enum ApproximationStyle: String {
-        case hillClimb = "HillClimbing"
-        case basicEvolutionary = "BasicEvolutionary"
-    }
-
-    enum ShapeStyle: String {
-        case ellipses = "Ellipses"
-        case rectangles = "Rectangles"
-        case smallDots = "SmallDots"
-        case lines = "Lines"
-        case triangles = "Triangles"
-    }
-
     class func approximationStyle() -> ApproximationStyle? {
         let approximationStyle =
             UserDefaults.standard.string(forKey: SettingsBundleKeys.approximationStyle)
