@@ -201,9 +201,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let safeApproximator = approximator {
             let shapes = safeApproximator.shapeCount
             let attempts = safeApproximator.approximationAttempts
-            let rating = safeApproximator.approximationRating()
-            let percentageRating = String(format: "%.1f", 100.0 - rating * 100)
-            approximationStatusLabel.text = "\(attempts)\n\(shapes)\n\(percentageRating)%"
+            let rating = safeApproximator.approximationRatingInPercent()
+            let ratingFormatted = String(format: "%.1f", rating)
+            let detail = safeApproximator.detailLevel()
+            approximationStatusLabel.text =
+                "\(attempts)\n\(shapes)\n\(ratingFormatted)%\n\(detail)"
         } else {
             approximationStatusLabel.text = ""
         }

@@ -57,14 +57,16 @@ class Approximator {
                                         toHeight: current.height)
     }
 
-    func approximationRating() -> Double {
+    func approximationRatingInPercent() -> Double {
 
-        guard let targetColourCloud = context?.target.colourCloud(),
-            let currentColourCloud = context?.current.colourCloud()
-            else { return 0.0 }
+        guard let rating = context?.approximationRatingInPercent() else { return 0.0 }
 
-        return currentColourCloud.normalisedRootMeanSquareDeviationFrom(
-            target: targetColourCloud)
+        return rating
+    }
+
+    func detailLevel() -> Int {
+        guard let detail = context?.currentSize() else { return 0 }
+        return detail
     }
 
     private func emptyShape() -> GeometricShape {

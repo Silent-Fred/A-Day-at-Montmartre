@@ -22,17 +22,12 @@ class ApproximationContext {
 
     private var mask: ShapeMask
 
-    private static let defaultSize = 256
-    private let dynamicSizes = [10: 64,
-                                50: 128,
-                                100: defaultSize]
-
     init?(originalImage: UIImage) {
         targetImage = ApproximationContext.scaledVersion(original: originalImage, scale: 1)
         currentStateForDisplay =
             ApproximationContext.emptyCanvas(width: targetImage.size.width,
                                              height: targetImage.size.height)
-        let initialApproximationSize = dynamicSizes.first!.value
+        let initialApproximationSize = DynamicSizeSuggestion().suggest(forCurrentQuality: 0.0)
         targetImageScaledToSizeForApproximation =
             ApproximationContext.scaledVersionForBetterPerformance(
                 original: targetImage,
@@ -70,15 +65,31 @@ class ApproximationContext {
         }
     }
 
+    func approximationRatingInPercent() -> Double {
+        let targetColourCloud = target.colourCloud()
+        let currentColourCloud = current.colourCloud()
+        let normalisedRootMeanSquareDeviation =
+            currentColourCloud.normalisedRootMeanSquareDeviationFrom(target: targetColourCloud)
+        return (1.0 - normalisedRootMeanSquareDeviation) * 100
+    }
+
+    func currentSize() -> Int {
+        let currentWidth = current.width
+        let currentHeight = current.height
+        return max(currentWidth, currentHeight)
+    }
+
     private func rescale(toSize size: Int) {
 
         // rescale the scaled image versions
         targetImageScaledToSizeForApproximation =
-            ApproximationContext.scaledVersionForBetterPerformance(original: targetImage,
-                                                                   imageSizeUsedDuringApproximation: size)
+            ApproximationContext
+                .scaledVersionForBetterPerformance(original: targetImage,
+                                                   imageSizeUsedDuringApproximation: size)
         currentStateOfApproximation =
-            ApproximationContext.emptyCanvas(width: targetImageScaledToSizeForApproximation.size.width,
-                                             height: targetImageScaledToSizeForApproximation.size.height)
+            ApproximationContext
+                .emptyCanvas(width: targetImageScaledToSizeForApproximation.size.width,
+                             height: targetImageScaledToSizeForApproximation.size.height)
 
         // redraw all shapes on the rescaled current status
         currentStateOfApproximation = drawShapesOverImage(shapes: shapes, image: currentStateOfApproximation)
@@ -99,19 +110,13 @@ class ApproximationContext {
     }
 
     private func dynamicSize() -> Int {
-        let shapeCount = shapes.count
-        var size = ApproximationContext.defaultSize
-        for shapesToSizes in dynamicSizes where shapeCount < shapesToSizes.key {
-            size = shapesToSizes.value
-        }
-        return size
+        let suggestedSize = DynamicSizeSuggestion()
+            .suggest(forCurrentQuality: approximationRatingInPercent())
+        return max(currentSize(), suggestedSize)
     }
 
     private func dynamicSizeShouldChange() -> Bool {
-        let recommendedDynamicSize = dynamicSize()
-        let currentWidth = current.width
-        let currentHeight = current.height
-        return max(currentWidth, currentHeight) < recommendedDynamicSize
+        return currentSize() < dynamicSize()
     }
 
     private func rendererThatFits(image: CGImage) -> UIGraphicsImageRenderer {
@@ -152,11 +157,11 @@ class ApproximationContext {
     private class func scaledVersionForBetterPerformance(original: UIImage,
                                                          imageSizeUsedDuringApproximation: Int)
         -> UIImage {
-        let safeSize = max(1, imageSizeUsedDuringApproximation)
-        return scaledVersion(original: original,
-                             scale: calculateScaleFactorForDownscale(
-                                original: original,
-                                imageSizeUsedDuringApproximation: safeSize))
+            let safeSize = max(1, imageSizeUsedDuringApproximation)
+            return scaledVersion(original: original,
+                                 scale: calculateScaleFactorForDownscale(
+                                    original: original,
+                                    imageSizeUsedDuringApproximation: safeSize))
     }
 
     private class func scaledVersion(original: UIImage, scale: Double) -> UIImage {
@@ -179,11 +184,11 @@ class ApproximationContext {
     private class func calculateScaleFactorForDownscale(original: UIImage,
                                                         imageSizeUsedDuringApproximation: Int)
         -> Double {
-        let maxExtent = Int(max(original.size.width, original.size.height))
-        if maxExtent > imageSizeUsedDuringApproximation {
-            return Double(imageSizeUsedDuringApproximation) / Double(maxExtent)
-        }
-        return 1
+            let maxExtent = Int(max(original.size.width, original.size.height))
+            if maxExtent > imageSizeUsedDuringApproximation {
+                return Double(imageSizeUsedDuringApproximation) / Double(maxExtent)
+            }
+            return 1
     }
 
     private class func emptyCanvas(width: CGFloat, height: CGFloat) -> UIImage {
