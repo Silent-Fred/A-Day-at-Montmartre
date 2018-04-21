@@ -12,8 +12,7 @@ struct DynamicSizeSuggestion {
 
     private static let defaultSize = 256
     private static let minimumSize = defaultSize / 4
-    private let dynamicSizesBasedOnQuality = [75.0: minimumSize,
-                                              90.0: defaultSize / 2,
+    private let dynamicSizesBasedOnQuality = [92.0: defaultSize / 2,
                                               94.0: defaultSize,
                                               95.0: defaultSize * 2]
 
