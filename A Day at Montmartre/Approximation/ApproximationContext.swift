@@ -27,7 +27,7 @@ class ApproximationContext {
         currentStateForDisplay =
             ApproximationContext.emptyCanvas(width: targetImage.size.width,
                                              height: targetImage.size.height)
-        let initialApproximationSize = DynamicSizeSuggestion().suggest(forCurrentQuality: 0.0)
+        let initialApproximationSize = DynamicSizeSuggestion().suggestInitialSize()
         targetImageScaledToSizeForApproximation =
             ApproximationContext.scaledVersionForBetterPerformance(
                 original: targetImage,
@@ -111,7 +111,8 @@ class ApproximationContext {
 
     private func dynamicSize() -> Int {
         let suggestedSize = DynamicSizeSuggestion()
-            .suggest(forCurrentQuality: approximationRatingInPercent())
+            .suggest(basedOnQuality: approximationRatingInPercent(),
+                     andNumberOfShapes: shapes.count)
         return max(currentSize(), suggestedSize)
     }
 

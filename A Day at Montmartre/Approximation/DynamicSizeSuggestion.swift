@@ -12,14 +12,37 @@ struct DynamicSizeSuggestion {
 
     private static let defaultSize = 256
     private static let minimumSize = defaultSize / 4
-    private let dynamicSizesBasedOnQuality = [92.0: defaultSize / 2,
-                                              94.0: defaultSize,
-                                              95.0: defaultSize * 2]
+    private let dynamicSizesBasedOnQuality = [92: defaultSize / 2,
+                                              94: defaultSize,
+                                              96: defaultSize * 2]
+    private let dynamicSizesBasedOnShapes = [50: defaultSize / 2,
+                                             100: defaultSize,
+                                             1000: defaultSize * 2]
 
-    func suggest(forCurrentQuality quality: Double) -> Int {
+    func suggestInitialSize() -> Int {
+        return suggest(basedOnQuality: 0.0, andNumberOfShapes: 0)
+    }
+
+    func suggest(basedOnQuality quality: Double, andNumberOfShapes shapes: Int)
+        -> Int {
+        return min(suggest(forCurrentQuality: quality),
+                   suggest(forCurrentNumberOfShapes: shapes))
+    }
+
+    private func suggest(forCurrentQuality quality: Double) -> Int {
+        return suggest(fromDictionary: dynamicSizesBasedOnQuality,
+                       forProgress: Int(quality.rounded()))
+    }
+
+    private func suggest(forCurrentNumberOfShapes shapes: Int) -> Int {
+        return suggest(fromDictionary: dynamicSizesBasedOnShapes,
+                       forProgress: shapes)
+    }
+
+    private func suggest(fromDictionary dict: [Int: Int], forProgress progress: Int) -> Int {
         var size = DynamicSizeSuggestion.minimumSize
-        for sizeForQuality in dynamicSizesBasedOnQuality where quality >= sizeForQuality.key {
-            size = max(size, sizeForQuality.value)
+        for progressEntry in dict where progress >= progressEntry.key {
+            size = max(size, progressEntry.value)
         }
         return size
     }
