@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var theTarget: UIImageView!
     @IBOutlet weak var theCurrentState: UIImageView!
 
-    @IBOutlet weak var approximationStatusLabel: UILabel!
+    @IBOutlet weak var orbits: UIImageView!
 
     @IBOutlet weak var toolbar: UIToolbar!
 
@@ -197,17 +197,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @objc private func refreshProgressLabel() {
-        approximationStatusLabel.isHidden = !approximating
+
+        orbits.isHidden = !approximating
         if let safeApproximator = approximator {
             let shapes = safeApproximator.shapeCount
-            let attempts = safeApproximator.approximationAttempts
-            let rating = safeApproximator.approximationRatingInPercent()
-            let ratingFormatted = String(format: "%.1f", rating)
-            let detail = safeApproximator.detailLevel()
-            approximationStatusLabel.text =
-                "\(attempts)\n\(shapes)\n\(ratingFormatted)%\n\(detail)"
-        } else {
-            approximationStatusLabel.text = ""
+            // TODO maybe add some of these values later
+            // let attempts = safeApproximator.approximationAttempts
+            // let rating = safeApproximator.approximationRatingInPercent()
+            // let ratingFormatted = String(format: "%.1f", rating)
+            // let detail = safeApproximator.detailLevel()
+            var orbitNumber = OrbitNumberImage(Double(shapes), orbits: 3)
+            orbitNumber.numberColour = self.view.tintColor
+            orbits.image = orbitNumber.image(width: Int(orbits.frame.width),
+                                             height: Int(orbits.frame.height))
         }
     }
 

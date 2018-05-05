@@ -10,6 +10,8 @@
 		49A11D2ED605545C497CA48D /* Pods_A_Day_at_Montmartre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E8D07A293BD478A62843EC /* Pods_A_Day_at_Montmartre.framework */; };
 		4C12C08E201D3C10007F5EAF /* HillClimbApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */; };
 		4C12C097201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12C096201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift */; };
+		4C1824D3209B9B2C00B1914B /* Double+Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1824D2209B9B2C00B1914B /* Double+Orbit.swift */; };
+		4C1824D5209B9D9200B1914B /* OrbitNumberImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1824D4209B9D9200B1914B /* OrbitNumberImage.swift */; };
 		4C34B110202B29CA00C7997C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C34B10F202B29CA00C7997C /* Settings.bundle */; };
 		4C528001203A01D7000A1F19 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C528000203A01D7000A1F19 /* Triangle.swift */; };
 		4C78F91F2020FB5D00016B0B /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */; };
@@ -60,6 +62,8 @@
 		25AC4E170C72038347FD4449 /* Pods-A Day at Montmartre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at Montmartre.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at Montmartre/Pods-A Day at Montmartre.release.xcconfig"; sourceTree = "<group>"; };
 		4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HillClimbApproximator.swift; sourceTree = "<group>"; };
 		4C12C096201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEvolutionaryApproximator.swift; sourceTree = "<group>"; };
+		4C1824D2209B9B2C00B1914B /* Double+Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Orbit.swift"; sourceTree = "<group>"; };
+		4C1824D4209B9D9200B1914B /* OrbitNumberImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitNumberImage.swift; sourceTree = "<group>"; };
 		4C34B10F202B29CA00C7997C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4C528000203A01D7000A1F19 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
@@ -180,10 +184,31 @@
 			path = ColourComputation;
 			sourceTree = "<group>";
 		};
+		4C1824D0209B9AB400B1914B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4FD5E1FF31FA00067100F /* Main.storyboard */,
+				4CD4FD611FF31FA00067100F /* Assets.xcassets */,
+				4CD4FD631FF31FA00067100F /* LaunchScreen.storyboard */,
+				4C1824D4209B9D9200B1914B /* OrbitNumberImage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C1824D1209B9AE300B1914B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4FD5C1FF31FA00067100F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4CC55C3B2076A8D8002999C1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */,
 				4CC55C3C2076A8E8002999C1 /* Types.swift */,
+				4C1824D2209B9B2C00B1914B /* Double+Orbit.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -213,13 +238,10 @@
 		4CD4FD591FF31FA00067100F /* A Day at Montmartre */ = {
 			isa = PBXGroup;
 			children = (
+				4C1824D1209B9AE300B1914B /* Controller */,
+				4C1824D0209B9AB400B1914B /* View */,
 				4CC55C3B2076A8D8002999C1 /* Base */,
-				4CB21E9A202B56BE009B1326 /* SettingsBundleHelper.swift */,
 				4CD4FD5A1FF31FA00067100F /* AppDelegate.swift */,
-				4CD4FD5C1FF31FA00067100F /* ViewController.swift */,
-				4CD4FD5E1FF31FA00067100F /* Main.storyboard */,
-				4CD4FD611FF31FA00067100F /* Assets.xcassets */,
-				4CD4FD631FF31FA00067100F /* LaunchScreen.storyboard */,
 				4CD4FD661FF31FA00067100F /* Info.plist */,
 				4C12C093201D45DF007F5EAF /* ColourComputation */,
 				4C12C091201D4597007F5EAF /* Shapes */,
@@ -493,10 +515,12 @@
 				4CD78686200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift in Sources */,
 				4C8438291FFBCDA000090BC4 /* Approximator.swift in Sources */,
 				4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */,
+				4C1824D5209B9D9200B1914B /* OrbitNumberImage.swift in Sources */,
 				4CD4FD5B1FF31FA00067100F /* AppDelegate.swift in Sources */,
 				4CBBA82D1FF596D600BC6268 /* GeometricShape.swift in Sources */,
 				4C7F7BE0200033F800DAE60C /* BitmapMagic.swift in Sources */,
 				4CF3E4FA208A879900BD2748 /* DynamicSizeSuggestion.swift in Sources */,
+				4C1824D3209B9B2C00B1914B /* Double+Orbit.swift in Sources */,
 				4CB21E9B202B56BE009B1326 /* SettingsBundleHelper.swift in Sources */,
 				4CA251892038838D00981E48 /* Line.swift in Sources */,
 				4C942C8B200B57E100F96821 /* ApproximationContext.swift in Sources */,
