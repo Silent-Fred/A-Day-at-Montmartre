@@ -14,7 +14,6 @@
 		4C1824D5209B9D9200B1914B /* OrbitNumberImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1824D4209B9D9200B1914B /* OrbitNumberImage.swift */; };
 		4C34B110202B29CA00C7997C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C34B10F202B29CA00C7997C /* Settings.bundle */; };
 		4C528001203A01D7000A1F19 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C528000203A01D7000A1F19 /* Triangle.swift */; };
-		4C5ECC66209E7059007810FF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C5ECC65209E7059007810FF /* Info.plist */; };
 		4C78F91F2020FB5D00016B0B /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C78F91E2020FB5D00016B0B /* PerformanceTests.swift */; };
 		4C7A7FB91FF5716000F1852D /* MyWorldOfColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A7FB81FF5716000F1852D /* MyWorldOfColours.swift */; };
 		4C7F7BE0200033F800DAE60C /* BitmapMagic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F7BDF200033F800DAE60C /* BitmapMagic.swift */; };
@@ -40,6 +39,7 @@
 		4CD4FD701FF31FA00067100F /* A_Day_at_MontmartreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4FD6F1FF31FA00067100F /* A_Day_at_MontmartreTests.swift */; };
 		4CD78684200BD7D000F03D7F /* BitmapMagicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD78683200BD7D000F03D7F /* BitmapMagicTests.swift */; };
 		4CD78686200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD78685200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift */; };
+		4CDD133E209EEDBA00B2D99C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD133D209EEDBA00B2D99C /* AppDelegate.swift */; };
 		4CEF3BCA20378D2D00828B71 /* SmallDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3BC920378D2D00828B71 /* SmallDot.swift */; };
 		4CF3E4FA208A879900BD2748 /* DynamicSizeSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3E4F9208A879900BD2748 /* DynamicSizeSuggestion.swift */; };
 		4CF81C961FF59F80008B10D8 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */; };
@@ -99,6 +99,7 @@
 		4CD4FD711FF31FA00067100F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD78683200BD7D000F03D7F /* BitmapMagicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMagicTests.swift; sourceTree = "<group>"; };
 		4CD78685200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyWorldOfColours+UIKitExtensions.swift"; sourceTree = "<group>"; };
+		4CDD133D209EEDBA00B2D99C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEF3BC920378D2D00828B71 /* SmallDot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDot.swift; sourceTree = "<group>"; };
 		4CF3E4F9208A879900BD2748 /* DynamicSizeSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeSuggestion.swift; sourceTree = "<group>"; };
 		4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 		4CD4FD591FF31FA00067100F /* A Day at Montmartre */ = {
 			isa = PBXGroup;
 			children = (
+				4CDD133D209EEDBA00B2D99C /* AppDelegate.swift */,
 				4C5ECC65209E7059007810FF /* Info.plist */,
 				4C34B10F202B29CA00C7997C /* Settings.bundle */,
 				4C1824D1209B9AE300B1914B /* Controller */,
@@ -369,7 +371,6 @@
 				4CD4FD651FF31FA00067100F /* LaunchScreen.storyboard in Resources */,
 				4CD4FD621FF31FA00067100F /* Assets.xcassets in Resources */,
 				4C34B110202B29CA00C7997C /* Settings.bundle in Resources */,
-				4C5ECC66209E7059007810FF /* Info.plist in Resources */,
 				4CD4FD601FF31FA00067100F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +514,7 @@
 				4CAB6674200AD7C100F71E7C /* ShapeMask.swift in Sources */,
 				4C960C262039987B00FEABE3 /* Point.swift in Sources */,
 				4CD78686200BDA6500F03D7F /* MyWorldOfColours+UIKitExtensions.swift in Sources */,
+				4CDD133E209EEDBA00B2D99C /* AppDelegate.swift in Sources */,
 				4C8438291FFBCDA000090BC4 /* Approximator.swift in Sources */,
 				4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */,
 				4C1824D5209B9D9200B1914B /* OrbitNumberImage.swift in Sources */,
