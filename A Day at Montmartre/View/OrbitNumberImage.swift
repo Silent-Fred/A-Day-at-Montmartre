@@ -16,7 +16,6 @@ struct OrbitNumberImage {
     // the number of orbits to be used for visualisation
     var orbits: Int
 
-    var padding = 10.0
     var backgroundColour = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
     var orbitColour = UIColor.lightGray
     var numberColour = UIColor.red
@@ -61,7 +60,7 @@ struct OrbitNumberImage {
         let width = context.currentImage.size.width
         let height = context.currentImage.size.height
         let squareExtent = min(width, height)
-        return CGFloat(Double(squareExtent) / 2.0 - padding)
+        return CGFloat(Double(squareExtent) / 2.0)
     }
 
     private func orbit(_ orbit: Int,
