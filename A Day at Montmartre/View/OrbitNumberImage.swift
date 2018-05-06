@@ -16,7 +16,7 @@ struct OrbitNumberImage {
     // the number of orbits to be used for visualisation
     var orbits: Int
 
-    var backgroundColour = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+    var backgroundColour = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.75)
     var orbitColour = UIColor.lightGray
     var numberColour = UIColor.red
     var numberRadius: Double?
