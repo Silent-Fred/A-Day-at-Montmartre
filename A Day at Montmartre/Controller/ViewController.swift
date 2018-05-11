@@ -8,11 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate,
+    UIScrollViewDelegate {
 
     @IBOutlet weak var theMainView: UIView!
-    @IBOutlet weak var theTarget: UIImageView!
+
+    @IBOutlet weak var titleBackground: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var theCurrentState: UIImageView!
+
+    @IBOutlet weak var theTarget: UIImageView!
 
     @IBOutlet weak var orbits: UIImageView!
 
@@ -35,6 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         theTarget.layer.borderColor = UIColor.white.cgColor
 
         imagePicker.delegate = self
+        // scrollView.delegate = self is set on the storyboard
 
         // pick the image that is set in the storyboard and handle it just the
         // way it would be if it were taken from the photo library
@@ -62,17 +70,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareCurrentApproximation()
     }
 
-    @IBAction func startPauseApproximation() {
-        togglePlayPauseButton()
-        refreshApproximationStateAndContinue()
-    }
-
-    @IBAction func callSettings() {
-        if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
-            UIApplication.shared.open(appSettings)
-        }
-    }
-
     private func shareCurrentApproximation() {
 
         guard let safeImage = approximator?.currentImage else { return }
@@ -94,6 +91,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(activityViewController, animated: true, completion: nil)
     }
 
+    @IBAction func startPauseApproximation() {
+        togglePlayPauseButton()
+        refreshApproximationStateAndContinue()
+    }
+
+    private func togglePlayPauseButton() {
+        if approximating {
+            stopApproximation()
+        } else {
+            startApproximation()
+        }
+    }
+
     func startApproximation() {
         approximating = true
         playPauseButton.setImage(UIImage(named: "Pause"), for: .normal)
@@ -104,12 +114,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         approximating = false
         playPauseButton.setImage(UIImage(named: "Play"), for: .normal)
         stopRefreshTimer()
-    }
-
-    func restartApproximatorIfSettingsChanged() {
-        if settingsChanged() {
-            restartApproximatorWithCurrentSettings(imageToApproximate: theTarget.image)
-        }
     }
 
     private func startRefreshTimer() {
@@ -124,6 +128,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     private func stopRefreshTimer() {
         refreshTimer.invalidate()
+    }
+
+    @IBAction func callSettings() {
+        if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.open(appSettings)
+        }
+    }
+
+    func restartApproximatorIfSettingsChanged() {
+        if settingsChanged() {
+            restartApproximatorWithCurrentSettings(imageToApproximate: theTarget.image)
+        }
     }
 
     private func restartApproximatorWithCurrentSettings(imageToApproximate: UIImage?) {
@@ -186,22 +202,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         refreshProgressLabel()
         theTarget.image = approximator?.targetImage
         theCurrentState.image = approximator?.currentImage
-    }
-
-    private func togglePlayPauseButton() {
-        if approximating {
-            stopApproximation()
-        } else {
-            startApproximation()
-        }
+        // the image size should not vary - however, just in case it might in a later
+        // version, just recalculate it
+        updateZoomScales(forImage: theCurrentState.image!, inScrollView: scrollView)
     }
 
     @objc private func refreshProgressLabel() {
-
-        orbits.isHidden = !approximating
+        let shapeCount = approximator?.shapeCount ?? 0
+        titleBackground.isHidden = shapeCount > 0 || approximating
         if let safeApproximator = approximator {
             let shapes = safeApproximator.shapeCount
-            // TODO maybe add some of these values later
+            // These are other possible values for the orbit view.
             // let attempts = safeApproximator.approximationAttempts
             // let rating = safeApproximator.approximationRatingInPercent()
             // let ratingFormatted = String(format: "%.1f", rating)
@@ -219,8 +230,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         theTarget.image = image
         theTarget.layer.borderColor =
             averageColourOf(approximator?.targetScaledImage).cgColor
-        // initially always show the title image
-        theCurrentState.image = UIImage(named: "Title")
+        theCurrentState.image = approximator?.currentImage
+        updateZoomScales(forImage: theCurrentState.image!, inScrollView: scrollView)
+        // start with minimum zoom scale
+        scaleToMinumumZoomScales(scrollView: scrollView)
         refreshProgressLabel()
     }
 
@@ -234,6 +247,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return averageColour.uiColor()
     }
 
+    private func updateZoomScales(forImage image: UIImage,
+                                  inScrollView scrollView: UIScrollView) {
+        scrollView.minimumZoomScale = min(1, minimumZoomScale(forImage: image,
+                                                              inView: scrollView))
+        scrollView.maximumZoomScale = 1.0
+        view.layoutIfNeeded()
+    }
+
+    private func scaleToMinumumZoomScales(scrollView: UIScrollView) {
+        scrollView.zoomScale = scrollView.minimumZoomScale
+    }
+
+    private func minimumZoomScale(forImage image: UIImage,
+                                  inView view: UIView)
+        -> CGFloat {
+            let imageSize = image.size
+            let widthScale = view.bounds.size.width / imageSize.width
+            let heightScale = view.bounds.size.height / imageSize.height
+            return min(widthScale, heightScale)
+    }
+
+    private func centerInScrollView(scrollView: UIScrollView) {
+        let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) / 2.0, 0)
+        let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) / 2.0, 0)
+        self.scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: 0, right: 0)
+    }
+
     // MARK: - Delegates
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String: Any]) {
@@ -245,5 +285,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return theCurrentState
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateZoomScales(forImage: theCurrentState.image!,
+                         inScrollView: scrollView)
+        centerInScrollView(scrollView: scrollView)
+    }
+
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        centerInScrollView(scrollView: scrollView)
     }
 }
