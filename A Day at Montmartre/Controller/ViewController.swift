@@ -92,21 +92,23 @@ class ViewController: UIViewController,
     }
 
     @IBAction func startPauseApproximation() {
-        togglePlayPauseButton()
-        refreshApproximationStateAndContinue()
-    }
-
-    private func togglePlayPauseButton() {
         if approximating {
             stopApproximation()
         } else {
             startApproximation()
         }
+        refreshApproximationStateAndContinue()
     }
 
     func startApproximation() {
         approximating = true
         playPauseButton.setImage(UIImage(named: "Pause"), for: .normal)
+        UIView.transition(with: titleBackground,
+                          duration: 0.5,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                            self.titleBackground.isHidden = true
+        })
         startRefreshTimer()
     }
 
@@ -208,8 +210,6 @@ class ViewController: UIViewController,
     }
 
     @objc private func refreshProgressLabel() {
-        let shapeCount = approximator?.shapeCount ?? 0
-        titleBackground.isHidden = shapeCount > 0 || approximating
         if let safeApproximator = approximator {
             let shapes = safeApproximator.shapeCount
             // These are other possible values for the orbit view.
@@ -227,6 +227,7 @@ class ViewController: UIViewController,
     private func pickImageAndVisuallyRestartApproximation(image: UIImage) {
         restartApproximatorWithCurrentSettings(imageToApproximate: image)
         // visualise
+        titleBackground.isHidden = false
         theTarget.image = image
         theTarget.layer.borderColor =
             averageColourOf(approximator?.targetScaledImage).cgColor
