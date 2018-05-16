@@ -9,7 +9,8 @@
 "Triangles" = "Dreiecke";
 
 "Basic Evolutionary" = "Evolutionär";
-"Hill Climbing" = "Hill Climbing";
+"Hill-Climbing" = "Hill-Climbing";
+"Stochastic Hill-Climbing" = "Stochastisches Hill-Climbing";
 
 "Approximation Style" = "Verfahren";
 "Shape Style" = "Formen";

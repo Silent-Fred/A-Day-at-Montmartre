@@ -6,7 +6,7 @@
 //  Copyright © 2018 Michael Kühweg. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class BasicEvolutionaryApproximator: Approximator {
 

@@ -10,6 +10,7 @@ import Foundation
 
 enum ApproximationStyle: String {
     case hillClimb = "HillClimbing"
+    case stochasticHillClimb = "StochasticHillClimbing"
     case basicEvolutionary = "BasicEvolutionary"
 }
 

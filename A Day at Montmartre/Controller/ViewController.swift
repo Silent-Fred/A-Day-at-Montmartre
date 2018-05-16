@@ -150,10 +150,14 @@ class ViewController: UIViewController,
 
         let approximationStyle = SettingsBundleHelper.approximationStyle()
         let shapeStyle = SettingsBundleHelper.shapeStyle() ?? .ellipses
-        if approximationStyle == ApproximationStyle.basicEvolutionary {
+        switch approximationStyle {
+        case ApproximationStyle.basicEvolutionary?:
             approximator = BasicEvolutionaryApproximator(imageToApproximate: imageToApproximate,
                                                          using: shapeStyle)
-        } else {
+        case ApproximationStyle.stochasticHillClimb?:
+            approximator = StochasticHillClimbApproximator(imageToApproximate: imageToApproximate,
+                                                           using: shapeStyle)
+        default:
             approximator = HillClimbApproximator(imageToApproximate: imageToApproximate,
                                                  using: shapeStyle)
         }
@@ -171,6 +175,8 @@ class ViewController: UIViewController,
         switch SettingsBundleHelper.approximationStyle() {
         case .basicEvolutionary?:
             return !(approximator is BasicEvolutionaryApproximator)
+        case .stochasticHillClimb?:
+            return !(approximator is StochasticHillClimbApproximator)
         default:
             return !(approximator is HillClimbApproximator)
         }

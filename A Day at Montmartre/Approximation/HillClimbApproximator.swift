@@ -6,7 +6,7 @@
 //  Copyright © 2018 Michael Kühweg. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class HillClimbApproximator: Approximator {
 
@@ -38,6 +38,9 @@ class HillClimbApproximator: Approximator {
     private func hillClimb(startingWith: GeometricShape)
         -> (shape: GeometricShape, improvement: Double) {
 
+        // For the sake of clarity, there is no special handling for
+        // shapes that have already been evaluated. In case you ask
+        // yourself: yes, this has a negative impact on performance.
         var bestImprovement = calculateImprovement(shape: startingWith)
         var failedAttemptsInARow = 0
         while failedAttemptsInARow < tolerateFailedAttempsInARow {

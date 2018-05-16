@@ -39,8 +39,9 @@
 			<string>Approximation Style</string>
 			<key>Titles</key>
 			<array>
-				<string>Hill Climbing</string>
+				<string>Hill-Climbing</string>
 				<string>Basic Evolutionary</string>
+				<string>Stochastic Hill-Climbing</string>
 			</array>
 			<key>Key</key>
 			<string>ApproximationStyle</string>
@@ -50,6 +51,7 @@
 			<array>
 				<string>HillClimbing</string>
 				<string>BasicEvolutionary</string>
+				<string>StochasticHillClimbing</string>
 			</array>
 		</dict>
 	</array>
