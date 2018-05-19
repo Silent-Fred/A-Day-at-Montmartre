@@ -5,8 +5,9 @@
 "Ellipses" = "Ellipsen";
 "Rectangles" = "Rechtecke";
 "Lines" = "Linien";
-"SmallDots" = "Kleine Kreise";
+"Small Dots" = "Kleine Kreise";
 "Triangles" = "Dreiecke";
+"Quad Curves" = "Bézier";
 
 "Basic Evolutionary" = "Evolutionär";
 "Hill-Climbing" = "Hill-Climbing";

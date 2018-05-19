@@ -12,7 +12,7 @@ struct Line: GeometricShape {
 
     static let mutationOptions = 3
 
-    private static let minimumStroke = 0.01
+    private static let minimumStroke = 0.005
     private static let maximumStroke = 0.03
 
     private static let rangeForPointMutation = 0.1
@@ -95,16 +95,15 @@ struct Line: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(SmallDot.mutationOptions))
+        let whichMutation = arc4random_uniform(UInt32(Line.mutationOptions))
         switch whichMutation {
         case 0:
             return mutatedMoveTo()
-        case 0:
+        case 1:
             return mutatedLineTo()
         default:
             return mutatedStroke()
         }
-
     }
 
     private func mutatedMoveTo() -> GeometricShape {

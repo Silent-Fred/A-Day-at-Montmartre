@@ -16,14 +16,16 @@
 				<string>SmallDots</string>
 				<string>Lines</string>
 				<string>Triangles</string>
+				<string>QuadCurves</string>
 			</array>
 			<key>Titles</key>
 			<array>
 				<string>Ellipses</string>
 				<string>Rectangles</string>
-				<string>SmallDots</string>
+				<string>Small Dots</string>
 				<string>Lines</string>
 				<string>Triangles</string>
+				<string>Quad Curves</string>
 			</array>
 			<key>Title</key>
 			<string>Shape Style</string>

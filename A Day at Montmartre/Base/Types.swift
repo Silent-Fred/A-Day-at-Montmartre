@@ -20,4 +20,5 @@ enum ShapeStyle: String {
     case smallDots = "SmallDots"
     case lines = "Lines"
     case triangles = "Triangles"
+    case quadCurve = "QuadCurves"
 }

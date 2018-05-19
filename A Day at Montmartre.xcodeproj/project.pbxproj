@@ -43,6 +43,7 @@
 		4CDD1344209EF19000B2D99C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CDD1346209EF19000B2D99C /* InfoPlist.strings */; };
 		4CDD1349209EF4D800B2D99C /* OrbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD1348209EF4D800B2D99C /* OrbitTests.swift */; };
 		4CDEC9E620AB56BA004C63F2 /* StochasticHillClimbApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEC9E520AB56BA004C63F2 /* StochasticHillClimbApproximator.swift */; };
+		4CEDDD2620B0255D0012A77D /* QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDDD2520B0255D0012A77D /* QuadCurve.swift */; };
 		4CEF3BCA20378D2D00828B71 /* SmallDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3BC920378D2D00828B71 /* SmallDot.swift */; };
 		4CF3E4FA208A879900BD2748 /* DynamicSizeSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3E4F9208A879900BD2748 /* DynamicSizeSuggestion.swift */; };
 		4CF81C961FF59F80008B10D8 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */; };
@@ -107,6 +108,7 @@
 		4CDD1347209EF1A000B2D99C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4CDD1348209EF4D800B2D99C /* OrbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitTests.swift; sourceTree = "<group>"; };
 		4CDEC9E520AB56BA004C63F2 /* StochasticHillClimbApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StochasticHillClimbApproximator.swift; sourceTree = "<group>"; };
+		4CEDDD2520B0255D0012A77D /* QuadCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadCurve.swift; sourceTree = "<group>"; };
 		4CEF3BC920378D2D00828B71 /* SmallDot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDot.swift; sourceTree = "<group>"; };
 		4CF3E4F9208A879900BD2748 /* DynamicSizeSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeSuggestion.swift; sourceTree = "<group>"; };
 		4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				4C960C252039987B00FEABE3 /* Point.swift */,
 				4C528000203A01D7000A1F19 /* Triangle.swift */,
 				4CC55C392076A793002999C1 /* ShapeFactory.swift */,
+				4CEDDD2520B0255D0012A77D /* QuadCurve.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				4CBBA82F1FF5982100BC6268 /* Ellipse.swift in Sources */,
 				4C1824D5209B9D9200B1914B /* OrbitNumberImage.swift in Sources */,
 				4CBBA82D1FF596D600BC6268 /* GeometricShape.swift in Sources */,
+				4CEDDD2620B0255D0012A77D /* QuadCurve.swift in Sources */,
 				4C7F7BE0200033F800DAE60C /* BitmapMagic.swift in Sources */,
 				4CF3E4FA208A879900BD2748 /* DynamicSizeSuggestion.swift in Sources */,
 				4C1824D3209B9B2C00B1914B /* Double+Orbit.swift in Sources */,

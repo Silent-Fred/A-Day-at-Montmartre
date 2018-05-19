@@ -22,6 +22,8 @@ class ShapeFactory {
             return Line.randomShape(frameWidth: width, frameHeight: height)
         case .triangles:
             return Triangle.randomShape(frameWidth: width, frameHeight: height)
+        case .quadCurve:
+            return QuadCurve.randomShape(frameWidth: width, frameHeight: height)
         default:
             return Ellipse.randomShape(frameWidth: width, frameHeight: height)
         }
