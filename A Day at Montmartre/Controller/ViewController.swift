@@ -9,8 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController,
-    UIImagePickerControllerDelegate,
-    UINavigationControllerDelegate,
+    UIImagePickerControllerDelegate, UINavigationControllerDelegate,
     UIScrollViewDelegate {
 
     @IBOutlet weak var theMainView: UIView!
@@ -240,7 +239,7 @@ class ViewController: UIViewController,
         theCurrentState.image = approximator?.currentImage
         updateZoomScales(forImage: theCurrentState.image!, inScrollView: scrollView)
         // start with minimum zoom scale
-        scaleToMinumumZoomScales(scrollView: scrollView)
+        scaleToMinimumZoomScales(scrollView: scrollView)
         refreshProgressLabel()
     }
 
@@ -252,33 +251,6 @@ class ViewController: UIViewController,
         let bitmap = BitmapMagic(forImage: safeImage)
         let averageColour = bitmap.colourCloud().averageColour()
         return averageColour.uiColor()
-    }
-
-    private func updateZoomScales(forImage image: UIImage,
-                                  inScrollView scrollView: UIScrollView) {
-        scrollView.minimumZoomScale = min(1, minimumZoomScale(forImage: image,
-                                                              inView: scrollView))
-        scrollView.maximumZoomScale = 1.0
-        view.layoutIfNeeded()
-    }
-
-    private func scaleToMinumumZoomScales(scrollView: UIScrollView) {
-        scrollView.zoomScale = scrollView.minimumZoomScale
-    }
-
-    private func minimumZoomScale(forImage image: UIImage,
-                                  inView view: UIView)
-        -> CGFloat {
-            let imageSize = image.size
-            let widthScale = view.bounds.size.width / imageSize.width
-            let heightScale = view.bounds.size.height / imageSize.height
-            return min(widthScale, heightScale)
-    }
-
-    private func centerInScrollView(scrollView: UIScrollView) {
-        let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) / 2.0, 0)
-        let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) / 2.0, 0)
-        self.scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: 0, right: 0)
     }
 
     // MARK: - Delegates
@@ -294,18 +266,66 @@ class ViewController: UIViewController,
         dismiss(animated: true, completion: nil)
     }
 
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        centerInScrollView(scrollView: scrollView)
+    }
+
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return theCurrentState
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        updateZoomScales(forImage: theCurrentState.image!,
+    override func viewWillTransition(to size: CGSize,
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        let image = theCurrentState.image!
+        updateZoomScales(minimumZoomScale: minimumZoomScale(forImage: image, inside: size),
+                         maximumZoomScale: maximumZoomScale(forImage: image, inside: size),
                          inScrollView: scrollView)
+        scaleToMinimumZoomScales(scrollView: scrollView)
         centerInScrollView(scrollView: scrollView)
     }
 
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateZoomScales(forImage: theCurrentState.image!, inScrollView: scrollView)
         centerInScrollView(scrollView: scrollView)
+    }
+
+    private func minimumZoomScale(forImage image: UIImage, inside size: CGSize) -> CGFloat {
+        let imageSize = image.size
+        let widthScale = size.width / imageSize.width
+        let heightScale = size.height / imageSize.height
+        return min(widthScale, heightScale)
+    }
+
+    private func maximumZoomScale(forImage image: UIImage, inside size: CGSize) -> CGFloat {
+        return 1.0
+    }
+
+    private func updateZoomScales(forImage image: UIImage,
+                                  inScrollView scrollView: UIScrollView) {
+        let image = theCurrentState.image!
+        let size = scrollView.frame.size
+        updateZoomScales(minimumZoomScale: minimumZoomScale(forImage: image, inside: size),
+                         maximumZoomScale: maximumZoomScale(forImage: image, inside: size),
+                         inScrollView: scrollView)
+    }
+
+    private func updateZoomScales(minimumZoomScale: CGFloat,
+                                  maximumZoomScale: CGFloat,
+                                  inScrollView scrollView: UIScrollView) {
+        scrollView.minimumZoomScale = minimumZoomScale
+        scrollView.maximumZoomScale = maximumZoomScale
+        view.layoutIfNeeded()
+    }
+
+    private func scaleToMinimumZoomScales(scrollView: UIScrollView) {
+        scrollView.zoomScale = scrollView.minimumZoomScale
+    }
+
+    private func centerInScrollView(scrollView: UIScrollView) {
+        let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) / 2.0, 0)
+        let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) / 2.0, 0)
+        self.scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: 0, right: 0)
     }
 }
