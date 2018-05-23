@@ -209,9 +209,6 @@ class ViewController: UIViewController,
         refreshProgressLabel()
         theTarget.image = approximator?.targetImage
         theCurrentState.image = approximator?.currentImage
-        // the image size should not vary - however, just in case it might in a later
-        // version, just recalculate it
-        updateZoomScales(forImage: theCurrentState.image!, inScrollView: scrollView)
     }
 
     @objc private func refreshProgressLabel() {
@@ -240,6 +237,7 @@ class ViewController: UIViewController,
         updateZoomScales(forImage: theCurrentState.image!, inScrollView: scrollView)
         // start with minimum zoom scale
         scaleToMinimumZoomScales(scrollView: scrollView)
+        centerInScrollView(scrollView: scrollView)
         refreshProgressLabel()
     }
 
@@ -282,7 +280,6 @@ class ViewController: UIViewController,
                          maximumZoomScale: maximumZoomScale(forImage: image, inside: size),
                          inScrollView: scrollView)
         scaleToMinimumZoomScales(scrollView: scrollView)
-        centerInScrollView(scrollView: scrollView)
     }
 
     override func viewWillLayoutSubviews() {
@@ -304,7 +301,6 @@ class ViewController: UIViewController,
 
     private func updateZoomScales(forImage image: UIImage,
                                   inScrollView scrollView: UIScrollView) {
-        let image = theCurrentState.image!
         let size = scrollView.frame.size
         updateZoomScales(minimumZoomScale: minimumZoomScale(forImage: image, inside: size),
                          maximumZoomScale: maximumZoomScale(forImage: image, inside: size),
