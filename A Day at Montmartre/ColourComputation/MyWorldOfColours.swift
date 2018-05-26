@@ -6,8 +6,6 @@
 //  Copyright © 2017 Michael Kühweg. All rights reserved.
 //
 
-import Foundation
-
 class ColourAverager {
 
     static let assumedBackgroundColour = MontmartreColour.white

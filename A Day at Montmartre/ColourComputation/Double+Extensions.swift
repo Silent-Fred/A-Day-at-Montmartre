@@ -6,8 +6,6 @@
 //  Copyright © 2017 Michael Kühweg. All rights reserved.
 //
 
-import Foundation
-
 extension Double {
 
     func clamp(between lowerBound: Double, and upperBound: Double) -> Double {

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Michael Kühweg. All rights reserved.
 //
 
-import Foundation
-
 enum ApproximationStyle: String {
     case hillClimb = "HillClimbing"
     case stochasticHillClimb = "StochasticHillClimbing"

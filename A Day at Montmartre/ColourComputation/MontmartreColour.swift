@@ -6,7 +6,6 @@
 //  Copyright © 2018 Michael Kühweg. All rights reserved.
 //
 
-import UIKit
 // An abstract representation of colours used for averaging and mixing.
 // The abstraction is meant to be able to move from the initial RGBA
 // representation to maybe L*a*b or something else in the future.

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Michael Kühweg. All rights reserved.
 //
 
-import Foundation
-
 class ShapeFactory {
     static func randomShape(_ shapeStyle: ShapeStyle,
                             screenRatioWidth width: Int,
