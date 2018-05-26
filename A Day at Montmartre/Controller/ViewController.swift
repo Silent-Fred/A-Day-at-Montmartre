@@ -17,13 +17,10 @@ class ViewController: UIViewController,
     @IBOutlet weak var titleBackground: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var theCurrentState: UIImageView!
-
     @IBOutlet weak var theTarget: UIImageView!
-
     @IBOutlet weak var orbits: UIImageView!
 
     @IBOutlet weak var toolbar: UIToolbar!
-
     @IBOutlet weak var playPauseButton: UIButton!
 
     let imagePicker = UIImagePickerController()
@@ -37,7 +34,6 @@ class ViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        theTarget.layer.borderWidth = 5
         theTarget.layer.borderColor = UIColor.white.cgColor
 
         imagePicker.delegate = self
@@ -46,7 +42,7 @@ class ViewController: UIViewController,
         // pick the image that is set in the storyboard and handle it just the
         // way it would be if it were taken from the photo library
         // (force unwrap is not nice, but hey, it's the image set in
-        // the storyboard, so if it should be missing - SET IT)
+        // the storyboard, so if it should be missing - SET IT THERE)
         pickImageAndVisuallyRestartApproximation(image: theTarget.image!)
 
         refreshProgressLabel()
@@ -276,8 +272,9 @@ class ViewController: UIViewController,
                                      with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         let image = theCurrentState.image!
-        updateZoomScales(minimumZoomScale: minimumZoomScale(forImage: image, inside: size),
-                         maximumZoomScale: maximumZoomScale(forImage: image, inside: size),
+        let scales = zoomScales(for: image.size, inside: size)
+        updateZoomScales(minimumZoomScale: scales.minScale,
+                         maximumZoomScale: scales.maxScale,
                          inScrollView: scrollView)
         scaleToMinimumZoomScales(scrollView: scrollView)
     }
@@ -288,22 +285,18 @@ class ViewController: UIViewController,
         centerInScrollView(scrollView: scrollView)
     }
 
-    private func minimumZoomScale(forImage image: UIImage, inside size: CGSize) -> CGFloat {
-        let imageSize = image.size
-        let widthScale = size.width / imageSize.width
-        let heightScale = size.height / imageSize.height
-        return min(widthScale, heightScale)
-    }
-
-    private func maximumZoomScale(forImage image: UIImage, inside size: CGSize) -> CGFloat {
-        return 1.0
+    private func zoomScales(for whatToScale: CGSize, inside container: CGSize)
+        -> (minScale: CGFloat, maxScale: CGFloat) {
+        let widthScale = container.width / whatToScale.width
+        let heightScale = container.height / whatToScale.height
+        return (min(widthScale, heightScale), 1.0)
     }
 
     private func updateZoomScales(forImage image: UIImage,
                                   inScrollView scrollView: UIScrollView) {
-        let size = scrollView.frame.size
-        updateZoomScales(minimumZoomScale: minimumZoomScale(forImage: image, inside: size),
-                         maximumZoomScale: maximumZoomScale(forImage: image, inside: size),
+        let scales = zoomScales(for: image.size, inside: scrollView.frame.size)
+        updateZoomScales(minimumZoomScale: scales.minScale,
+                         maximumZoomScale: scales.maxScale,
                          inScrollView: scrollView)
     }
 
@@ -322,6 +315,6 @@ class ViewController: UIViewController,
     private func centerInScrollView(scrollView: UIScrollView) {
         let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) / 2.0, 0)
         let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) / 2.0, 0)
-        self.scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: 0, right: 0)
+        scrollView.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: 0, right: 0)
     }
 }
