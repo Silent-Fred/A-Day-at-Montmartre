@@ -10,8 +10,6 @@ import UIKit
 
 struct Triangle: GeometricShape {
 
-    static let mutationOptions = 3
-
     private static let rangeForPointMutation = 0.1
 
     static func randomShape(frameWidth width: Int, frameHeight height: Int) -> GeometricShape {
@@ -91,7 +89,7 @@ struct Triangle: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichPoint = arc4random_uniform(UInt32(Triangle.mutationOptions))
+        let whichPoint = arc4random_uniform(UInt32(3))
         switch whichPoint {
         case 0:
             return Triangle(pointA: pointA.jiggle(peak: Triangle.rangeForPointMutation),
@@ -110,7 +108,7 @@ struct Triangle: GeometricShape {
 
     func patienceWithFailedMutations() -> Int {
         // several (random) attempts at mutating all variants
-        return Triangle.mutationOptions * 10
+        return 3 * 10
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

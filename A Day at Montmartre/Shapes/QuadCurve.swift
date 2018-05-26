@@ -10,10 +10,7 @@ import UIKit
 
 struct QuadCurve: GeometricShape {
 
-    static let mutationOptions = 3
-
     private static let strokeInPoints = 3.0
-
     private static let rangeForPointMutation = 0.05
 
     static func randomShape(frameWidth width: Int, frameHeight height: Int) -> GeometricShape {
@@ -92,7 +89,7 @@ struct QuadCurve: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(QuadCurve.mutationOptions))
+        let whichMutation = arc4random_uniform(UInt32(3))
         switch whichMutation {
         case 0:
             return mutatedMoveTo()
@@ -123,7 +120,7 @@ struct QuadCurve: GeometricShape {
     }
 
     func patienceWithFailedMutations() -> Int {
-        return Line.mutationOptions * 10
+        return 3 * 10
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

@@ -10,8 +10,6 @@ import UIKit
 
 struct SmallDot: GeometricShape {
 
-    static let mutationOptions = 2
-
     private static let minimumRadius = 0.01
     private static let maximumRadius = 0.05
 
@@ -68,7 +66,7 @@ struct SmallDot: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(SmallDot.mutationOptions))
+        let whichMutation = arc4random_uniform(UInt32(2))
         switch whichMutation {
         case 0:
             return mutatedCenter()
@@ -93,8 +91,7 @@ struct SmallDot: GeometricShape {
     }
 
     func patienceWithFailedMutations() -> Int {
-        // several (random) attempts at mutating all variants
-        return Ellipse.mutationOptions * 10
+        return 2 * 10
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

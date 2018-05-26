@@ -10,8 +10,6 @@ import UIKit
 
 struct Ellipse: GeometricShape {
 
-    static let mutationOptions = 3
-
     // do not smear across the whole canvas initially
     static let rangeForRandomRadius = 0.1
     // do not use tiny or even completely collapsed shapes
@@ -53,7 +51,7 @@ struct Ellipse: GeometricShape {
     func mutated() -> GeometricShape {
         // Mutations do not keep track of where they went before.
         // Mutating a shape back and forth could therefore happen.
-        let whichMutation = arc4random_uniform(UInt32(Ellipse.mutationOptions))
+        let whichMutation = arc4random_uniform(UInt32(3))
         switch whichMutation {
         case 0:
             return mutatedCenter()
@@ -66,7 +64,7 @@ struct Ellipse: GeometricShape {
 
     func patienceWithFailedMutations() -> Int {
         // several (random) attempts at mutating all variants
-        return Ellipse.mutationOptions * 10
+        return 3 * 10
     }
 
     private func randomValueForCenterMutation() -> Double {

@@ -10,8 +10,6 @@ import UIKit
 
 struct Rectangle: GeometricShape {
 
-    static let mutationOptions = 3
-
     // do not smear across the whole canvas initially
     static let rangeForRandomExtent = 0.16
     // do not use tiny or even completely collapsed shapes
@@ -62,7 +60,7 @@ struct Rectangle: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(Rectangle.mutationOptions))
+        let whichMutation = arc4random_uniform(UInt32(3))
         switch whichMutation {
         case 0:
             return mutatedCenter()
@@ -157,7 +155,7 @@ struct Rectangle: GeometricShape {
     }
 
     func patienceWithFailedMutations() -> Int {
-        return Rectangle.mutationOptions * 3
+        return 3 * 10
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {

@@ -10,8 +10,6 @@ import UIKit
 
 struct Line: GeometricShape {
 
-    static let mutationOptions = 3
-
     private static let minimumStroke = 0.005
     private static let maximumStroke = 0.03
 
@@ -95,7 +93,7 @@ struct Line: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(Line.mutationOptions))
+        let whichMutation = arc4random_uniform(UInt32(3))
         switch whichMutation {
         case 0:
             return mutatedMoveTo()
@@ -128,7 +126,7 @@ struct Line: GeometricShape {
     }
 
     func patienceWithFailedMutations() -> Int {
-        return Line.mutationOptions * 10
+        return 3 * 10
     }
 
     func drawInContext(context: UIGraphicsImageRendererContext, usingColour: UIColor) {
