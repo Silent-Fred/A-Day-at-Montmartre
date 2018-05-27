@@ -58,9 +58,7 @@ class Approximator {
     }
 
     func approximationRatingInPercent() -> Double {
-
         guard let rating = context?.approximationRatingInPercent() else { return 0.0 }
-
         return rating
     }
 
@@ -91,12 +89,11 @@ class Approximator {
 
         let overpaint = findOverpaintColour(making: colourCloudCurrent,
                                             lookLike: colourCloudTarget)
-
-        var colouredShape = shape
-        colouredShape.colour = overpaint
         let improvement = calculateImprovementInSquareDeviation(overpainting: colourCloudCurrent,
                                                                 with: overpaint,
                                                                 approximating: colourCloudTarget)
+        var colouredShape = shape
+        colouredShape.colour = overpaint
         return (colouredShape, improvement)
     }
 

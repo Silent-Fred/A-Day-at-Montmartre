@@ -25,9 +25,9 @@ struct Triangle: GeometricShape {
 
     var colour: MontmartreColour
 
-    private var pointA: Point
-    private var pointB: Point
-    private var pointC: Point
+    private let pointA: Point
+    private let pointB: Point
+    private let pointC: Point
 
     init(pointA: Point,
          pointB: Point,
@@ -89,21 +89,10 @@ struct Triangle: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichPoint = arc4random_uniform(UInt32(3))
-        switch whichPoint {
-        case 0:
-            return Triangle(pointA: pointA.jiggle(peak: Triangle.rangeForPointMutation),
-                            pointB: pointB,
-                            pointC: pointC)
-        case 1:
-            return Triangle(pointA: pointA,
-                            pointB: pointB.jiggle(peak: Triangle.rangeForPointMutation),
-                            pointC: pointC)
-        default:
-            return Triangle(pointA: pointA,
-                            pointB: pointB,
-                            pointC: pointC.jiggle(peak: Triangle.rangeForPointMutation))
-        }
+        var points = [pointA, pointB, pointC]
+        let whichPoint = Int(arc4random_uniform(UInt32(points.count)))
+        points[whichPoint] = points[whichPoint].jiggle(peak: Triangle.rangeForPointMutation)
+        return Triangle(pointA: points[0], pointB: points[1], pointC: points[2])
     }
 
     func patienceWithFailedMutations() -> Int {

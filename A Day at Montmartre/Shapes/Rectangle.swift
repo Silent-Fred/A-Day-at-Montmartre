@@ -31,10 +31,10 @@ struct Rectangle: GeometricShape {
 
     var colour: MontmartreColour
 
-    private var center: Point
-    private var width: Double
-    private var height: Double
-    private var angleInDegrees: Double
+    private let center: Point
+    private let width: Double
+    private let height: Double
+    private let angleInDegrees: Double
 
     init(center: Point,
          width: Double, height: Double,
@@ -60,15 +60,9 @@ struct Rectangle: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(3))
-        switch whichMutation {
-        case 0:
-            return mutatedCenter()
-        case 1:
-            return mutatedExtent()
-        default:
-            return mutatedAngle()
-        }
+        let mutations = [mutatedCenter, mutatedExtent, mutatedAngle]
+        let whichMutation = Int(arc4random_uniform(UInt32(mutations.count)))
+        return mutations[whichMutation]()
     }
 
     func neighbours() -> [GeometricShape] {

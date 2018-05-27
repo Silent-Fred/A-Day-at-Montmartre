@@ -10,7 +10,6 @@ class ShapeFactory {
     static func randomShape(_ shapeStyle: ShapeStyle,
                             screenRatioWidth width: Int,
                             toHeight height: Int) -> GeometricShape {
-
         switch shapeStyle {
         case .rectangles:
             return Rectangle.randomShape(frameWidth: width, frameHeight: height)

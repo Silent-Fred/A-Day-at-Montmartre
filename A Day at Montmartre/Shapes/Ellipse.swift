@@ -32,10 +32,10 @@ struct Ellipse: GeometricShape {
 
     var colour: MontmartreColour
 
-    private var center: Point
-    private var radiusX: Double
-    private var radiusY: Double
-    private var angleInDegrees: Double
+    private let center: Point
+    private let radiusX: Double
+    private let radiusY: Double
+    private let angleInDegrees: Double
 
     init(center: Point,
          radiusX: Double, radiusY: Double,
@@ -51,15 +51,9 @@ struct Ellipse: GeometricShape {
     func mutated() -> GeometricShape {
         // Mutations do not keep track of where they went before.
         // Mutating a shape back and forth could therefore happen.
-        let whichMutation = arc4random_uniform(UInt32(3))
-        switch whichMutation {
-        case 0:
-            return mutatedCenter()
-        case 1:
-            return mutatedRadius()
-        default:
-            return mutatedAngle()
-        }
+        let mutations = [mutatedCenter, mutatedRadius, mutatedAngle]
+        let whichMutation = Int(arc4random_uniform(UInt32(mutations.count)))
+        return mutations[whichMutation]()
     }
 
     func patienceWithFailedMutations() -> Int {

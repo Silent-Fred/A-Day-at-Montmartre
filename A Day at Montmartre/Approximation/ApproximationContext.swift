@@ -185,11 +185,11 @@ class ApproximationContext {
     private class func calculateScaleFactorForDownscale(original: UIImage,
                                                         imageSizeUsedDuringApproximation: Int)
         -> Double {
-            let maxExtent = Int(max(original.size.width, original.size.height))
-            if maxExtent > imageSizeUsedDuringApproximation {
-                return Double(imageSizeUsedDuringApproximation) / Double(maxExtent)
-            }
-            return 1
+        let maxExtent = Int(max(original.size.width, original.size.height))
+        if maxExtent > imageSizeUsedDuringApproximation {
+            return Double(imageSizeUsedDuringApproximation) / Double(maxExtent)
+        }
+        return 1
     }
 
     private class func emptyCanvas(width: CGFloat, height: CGFloat) -> UIImage {

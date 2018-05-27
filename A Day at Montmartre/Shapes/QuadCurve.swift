@@ -25,9 +25,9 @@ struct QuadCurve: GeometricShape {
 
     var colour: MontmartreColour
 
-    private var moveTo: Point
-    private var lineTo: Point
-    private var control: Point
+    private let moveTo: Point
+    private let lineTo: Point
+    private let control: Point
 
     init(moveTo: Point,
          lineTo: Point,
@@ -89,34 +89,10 @@ struct QuadCurve: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(3))
-        switch whichMutation {
-        case 0:
-            return mutatedMoveTo()
-        case 1:
-            return mutatedLineTo()
-        default:
-            return mutatedControl()
-        }
-
-    }
-
-    private func mutatedMoveTo() -> GeometricShape {
-        return QuadCurve(moveTo: moveTo.jiggle(peak: QuadCurve.rangeForPointMutation),
-                         lineTo: lineTo,
-                         control: control)
-    }
-
-    private func mutatedLineTo() -> GeometricShape {
-        return QuadCurve(moveTo: moveTo,
-                         lineTo: lineTo.jiggle(peak: QuadCurve.rangeForPointMutation),
-                         control: control)
-    }
-
-    private func mutatedControl() -> GeometricShape {
-        return QuadCurve(moveTo: moveTo,
-                         lineTo: lineTo,
-                         control: control.jiggle(peak: QuadCurve.rangeForPointMutation))
+        var points = [moveTo, lineTo, control]
+        let whichPoint = Int(arc4random_uniform(UInt32(points.count)))
+        points[whichPoint] = points[whichPoint].jiggle(peak: QuadCurve.rangeForPointMutation)
+        return QuadCurve(moveTo: points[0], lineTo: points[1], control: points[2])
     }
 
     func patienceWithFailedMutations() -> Int {

@@ -26,8 +26,8 @@ struct SmallDot: GeometricShape {
 
     var colour: MontmartreColour
 
-    private var center: Point
-    private var radius: Double
+    private let center: Point
+    private let radius: Double
 
     init(center: Point, radius: Double,
          colour: MontmartreColour = MontmartreColour.clear) {
@@ -54,25 +54,17 @@ struct SmallDot: GeometricShape {
                                    radius: radius))
         neighbours.append(SmallDot(center: center.down(by: randomValueForCenterMutation()),
                                    radius: radius))
-        let smaller =
-            (radius - randomValueForRadiusMutation()).clamp(between: SmallDot.minimumRadius,
-                                                            and: SmallDot.maximumRadius)
+        let smaller = radius - randomValueForRadiusMutation()
         neighbours.append(SmallDot(center: center, radius: smaller))
-        let bigger =
-            (radius + randomValueForRadiusMutation()).clamp(between: SmallDot.minimumRadius,
-                                                            and: SmallDot.maximumRadius)
+        let bigger = radius + randomValueForRadiusMutation()
         neighbours.append(SmallDot(center: center, radius: bigger))
         return neighbours
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(2))
-        switch whichMutation {
-        case 0:
-            return mutatedCenter()
-        default:
-            return mutatedRadius()
-        }
+        let mutations = [mutatedCenter, mutatedRadius]
+        let whichMutation = Int(arc4random_uniform(UInt32(mutations.count)))
+        return mutations[whichMutation]()
     }
 
     private func mutatedCenter() -> GeometricShape {
@@ -85,9 +77,7 @@ struct SmallDot: GeometricShape {
         let mutatedRadius: Double = radius
             + 2 * randomValueForRadiusMutation()
             - SmallDot.rangeForRadiusMutation
-        return SmallDot(center: center,
-                        radius: mutatedRadius.clamp(between: SmallDot.minimumRadius,
-                                                    and: SmallDot.maximumRadius))
+        return SmallDot(center: center, radius: mutatedRadius)
     }
 
     func patienceWithFailedMutations() -> Int {

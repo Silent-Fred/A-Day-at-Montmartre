@@ -6,39 +6,6 @@
 //  Copyright © 2017 Michael Kühweg. All rights reserved.
 //
 
-class ColourAverager {
-
-    static let assumedBackgroundColour = MontmartreColour.white
-
-    private var cumulatedRed = 0.0
-    private var cumulatedGreen = 0.0
-    private var cumulatedBlue = 0.0
-    private var count = 0
-
-    func addDot(withColour colour: MontmartreColour) {
-        // mixing the average colour happens against an assumed white background
-        // (therefore we'll always use an alpha value of 1.0 for the average colour)
-        let opaque = colour.opaque(againstBackgroundColour: MontmartreColour.white)
-        cumulatedRed += opaque.red * opaque.red
-        cumulatedGreen += opaque.green * opaque.green
-        cumulatedBlue += opaque.blue * opaque.blue
-        count += 1
-    }
-
-    func average() -> MontmartreColour {
-
-        guard count > 0 else { return MontmartreColour.clear }
-
-        let countDouble = Double(count)
-        let red = (cumulatedRed / countDouble).squareRoot()
-        let green = (cumulatedGreen / countDouble).squareRoot()
-        let blue = (cumulatedBlue / countDouble).squareRoot()
-        // average colour is calculated as an opaque colour
-        let alpha = 1.0
-        return MontmartreColour(red: red, green: green, blue: blue, alpha: alpha)
-    }
-}
-
 // A ColourCloud is an ordered collection of colours of single pixels.
 // Colour values are kept in the order that the pixels were added to the cloud.
 // Two ColourClouds can therefore be compared pixel by pixel if and
@@ -46,13 +13,11 @@ class ColourAverager {
 class ColourCloud {
 
     public private (set) var colourCloud = [MontmartreColour]()
-    private var cachedAverageColour: MontmartreColour?
 
     public var count: Int { return colourCloud.count }
 
     func appendPoint(inColour colour: MontmartreColour) {
         colourCloud.append(colour)
-        cachedAverageColour = nil
     }
 
     func colourOfPoint(withIndex index: Int) -> MontmartreColour {
@@ -63,11 +28,7 @@ class ColourCloud {
     }
 
     func averageColour() -> MontmartreColour {
-        if let averageColour = cachedAverageColour {
-            return averageColour
-        }
-        cachedAverageColour = calculateAverageColour()
-        return cachedAverageColour!
+        return calculateAverageColour()
     }
 
     func squareDeviationFrom(target: ColourCloud) -> Double {
@@ -109,10 +70,24 @@ class ColourCloud {
     }
 
     private func calculateAverageColour() -> MontmartreColour {
-        let averager = ColourAverager()
+
+        guard count > 0 else { return MontmartreColour.clear }
+
+        var cumulatedRed = 0.0
+        var cumulatedGreen = 0.0
+        var cumulatedBlue = 0.0
         for colour in colourCloud {
-            averager.addDot(withColour: colour)
+            // average colour is calculated as an opaque colour
+            let opaque = colour.opaque(againstBackgroundColour: MontmartreColour.white)
+            cumulatedRed += opaque.red * opaque.red
+            cumulatedGreen += opaque.green * opaque.green
+            cumulatedBlue += opaque.blue * opaque.blue
         }
-        return averager.average()
+        let countDouble = Double(count)
+        let red = (cumulatedRed / countDouble).squareRoot()
+        let green = (cumulatedGreen / countDouble).squareRoot()
+        let blue = (cumulatedBlue / countDouble).squareRoot()
+        let alpha = 1.0
+        return MontmartreColour(red: red, green: green, blue: blue, alpha: alpha)
     }
 }

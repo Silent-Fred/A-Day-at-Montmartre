@@ -27,9 +27,9 @@ struct Line: GeometricShape {
 
     var colour: MontmartreColour
 
-    private var moveTo: Point
-    private var lineTo: Point
-    private var stroke: Double
+    private let moveTo: Point
+    private let lineTo: Point
+    private let stroke: Double
 
     init(moveTo: Point,
          lineTo: Point,
@@ -93,15 +93,9 @@ struct Line: GeometricShape {
     }
 
     func mutated() -> GeometricShape {
-        let whichMutation = arc4random_uniform(UInt32(3))
-        switch whichMutation {
-        case 0:
-            return mutatedMoveTo()
-        case 1:
-            return mutatedLineTo()
-        default:
-            return mutatedStroke()
-        }
+        let mutations = [mutatedMoveTo, mutatedLineTo, mutatedStroke]
+        let whichMutation = Int(arc4random_uniform(UInt32(mutations.count)))
+        return mutations[whichMutation]()
     }
 
     private func mutatedMoveTo() -> GeometricShape {

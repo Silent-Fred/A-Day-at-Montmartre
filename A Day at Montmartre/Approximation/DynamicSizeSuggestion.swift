@@ -40,11 +40,12 @@ struct DynamicSizeSuggestion {
     }
 
     private func suggest(fromDictionary dict: [Int: Int], forProgress progress: Int) -> Int {
-        var size = DynamicSizeSuggestion.minimumSize
+        var size: Int?
         for progressEntry in dict where progress >= progressEntry.key {
-            size = max(size, progressEntry.value)
+            let safeSize = size ?? progressEntry.value
+            size = min(safeSize, progressEntry.value)
         }
-        return size
+        return size ?? DynamicSizeSuggestion.minimumSize
     }
 
 }
