@@ -159,15 +159,15 @@ class BitmapMagicTests: XCTestCase {
                                               angleInDegrees: 0.0)
 
         let whiteClouds = colourCloudsForDeviationTests(shapeInTheWhite)
-        XCTAssertEqual(whiteClouds.blueStriped.meanSquareDeviationFrom(target: whiteClouds.plainWhite),
+        XCTAssertEqual(whiteClouds.blueStriped.meanDeviationFrom(target: whiteClouds.plainWhite),
                        0.0,
                        accuracy: 0.0001)
         let blueClouds = colourCloudsForDeviationTests(shapeInTheBlue)
-        XCTAssertEqual(blueClouds.blueStriped.meanSquareDeviationFrom(target: blueClouds.plainWhite),
+        XCTAssertEqual(blueClouds.blueStriped.meanDeviationFrom(target: blueClouds.plainWhite),
                        2.0,
                        accuracy: 0.0001)
         let crossCloudsSmall = colourCloudsForDeviationTests(shapeAcrossColourBorder)
-        XCTAssertEqual(crossCloudsSmall.blueStriped.meanSquareDeviationFrom(target: crossCloudsSmall.plainWhite),
+        XCTAssertEqual(crossCloudsSmall.blueStriped.meanDeviationFrom(target: crossCloudsSmall.plainWhite),
                        1.0,
                        accuracy: 0.0001)
     }

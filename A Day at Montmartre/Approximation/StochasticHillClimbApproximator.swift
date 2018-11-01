@@ -11,11 +11,13 @@ import Foundation
 extension MutableCollection {
 
     mutating func shuffle() {
+        // swiftlint:disable identifier_name
         for i in indices.dropLast() {
             let diff = distance(from: i, to: endIndex)
             let j = index(i, offsetBy: numericCast(arc4random_uniform(numericCast(diff))))
             swapAt(i, j)
         }
+        // swiftlint:enable identifier_name
     }
 }
 

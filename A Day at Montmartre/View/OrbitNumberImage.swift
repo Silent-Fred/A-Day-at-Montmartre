@@ -30,8 +30,8 @@ struct OrbitNumberImage {
         return UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
             .image { context in
                 background(context: context)
-                for o in 1...orbits {
-                    orbit(o, inContext: context)
+                for orbitToDraw in 1...orbits {
+                    orbit(orbitToDraw, inContext: context)
                 }
                 number(inContext: context)
         }
@@ -93,9 +93,9 @@ struct OrbitNumberImage {
     private func number(inContext context: UIGraphicsImageRendererContext) {
         let theCenter = center(inContext: context)
         let actualNumberRadius = numberRadius ?? Double(defaultNumberRadius(inContext: context))
-        for o in 1...orbits {
-            let thisOrbitsRadius = orbitRadius(orbit: o, inContext: context)
-            let orbitalPosition = number.orbit(o)
+        for orbit in 1...orbits {
+            let thisOrbitsRadius = orbitRadius(orbit: orbit, inContext: context)
+            let orbitalPosition = number.orbit(orbit)
             let point = CGPoint(x: theCenter.x + CGFloat(orbitalPosition.x) * CGFloat(thisOrbitsRadius),
                                 y: theCenter.y + CGFloat(orbitalPosition.y) * CGFloat(thisOrbitsRadius))
             let cgContext = context.cgContext

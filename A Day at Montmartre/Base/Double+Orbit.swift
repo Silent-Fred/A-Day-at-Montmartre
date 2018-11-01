@@ -19,8 +19,10 @@ extension Double {
             * (self / orbitDivisor).remainder(dividingBy: Double(1.0))
         // rotate to start at the more common "twelve o'clock" position
         let rotatedOrbitValue = orbitValue - Double.pi / 2
+        // swiftlint:disable identifier_name
         let x = cos(rotatedOrbitValue)
         let y = sin(rotatedOrbitValue)
         return (x, y)
+        // swiftlint:enable identifier_name
     }
 }

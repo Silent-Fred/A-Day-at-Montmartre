@@ -33,4 +33,5 @@ struct Point {
         let jiggleY = y + (drand48() * peak * 2) - peak
         return Point(x: jiggleX, y: jiggleY)
     }
+    // swiftlint:enable identifier_name
 }

@@ -31,7 +31,7 @@ class ColourCloud {
         return calculateAverageColour()
     }
 
-    func squareDeviationFrom(target: ColourCloud) -> Double {
+    func deviationFrom(target: ColourCloud) -> Double {
 
         // no fast and reliable detection whether clouds are actually the same
         // sequence of points, so just check boundaries because they are relevant
@@ -40,25 +40,26 @@ class ColourCloud {
 
         var sumSquareError: Double = 0
         for index in 0..<colourCloud.count {
-            let distance = colourOfPoint(withIndex: index).distance(to: target.colourOfPoint(withIndex: index))
+            let distance = colourOfPoint(withIndex: index)
+                .distance(to: target.colourOfPoint(withIndex: index))
             sumSquareError += distance * distance
         }
         return sumSquareError
     }
 
-    func meanSquareDeviationFrom(target: ColourCloud) -> Double {
+    func meanDeviationFrom(target: ColourCloud) -> Double {
 
         // avoid division by zero... if there is no colour, any other
         // colour can just as well be assumed to be "the right one"
         guard count != 0 else { return 0 }
 
-        return squareDeviationFrom(target: target) / Double(count)
+        return deviationFrom(target: target) / Double(count)
     }
 
-    func normalisedRootMeanSquareDeviationFrom(target: ColourCloud) -> Double {
-        let rootMeanSquareDeviation = meanSquareDeviationFrom(target: target).squareRoot()
+    func normalisedMeanDeviationFrom(target: ColourCloud) -> Double {
+        let meanDeviation = meanDeviationFrom(target: target).squareRoot()
         let maxDistance = MontmartreColour.white.distance(to: MontmartreColour.black)
-        return rootMeanSquareDeviation / maxDistance
+        return meanDeviation / maxDistance
     }
 
     func overpainted(withColour colour: MontmartreColour) -> ColourCloud {

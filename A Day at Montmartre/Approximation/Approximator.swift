@@ -89,7 +89,7 @@ class Approximator {
 
         let overpaint = findOverpaintColour(making: colourCloudCurrent,
                                             lookLike: colourCloudTarget)
-        let improvement = calculateImprovementInSquareDeviation(overpainting: colourCloudCurrent,
+        let improvement = calculateImprovementInDeviation(overpainting: colourCloudCurrent,
                                                                 with: overpaint,
                                                                 approximating: colourCloudTarget)
         var colouredShape = shape
@@ -107,13 +107,13 @@ class Approximator {
             usingAlpha: alpha)
     }
 
-    private func calculateImprovementInSquareDeviation(overpainting current: ColourCloud,
-                                                       with overpaintColour: MontmartreColour,
-                                                       approximating target: ColourCloud)
+    private func calculateImprovementInDeviation(overpainting current: ColourCloud,
+                                                 with overpaintColour: MontmartreColour,
+                                                 approximating target: ColourCloud)
         -> Double {
-        let currentDeviation = current.squareDeviationFrom(target: target)
         let overpaintedColourCloud = current.overpainted(withColour: overpaintColour)
-        let nextDeviation = overpaintedColourCloud.squareDeviationFrom(target: target)
+        let currentDeviation = current.deviationFrom(target: target)
+        let nextDeviation = overpaintedColourCloud.deviationFrom(target: target)
         return currentDeviation - nextDeviation
     }
 }

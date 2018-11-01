@@ -62,8 +62,7 @@
 
 /* Begin PBXFileReference section */
 		02E8D07A293BD478A62843EC /* Pods_A_Day_at_Montmartre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Day_at_Montmartre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		17B6ABB5A5FEBC1C3BE1D1D7 /* Pods-A Day at Montmartre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at Montmartre.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at Montmartre/Pods-A Day at Montmartre.debug.xcconfig"; sourceTree = "<group>"; };
-		25AC4E170C72038347FD4449 /* Pods-A Day at Montmartre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at Montmartre.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at Montmartre/Pods-A Day at Montmartre.release.xcconfig"; sourceTree = "<group>"; };
+		3760A83C515A2FD0DFA400F6 /* Pods-A Day at Montmartre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at Montmartre.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at Montmartre/Pods-A Day at Montmartre.debug.xcconfig"; sourceTree = "<group>"; };
 		4C12C08D201D3C10007F5EAF /* HillClimbApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HillClimbApproximator.swift; sourceTree = "<group>"; };
 		4C12C096201D4A05007F5EAF /* BasicEvolutionaryApproximator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEvolutionaryApproximator.swift; sourceTree = "<group>"; };
 		4C1824D2209B9B2C00B1914B /* Double+Orbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Orbit.swift"; sourceTree = "<group>"; };
@@ -94,7 +93,7 @@
 		4CC689EF2030D01D00BAEA87 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4CD0CDE1201D00A7002DED6E /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		4CD4FD571FF31FA00067100F /* A Day at Montmartre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Day at Montmartre.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CD4FD5C1FF31FA00067100F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CD4FD5C1FF31FA00067100F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		4CD4FD5F1FF31FA00067100F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CD4FD611FF31FA00067100F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CD4FD641FF31FA00067100F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,8 +111,9 @@
 		4CEF3BC920378D2D00828B71 /* SmallDot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDot.swift; sourceTree = "<group>"; };
 		4CF3E4F9208A879900BD2748 /* DynamicSizeSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeSuggestion.swift; sourceTree = "<group>"; };
 		4CF81C951FF59F80008B10D8 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
-		7DC566546810DC81FA87E2DA /* Pods-A Day at MontmartreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at MontmartreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at MontmartreTests/Pods-A Day at MontmartreTests.release.xcconfig"; sourceTree = "<group>"; };
-		AC38F45604DF6994B217878B /* Pods-A Day at MontmartreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at MontmartreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at MontmartreTests/Pods-A Day at MontmartreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		78B1DCCEA413F3FD9325CDDB /* Pods-A Day at MontmartreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at MontmartreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at MontmartreTests/Pods-A Day at MontmartreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C8053C9873BB2AF2BD919706 /* Pods-A Day at Montmartre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at Montmartre.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at Montmartre/Pods-A Day at Montmartre.release.xcconfig"; sourceTree = "<group>"; };
+		EC929F74AC552F610A762885 /* Pods-A Day at MontmartreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Day at MontmartreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Day at MontmartreTests/Pods-A Day at MontmartreTests.release.xcconfig"; sourceTree = "<group>"; };
 		F87225CCAC571FD74E784CC6 /* Pods_A_Day_at_MontmartreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Day_at_MontmartreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -237,6 +237,7 @@
 				266E0306A86370789B58930F /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 0;
 		};
 		4CD4FD581FF31FA00067100F /* Products */ = {
 			isa = PBXGroup;
@@ -282,10 +283,10 @@
 		80A22B8C519688A20D2BC58C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				17B6ABB5A5FEBC1C3BE1D1D7 /* Pods-A Day at Montmartre.debug.xcconfig */,
-				25AC4E170C72038347FD4449 /* Pods-A Day at Montmartre.release.xcconfig */,
-				AC38F45604DF6994B217878B /* Pods-A Day at MontmartreTests.debug.xcconfig */,
-				7DC566546810DC81FA87E2DA /* Pods-A Day at MontmartreTests.release.xcconfig */,
+				3760A83C515A2FD0DFA400F6 /* Pods-A Day at Montmartre.debug.xcconfig */,
+				C8053C9873BB2AF2BD919706 /* Pods-A Day at Montmartre.release.xcconfig */,
+				78B1DCCEA413F3FD9325CDDB /* Pods-A Day at MontmartreTests.debug.xcconfig */,
+				EC929F74AC552F610A762885 /* Pods-A Day at MontmartreTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -342,15 +343,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Michael Kühweg";
 				TargetAttributes = {
 					4CD4FD561FF31FA00067100F = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					4CD4FD6A1FF31FA00067100F = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4CD4FD561FF31FA00067100F;
 					};
@@ -615,6 +618,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -622,6 +626,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -649,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -674,6 +679,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -681,6 +687,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -703,7 +710,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -714,7 +721,7 @@
 		};
 		4CD4FD751FF31FA00067100F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17B6ABB5A5FEBC1C3BE1D1D7 /* Pods-A Day at Montmartre.debug.xcconfig */;
+			baseConfigurationReference = 3760A83C515A2FD0DFA400F6 /* Pods-A Day at Montmartre.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -723,14 +730,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-Montmartre";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		4CD4FD761FF31FA00067100F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25AC4E170C72038347FD4449 /* Pods-A Day at Montmartre.release.xcconfig */;
+			baseConfigurationReference = C8053C9873BB2AF2BD919706 /* Pods-A Day at Montmartre.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -739,14 +746,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-Montmartre";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		4CD4FD781FF31FA00067100F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC38F45604DF6994B217878B /* Pods-A Day at MontmartreTests.debug.xcconfig */;
+			baseConfigurationReference = 78B1DCCEA413F3FD9325CDDB /* Pods-A Day at MontmartreTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -756,7 +763,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-MontmartreTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Day at Montmartre.app/A Day at Montmartre";
 			};
@@ -764,7 +771,7 @@
 		};
 		4CD4FD791FF31FA00067100F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DC566546810DC81FA87E2DA /* Pods-A Day at MontmartreTests.release.xcconfig */;
+			baseConfigurationReference = EC929F74AC552F610A762885 /* Pods-A Day at MontmartreTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -774,7 +781,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.kuehweg.A-Day-at-MontmartreTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Day at Montmartre.app/A Day at Montmartre";
 			};
@@ -790,7 +797,7 @@
 				4CD4FD731FF31FA00067100F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		4CD4FD741FF31FA00067100F /* Build configuration list for PBXNativeTarget "A Day at Montmartre" */ = {
 			isa = XCConfigurationList;
@@ -799,7 +806,7 @@
 				4CD4FD761FF31FA00067100F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		4CD4FD771FF31FA00067100F /* Build configuration list for PBXNativeTarget "A Day at MontmartreTests" */ = {
 			isa = XCConfigurationList;
@@ -808,7 +815,7 @@
 				4CD4FD791FF31FA00067100F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

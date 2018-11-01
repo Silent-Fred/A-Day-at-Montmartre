@@ -37,6 +37,7 @@ class ShapeMask {
         let format = UIGraphicsImageRendererFormat()
         format.scale = 1
         format.opaque = false
+        format.preferredRange = .standard
         return UIGraphicsImageRenderer(size: CGSize(width: width,
                                                     height: height),
                                        format: format)
@@ -58,15 +59,16 @@ class ShapeMask {
             let pixelDataPointer = CFDataGetBytePtr(pixelData)
             else { return indices }
 
+        let numberOfPixels = cgImage.width * cgImage.height
+        let bytesPerPixel = CFDataGetLength(pixelData) / numberOfPixels
         var movingPointer = pixelDataPointer
 
         var index = 0
-        let maxIndex = cgImage.width * cgImage.height
-        while index < maxIndex {
+        while index < numberOfPixels {
             if movingPointer.pointee != 0 {
                 indices.append(index)
             }
-            movingPointer += 4
+            movingPointer += bytesPerPixel
             index += 1
         }
         return indices

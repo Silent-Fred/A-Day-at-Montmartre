@@ -69,7 +69,7 @@ class ApproximationContext {
         let targetColourCloud = target.colourCloud()
         let currentColourCloud = current.colourCloud()
         let normalisedRootMeanSquareDeviation =
-            currentColourCloud.normalisedRootMeanSquareDeviationFrom(target: targetColourCloud)
+            currentColourCloud.normalisedMeanDeviationFrom(target: targetColourCloud)
         return (1.0 - normalisedRootMeanSquareDeviation) * 100
     }
 

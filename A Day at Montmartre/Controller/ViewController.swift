@@ -77,10 +77,10 @@ class ViewController: UIViewController,
 
         // exclude some activity types from the list
         activityViewController.excludedActivityTypes = [
-            UIActivityType.postToFlickr,
-            UIActivityType.postToTencentWeibo,
-            UIActivityType.postToVimeo,
-            UIActivityType.postToWeibo
+            UIActivity.ActivityType.postToFlickr,
+            UIActivity.ActivityType.postToTencentWeibo,
+            UIActivity.ActivityType.postToVimeo,
+            UIActivity.ActivityType.postToWeibo
         ]
 
         self.present(activityViewController, animated: true, completion: nil)
@@ -128,7 +128,7 @@ class ViewController: UIViewController,
     }
 
     @IBAction func callSettings() {
-        if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+        if let appSettings = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(appSettings)
         }
     }
@@ -249,8 +249,8 @@ class ViewController: UIViewController,
 
     // MARK: - Delegates
     func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String: Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[.originalImage] as? UIImage {
             pickImageAndVisuallyRestartApproximation(image: image)
         }
         dismiss(animated: true, completion: nil)
